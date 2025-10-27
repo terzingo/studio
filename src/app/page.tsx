@@ -4,11 +4,20 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { CheckCircle, MapPin, Package, Scissors, Users, Briefcase, Store } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
-import { getTailors } from '@/lib/data';
+import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
+import { ProductCard } from '@/components/product-card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
+  const featuredProducts = getProducts();
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-1');
 
   return (
@@ -54,7 +63,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
                 <Users className="h-8 w-8" />
               </div>
@@ -63,7 +72,7 @@ export default function Home() {
                 Beden uyumsuzluğuna ve iade süreçlerine son. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
                 <Briefcase className="h-8 w-8" />
               </div>
@@ -72,7 +81,7 @@ export default function Home() {
                 Yüksek iade oranlarını düşürün, operasyonel maliyetleri azaltın ve müşteri memnuniyetini zirveye taşıyın.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
                 <Store className="h-8 w-8" />
               </div>
@@ -85,7 +94,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="featured-points" className="w-full py-16 md:py-24">
+      <section id="featured-products" className="w-full py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Noktalarımızdaki Ürünler</h2>
+            <p className="mt-4 text-muted-foreground md:text-lg">
+             Terzin<span className="text-primary">Go</span> noktalarındaki özenle seçilmiş ikinci el ve özel tasarım ürünlere göz atın.
+            </p>
+          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full mt-12"
+          >
+            <CarouselContent>
+              {featuredProducts.map((product) => (
+                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                  <div className="p-1">
+                    <ProductCard product={product} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+          </Carousel>
+        </div>
+      </section>
+
+      <section id="featured-points" className="w-full py-16 md:py-24 bg-primary/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Öne Çıkan Terzin<span className="text-primary">Go</span> Noktaları</h2>
@@ -106,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="for-business" className="w-full py-16 md:py-24 bg-primary/5">
+      <section id="for-business" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Çözüm Ortağımız Olun</h2>
             <p className="mt-4 text-muted-foreground md:text-lg max-w-3xl mx-auto">

@@ -20,3 +20,12 @@ export type Tailor = {
     date: string;
   }[];
 };
+
+export type Product = {
+  id: string;
+  name: string;
+  price: number;
+  category: 'İkinci El' | 'Özel Tasarım';
+  imageId: string;
+  tailorId: string;
+};

@@ -131,6 +131,42 @@
       "description": "Atölyesinde dikiş makinesi kullanan bir terzi.",
       "imageUrl": "https://images.unsplash.com/photo-1621417531737-05c0834e89c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0YWlsb3IlMjBzZXdpbmclMjBtYWNoaW5lfGVufDB8fHx8MTc2MjI5NjA5MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "tailor sewing"
+    },
+    {
+      "id": "product-1",
+      "description": "İkinci el, iyi durumda vintage deri ceket.",
+      "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwbGVhdGhlciUyMGphY2tldHxlbnwwfHx8fDE3NjI1NTgwNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage jacket"
+    },
+    {
+      "id": "product-2",
+      "description": "Göz alıcı kırmızı, özel tasarım abiye.",
+      "imageUrl": "https://images.unsplash.com/photo-1590801242398-31518349520a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWQlMjBldmVuaW5nJTIwZHJlc3N8ZW58MHx8fHwxNzYyNTU4MDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "red dress"
+    },
+    {
+      "id": "product-3",
+      "description": "Çiçek desenli pamuklu yazlık elbise.",
+      "imageUrl": "https://images.unsplash.com/photo-1496214828114-1427103a8936?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9yYWwlMjBzdW1tZXIlMjBkcmVzc3xlbnwwfHx8fDE3NjI1NTgxMzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "floral dress"
+    },
+    {
+      "id": "product-4",
+      "description": "Beyaz, İtalyan kesim erkek gömleği.",
+      "imageUrl": "https://images.unsplash.com/photo-1589379633633-8ca6b9c9a0a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMG1lbnMlMjBzaGlydHxlbnwwfHx8fDE3NjI1NTgxNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "white shirt"
+    },
+    {
+      "id": "product-5",
+      "description": "Marka, dar kesim kot pantolon.",
+      "imageUrl": "https://images.unsplash.com/photo-1604176354204-9268737828e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibHVlJTIwamVhbnN8ZW58MHx8fHwxNzYyNTU4MTg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blue jeans"
+    },
+    {
+      "id": "product-6",
+      "description": "Prenses temalı kız çocuk kostümü.",
+      "imageUrl": "https://images.unsplash.com/photo-1519690049413-c34f253b5a14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwclJpbmNlc3MlMjBjb3N0dW1lfGVufDB8fHx8MTc2MjU1ODIyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "princess costume"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import type { Tailor } from './types';
+import type { Tailor, Product } from './types';
 
 const mockTailors: Tailor[] = [
   {
@@ -126,10 +126,28 @@ const mockTailors: Tailor[] = [
   }
 ];
 
+const mockProducts: Product[] = [
+  { id: 'prod-1', name: 'Vintage Deri Ceket', price: 850, category: 'İkinci El', imageId: 'product-1', tailorId: 'mustafa-ozen' },
+  { id: 'prod-2', name: 'Özel Tasarım Abiye', price: 6500, category: 'Özel Tasarım', imageId: 'product-2', tailorId: 'zeynep-kaya' },
+  { id: 'prod-3', name: 'Pamuklu Yazlık Elbise', price: 450, category: 'İkinci El', imageId: 'product-3', tailorId: 'fatma-demir' },
+  { id: 'prod-4', name: 'İtalyan Kesim Gömlek', price: 1800, category: 'Özel Tasarım', imageId: 'product-4', tailorId: 'kenan-erkin' },
+  { id: 'prod-5', name: 'Marka Kot Pantolon', price: 500, category: 'İkinci El', imageId: 'product-5', tailorId: 'ahmet-yilmaz' },
+  { id: 'prod-6', name: 'Kız Çocuk Kostümü', price: 900, category: 'Özel Tasarım', imageId: 'product-6', tailorId: 'sibel-canan' },
+];
+
+
 export function getTailors(): Tailor[] {
   return mockTailors;
 }
 
 export function getTailorById(id: string): Tailor | undefined {
   return mockTailors.find(t => t.id === id);
+}
+
+export function getProducts(): Product[] {
+  return mockProducts;
+}
+
+export function getProductById(id: string): Product | undefined {
+    return mockProducts.find(p => p.id === id);
 }
