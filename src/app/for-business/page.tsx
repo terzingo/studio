@@ -125,7 +125,7 @@ export default function ForBusinessPage() {
             </div>
              <div className="mt-10">
                 <Button size="lg" asChild>
-                    <Link href="#">Terzin<span className="text-primary">Go</span> Noktası Olun</Link>
+                    <Link href="#">Terzin<span className="text-black">Go</span> Noktası Olun</Link>
                 </Button>
             </div>
           </div>
