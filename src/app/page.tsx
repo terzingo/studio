@@ -29,14 +29,14 @@ export default function Home() {
             İnternetten Aldığınız Kıyafetler Üstünüze Olmuyor mu?
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-            TerzinGo ile iade derdine son! Anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın TerzinGo noktasında ücretsiz olarak tadilat yaptırın.
+            Terzin<span className="text-primary">Go</span> ile iade derdine son! Anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın Terzin<span className="text-primary">Go</span> noktasında ücretsiz olarak tadilat yaptırın.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="font-bold">
               <a href="/#how-it-works">Nasıl Çalışır?</a>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold">
-              <Link href="/points">TerzinGo Noktalarını Gör</Link>
+              <Link href="/points">Terzin<span className="text-primary">Go</span> Noktalarını Gör</Link>
             </Button>
           </div>
         </div>
@@ -66,9 +66,9 @@ export default function Home() {
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
                 <MapPin className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold font-headline">2. TerzinGo'ya Git</h3>
+              <h3 className="text-xl font-bold font-headline">2. Terzin<span className="text-primary">Go</span>'ya Git</h3>
               <p className="mt-2 text-muted-foreground">
-                Ürününüz ve Terzi Kodunuz ile size en yakın TerzinGo noktasına giderek ölçülerinizi verin.
+                Ürününüz ve Terzi Kodunuz ile size en yakın Terzin<span className="text-primary">Go</span> noktasına giderek ölçülerinizi verin.
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">E-Ticaret Siteniz İçin Çözüm Ortağı</h2>
             <p className="mt-4 text-muted-foreground md:text-lg max-w-3xl mx-auto">
-              İade oranlarınızı düşürün, müşteri memnuniyetini artırın ve operasyonel yükünüzü hafifletin. TerzinGo ile işinizi büyütün.
+              İade oranlarınızı düşürün, müşteri memnuniyetini artırın ve operasyonel yükünüzü hafifletin. Terzin<span className="text-primary">Go</span> ile işinizi büyütün.
             </p>
             <div className="mt-8">
               <Button size="lg" variant="default">

@@ -66,7 +66,7 @@ export function FindTailorForm() {
         <Card className="max-w-4xl mx-auto shadow-2xl -mt-48 relative z-20">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl font-bold font-headline text-center">
-              Size En Yakın TerzinGo Noktasını Bulun
+              Size En Yakın Terzin<span className="text-primary">Go</span> Noktasını Bulun
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -165,7 +165,7 @@ export function FindTailorForm() {
                   </div>
                 ) : (
                   <p className="text-center text-muted-foreground">
-                    Bu mahallede henüz TerzinGo noktası bulunmuyor.
+                    Bu mahallede henüz Terzin<span className="text-primary">Go</span> noktası bulunmuyor.
                   </p>
                 )}
               </div>

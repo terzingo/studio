@@ -66,7 +66,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
         <div className="md:col-span-2">
             <Card>
                 <CardHeader>
-                    <h2 className="text-xl font-bold font-headline">TerzinGo Noktası Hakkında</h2>
+                    <h2 className="text-xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Noktası Hakkında</h2>
                 </CardHeader>
                 <CardContent>
                     <p className="text-muted-foreground">{tailor.bio}</p>
@@ -82,7 +82,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                 <TabsContent value="services" className="mt-4">
                     <Card>
                         <CardContent className="pt-6">
-                            <p className="text-sm text-muted-foreground mb-4">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde TerzinGo kodu ile ücretsizdir.</p>
+                            <p className="text-sm text-muted-foreground mb-4">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde Terzin<span className="text-primary">Go</span> kodu ile ücretsizdir.</p>
                             <ul className="space-y-4">
                                 {tailor.services.map((service) => (
                                     <li key={service.name} className="flex justify-between items-center border-b pb-2">

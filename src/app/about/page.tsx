@@ -31,7 +31,7 @@ export default function AboutPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">Biz Kimiz?</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-          TerzinGo, e-ticaret ve geleneksel terzilik arasında köprü kuran, modayı teknolojiyle birleştiren yenilikçi bir girişimdir.
+          Terzin<span className="text-primary">Go</span>, e-ticaret ve geleneksel terzilik arasında köprü kuran, modayı teknolojiyle birleştiren yenilikçi bir girişimdir.
         </p>
       </div>
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </p>
           <h2 className="text-3xl font-bold font-headline">Misyonumuz</h2>
           <p className="text-muted-foreground text-lg">
-            Geliştirdiğimiz teknolojik altyapı ile müşterilere kusursuz bir tadilat deneyimi sunmak, e-ticaret ortaklarımıza verimli bir iade yönetim sistemi sağlamak ve TerzinGo noktası olan terzilere yeni bir gelir kapısı aralamak için çalışıyoruz.
+            Geliştirdiğimiz teknolojik altyapı ile müşterilere kusursuz bir tadilat deneyimi sunmak, e-ticaret ortaklarımıza verimli bir iade yönetim sistemi sağlamak ve Terzin<span className="text-primary">Go</span> noktası olan terzilere yeni bir gelir kapısı aralamak için çalışıyoruz.
           </p>
         </div>
       </div>

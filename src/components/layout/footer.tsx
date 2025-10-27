@@ -7,7 +7,7 @@ function Logo() {
     <Link href="/" className="flex items-center gap-2" aria-label="TerzinGo Anasayfa">
        <Image src="/logo.png" alt="TerzinGo Logo" width={40} height={40} className="rounded-md" />
       <span className="text-xl font-bold font-headline text-foreground">
-        TerzinGo
+        Terzin<span className="text-primary">Go</span>
       </span>
     </Link>
   );
@@ -27,7 +27,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">Keşfet</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/points" className="text-sm text-muted-foreground hover:text-primary">TerzinGo Noktaları</Link></li>
+              <li><Link href="/points" className="text-sm text-muted-foreground hover:text-primary">Terzin<span className="text-primary">Go</span> Noktaları</Link></li>
               <li><Link href="/#how-it-works" className="text-sm text-muted-foreground hover:text-primary">Nasıl Çalışır?</Link></li>
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">Hakkımızda</Link></li>
             </ul>
@@ -36,7 +36,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">İş Ortaklığı</h3>
             <ul className="mt-4 space-y-2">
               <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">E-Ticaret Çözümleri</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">TerzinGo Noktası Ol</Link></li>
+              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Terzin<span className="text-primary">Go</span> Noktası Ol</Link></li>
             </ul>
           </div>
           <div>
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} TerzinGo. Tüm hakları saklıdır.</p>
+          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Terzin<span className="text-primary">Go</span>. Tüm hakları saklıdır.</p>
           <div className="flex space-x-6 mt-4 sm:mt-0">
             <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter className="h-5 w-5" /></Link>
             <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram className="h-5 w-5" /></Link>

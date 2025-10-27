@@ -20,9 +20,9 @@ export default function PointsPage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline">TerzinGo Noktaları</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Noktaları</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Size en yakın TerzinGo noktasını bulun, tadilat ve diğer hizmetlerden yararlanın.
+          Size en yakın Terzin<span className="text-primary">Go</span> noktasını bulun, tadilat ve diğer hizmetlerden yararlanın.
         </p>
       </div>
 
@@ -47,7 +47,7 @@ export default function PointsPage() {
         </div>
       ) : (
         <div className="text-center py-16">
-          <p className="text-lg text-muted-foreground">Aradığınız kriterlere uygun TerzinGo noktası bulunamadı.</p>
+          <p className="text-lg text-muted-foreground">Aradığınız kriterlere uygun Terzin<span className="text-primary">Go</span> noktası bulunamadı.</p>
         </div>
       )}
     </div>
