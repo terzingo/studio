@@ -39,7 +39,7 @@
     {
       "id": "tailor-2",
       "description": "Atölyesindeki profesyonel kadın terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1579588494028-3c35f29a0397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1579588494028-3c35f29a0397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "female tailor"
     },
     {
@@ -69,7 +69,7 @@
     {
       "id": "portfolio-1",
       "description": "Manken üzerinde güzel bir gelinlik.",
-      "imageUrl": "https://images.unsplash.com/photo-1525169087805-031a4da0623c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWRkaW5nJTIwZHJlc3N8ZW58MHx8fHwxNzYxNDc3MzYzfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1525169087805-031a4da0623c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWRkaW5nJTIwZHJlc3N8ZW58MHx8fHwxNzYxNDc3MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding dress"
     },
     {
@@ -99,37 +99,37 @@
     {
       "id": "portfolio-6",
       "description": "Renkli özel dikim gömlek koleksiyonu.",
-      "imageUrl": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdXN0b20lMjBzaGlydHN8ZW58MHx8fHwxNzYyMjk1NTEwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdXN0b20lMjBzaGlydHN8ZW58MHx8fHwxNzYyMjk1NTEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "custom shirts"
     },
     {
       "id": "portfolio-7",
       "description": "Kot pantolon üzerinde detaylı dikiş.",
-      "imageUrl": "https://images.unsplash.com/photo-1625479142928-c2f2914318f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkZW5pbSUyMHN0aXRjaGluZ3xlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1625479142928-c2f2914318f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkZW5pbSUyMHN0aXRjaGluZ3xlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "denim stitching"
     },
     {
       "id": "portfolio-8",
       "description": "Çiçek desenli, dökümlü bir yazlık elbise.",
-      "imageUrl": "https://images.unsplash.com/photo-1593105522065-9a6ecd21aeb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW1tZXIlMjBkcmVzc3xlbnwwfHx8fDE3NjE0NTIxNzl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1593105522065-9a6ecd21aeb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW1tZXIlMjBkcmVzc3xlbnwwfHx8fDE3NjE0NTIxNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "summer dress"
     },
     {
       "id": "portfolio-9",
       "description": "Benzersiz astarlı özel dikim bir blazer.",
-      "imageUrl": "https://images.unsplash.com/photo-1593032583946-963a793ac763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiZXNwb2tlJTIwYmxhemVyfGVufDB8fHx8MTc2MjI5NTAyN3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1593032583946-963a793ac763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiZXNwb2tlJTIwYmxhemVyfGVufDB8fHx8MTc2MjI5NTAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bespoke blazer"
     },
     {
       "id": "for-business-ecommerce",
       "description": "Dizüstü bilgisayarda çalışan ve e-ticaret sitesini yöneten bir kişi.",
-      "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlY29tbWVyY2UlMjBtYW5hZ2VyfGVufDB8fHx8MTc2MjI5NjAyM3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlY29tbWVyY2UlMjBtYW5hZ2VyfGVufDB8fHx8MTc2MjI5NjAyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "ecommerce manager"
     },
     {
       "id": "for-business-tailor",
       "description": "Atölyesinde dikiş makinesi kullanan bir terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1621417531737-05c0834e89c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0YWlsb3IlMjBzZXdpbmclMjBtYWNoaW5lfGVufDB8fHx8MTc2MjI5NjA5MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1621417531737-05c0834e89c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0YWlsb3IlMjBzZXdpbmclMjBtYWNoaW5lfGVufDB8fHx8MTc2MjI5NjA5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tailor sewing"
     },
     {
@@ -167,6 +167,270 @@
       "description": "Prenses temalı kız çocuk kostümü.",
       "imageUrl": "https://images.unsplash.com/photo-1519690049413-c34f253b5a14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwclJpbmNlc3MlMjBjb3N0dW1lfGVufDB8fHx8MTc2MjU1ODIyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "princess costume"
+    },
+    {
+      "id": "product-7",
+      "description": "Yumuşak dokulu bej kaşmir kaban.",
+      "imageUrl": "https://images.unsplash.com/photo-1628224398965-0c33511a28a3?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "cashmere coat"
+    },
+    {
+      "id": "product-8",
+      "description": "Zarif, fildişi rengi ipek bluz.",
+      "imageUrl": "https://images.unsplash.com/photo-1581044777550-4cfa6ce6849f?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "silk blouse"
+    },
+    {
+      "id": "product-9",
+      "description": "Rahat kesim açık mavi keten pantolon.",
+      "imageUrl": "https://images.unsplash.com/photo-1624310582236-4702ae456574?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "linen pants"
+    },
+    {
+      "id": "product-10",
+      "description": "Sıcak tutan, desenli yün kazak.",
+      "imageUrl": "https://images.unsplash.com/photo-1616258688482-b06a4b183c58?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "wool sweater"
+    },
+    {
+      "id": "product-11",
+      "description": "Siyah, şık deri eldivenler.",
+      "imageUrl": "https://images.unsplash.com/photo-1576483526971-884b25911d35?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "leather gloves"
+    },
+    {
+      "id": "product-12",
+      "description": "Organik pamuktan yapılmış bebek tulumu.",
+      "imageUrl": "https://images.unsplash.com/photo-1522771765804-257b44403a56?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "baby romper"
+    },
+    {
+      "id": "product-13",
+      "description": "Modern kesim, lacivert erkek blazer ceket.",
+      "imageUrl": "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "blazer jacket"
+    },
+    {
+      "id": "product-14",
+      "description": "Parıltılı, metalik gece çantası.",
+      "imageUrl": "https://images.unsplash.com/photo-1620921443217-db38384d5093?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "clutch bag"
+    },
+    {
+      "id": "product-15",
+      "description": "Yuvarlak çerçeveli, retro tarzı güneş gözlüğü.",
+      "imageUrl": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "vintage sunglasses"
+    },
+    {
+      "id": "product-16",
+      "description": "Bordo, uzun kollu kadife elbise.",
+      "imageUrl": "https://images.unsplash.com/photo-1594562061208-8a885b822f30?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "velvet dress"
+    },
+    {
+      "id": "product-17",
+      "description": "Gri, yün kumaştan yapılmış erkek yeleği.",
+      "imageUrl": "https://images.unsplash.com/photo-1590114032338-348b6134b2a8?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "men's vest"
+    },
+    {
+      "id": "product-18",
+      "description": "Sarı, kapüşonlu çocuk yağmurluğu.",
+      "imageUrl": "https://images.unsplash.com/photo-1534387439223-2675c6383344?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "kids raincoat"
+    },
+    {
+      "id": "product-19",
+      "description": "İpek, geometrik desenli fular.",
+      "imageUrl": "https://images.unsplash.com/photo-1561021469-c12a7582e66b?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "patterned scarf"
+    },
+    {
+      "id": "product-20",
+      "description": "Bordo rengi, ipek klasik kravat.",
+      "imageUrl": "https://images.unsplash.com/photo-1589578235836-8488b0376a4a?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "classic tie"
+    },
+    {
+      "id": "product-21",
+      "description": "Pileli, midi boy etek.",
+      "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb520775a535?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "pleated skirt"
+    },
+    {
+      "id": "product-22",
+      "description": "Eskitme görünümlü, mavi kot ceket.",
+      "imageUrl": "https://images.unsplash.com/photo-1543072213-4aa717e33428?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "denim jacket"
+    },
+    {
+      "id": "product-23",
+      "description": "Pudra pembesi, sade ve şık nişan elbisesi.",
+      "imageUrl": "https://images.unsplash.com/photo-1595861141380-14c11432427a?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "engagement dress"
+    },
+    {
+      "id": "product-24",
+      "description": "Örgü detaylı, bej triko hırka.",
+      "imageUrl": "https://images.unsplash.com/photo-1616847113146-2c53f86a9f4c?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "knit cardigan"
+    },
+    {
+      "id": "product-25",
+      "description": "Keten kumaştan, askılı çocuk salopeti.",
+      "imageUrl": "https://images.unsplash.com/photo-1605557551025-a131c2635955?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "kids overalls"
+    },
+    {
+      "id": "product-26",
+      "description": "Doğal boya ile renklendirilmiş ipek eşarp.",
+      "imageUrl": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "silk scarf"
+    },
+    {
+      "id": "product-27",
+      "description": "Siyah, klasik kesim yün palto.",
+      "imageUrl": "https://images.unsplash.com/photo-1590474322437-033c4f74d02e?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "wool overcoat"
+    },
+    {
+      "id": "product-28",
+      "description": "Siyah, dar kesim deri pantolon.",
+      "imageUrl": "https://images.unsplash.com/photo-1608231387042-8a84e8b394d2?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "leather pants"
+    },
+    {
+      "id": "product-29",
+      "description": "Beyaz, hakim yaka keten gömlek.",
+      "imageUrl": "https://images.unsplash.com/photo-1633967409249-74c19b9d4c6a?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "linen shirt"
+    },
+    {
+      "id": "product-30",
+      "description": "Saten yakalı, özel dikim smokin.",
+      "imageUrl": "https://images.unsplash.com/photo-1593032583944-a6c42171d3a5?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "tuxedo"
+    },
+    {
+      "id": "product-31",
+      "description": "Krem rengi, romantik dantelli bluz.",
+      "imageUrl": "https://images.unsplash.com/photo-1629813133315-703643445585?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "lace blouse"
+    },
+    {
+      "id": "product-32",
+      "description": "Taba rengi, klasik süet ayakkabı.",
+      "imageUrl": "https://images.unsplash.com/photo-1617606002779-51d86230e4a7?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "suede shoes"
+    },
+    {
+      "id": "product-33",
+      "description": "Sevimli hayvan desenli çocuk pijama takımı.",
+      "imageUrl": "https://images.unsplash.com/photo-1585881702741-9c98c0b4317b?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "kids pajamas"
+    },
+    {
+      "id": "product-34",
+      "description": "Geniş kenarlı, hasır yazlık şapka.",
+      "imageUrl": "https://images.unsplash.com/photo-1533895319833-2804b443a059?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "summer hat"
+    },
+    {
+      "id": "product-35",
+      "description": "Yumuşak dokulu, yün atkı.",
+      "imageUrl": "https://images.unsplash.com/photo-1608355635339-b883015f8d5e?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "wool scarf"
+    },
+    {
+      "id": "product-36",
+      "description": "Gümüş, minimalist tasarımlı kol düğmeleri.",
+      "imageUrl": "https://images.unsplash.com/photo-1616262483693-195988b48873?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "cufflinks"
+    },
+    {
+      "id": "product-37",
+      "description": "Koyu yeşil, saten kumaştan balo elbisesi.",
+      "imageUrl": "https://images.unsplash.com/photo-1595232149026-621876e51147?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "prom dress"
+    },
+    {
+      "id": "product-38",
+      "description": "Kahverengi, postacı model deri çanta.",
+      "imageUrl": "https://images.unsplash.com/photo-1591543621-1225852934a3?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "leather bag"
+    },
+    {
+      "id": "product-39",
+      "description": "Renkli, fırfırlı çocuk eteği.",
+      "imageUrl": "https://images.unsplash.com/photo-1551028551-7c98492c6873?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "kids skirt"
+    },
+    {
+      "id": "product-40",
+      "description": "Lacivert, pamuklu polo yaka tişört.",
+      "imageUrl": "https://images.unsplash.com/photo-1581655353564-df123a164d16?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "polo shirt"
+    },
+    {
+      "id": "product-41",
+      "description": "Gri, yünlü kumaş pantolon.",
+      "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "trousers"
+    },
+    {
+      "id": "product-42",
+      "description": "Gümüş rengi, payetli, askılı üst.",
+      "imageUrl": "https://images.unsplash.com/photo-1584473456385-34371755101a?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "sequin top"
+    },
+    {
+      "id": "product-43",
+      "description": "Bej rengi, klasik trençkot.",
+      "imageUrl": "https://images.unsplash.com/photo-1591047139829-d916bb6934ee?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "trench coat"
+    },
+    {
+      "id": "product-44",
+      "description": "Kelebek şeklinde, vintage broş.",
+      "imageUrl": "https://images.unsplash.com/photo-1613031095595-65f6e8040498?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "vintage brooch"
+    },
+    {
+      "id": "product-45",
+      "description": "El örgüsü, yumuşak bebek battaniyesi.",
+      "imageUrl": "https://images.unsplash.com/photo-1559981423-d3434934a34b?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "baby blanket"
+    },
+    {
+      "id": "product-46",
+      "description": "Ekose desenli, kalın yün ceket.",
+      "imageUrl": "https://images.unsplash.com/photo-1612154432168-23277323b692?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "wool jacket"
+    },
+    {
+      "id": "product-47",
+      "description": "Kadife, siyah papyon.",
+      "imageUrl": "https://images.unsplash.com/photo-1509375158222-73c3f9153a06?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "bow tie"
+    },
+    {
+      "id": "product-48",
+      "description": "Mavi, A kesim mezuniyet elbisesi.",
+      "imageUrl": "https://images.unsplash.com/photo-1589139818814-7c514b1b8e8b?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "graduation dress"
+    },
+    {
+      "id": "product-49",
+      "description": "Çizgili, pamuklu çocuk gömleği.",
+      "imageUrl": "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "kids shirt"
+    },
+    {
+      "id": "product-50",
+      "description": "Örgü model, kahverengi deri kemer.",
+      "imageUrl": "https://images.unsplash.com/photo-1629425482041-332c93d258a5?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "leather belt"
     }
   ]
 }

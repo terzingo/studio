@@ -15,10 +15,10 @@ export function ProductCard({ product }: ProductCardProps) {
   const tailor = getTailorById(product.tailorId);
 
   return (
-    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group">
+    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group h-full flex flex-col">
       <CardContent className="p-0">
         <Link href="#">
-            <div className="relative h-64 w-full">
+            <div className="relative aspect-[4/3] w-full">
                 {image && (
                     <Image
                         src={image.imageUrl}
@@ -32,18 +32,18 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
         </Link>
       </CardContent>
-      <CardFooter className="flex flex-col items-start p-4">
-        <h3 className="font-headline font-bold text-lg">
-            <Link href="#" className="hover:text-primary transition-colors">
+      <CardFooter className="flex flex-col items-start p-3 flex-grow">
+        <h3 className="font-headline font-semibold text-base leading-tight">
+            <Link href="#" className="hover:text-primary transition-colors line-clamp-2">
                 {product.name}
             </Link>
         </h3>
         {tailor && (
-            <p className="text-sm text-muted-foreground mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
                 Satıcı: <Link href={`/points/${tailor.id}`} className="hover:underline">{tailor.name}</Link>
             </p>
         )}
-        <p className="font-semibold text-lg mt-2 text-primary">{`${product.price} TL`}</p>
+        <p className="font-semibold text-base mt-auto pt-2 text-primary">{`${product.price} TL`}</p>
       </CardFooter>
     </Card>
   );

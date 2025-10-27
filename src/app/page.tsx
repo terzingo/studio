@@ -7,17 +7,13 @@ import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
 
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
-  const featuredProducts = getProducts();
+  const products = getProducts();
+  const topRowProducts = products.slice(0, Math.ceil(products.length / 2));
+  const bottomRowProducts = products.slice(Math.ceil(products.length / 2));
+  
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-1');
 
   return (
@@ -102,25 +98,22 @@ export default function Home() {
              Terzin<span className="text-primary">Go</span> noktalarındaki özenle seçilmiş ikinci el ve özel tasarım ürünlere göz atın.
             </p>
           </div>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full mt-12"
-          >
-            <CarouselContent>
-              {featuredProducts.map((product) => (
-                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                  <div className="p-1">
-                    <ProductCard product={product} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+        </div>
+        <div className="relative mt-12 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-scroll">
+                {[...topRowProducts, ...topRowProducts].map((product, index) => (
+                    <div key={`top-${product.id}-${index}`} className="w-[280px] flex-shrink-0 p-2">
+                        <ProductCard product={product} />
+                    </div>
+                ))}
+            </div>
+             <div className="flex w-max animate-scroll-reverse">
+                {[...bottomRowProducts, ...bottomRowProducts].map((product, index) => (
+                     <div key={`bottom-${product.id}-${index}`} className="w-[280px] flex-shrink-0 p-2">
+                        <ProductCard product={product} />
+                    </div>
+                ))}
+            </div>
         </div>
       </section>
 
