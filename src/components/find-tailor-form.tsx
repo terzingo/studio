@@ -157,6 +157,7 @@ export function FindTailorForm() {
 
             {showResults && (
               <div className="mt-8">
+                <h3 className="text-xl font-bold font-headline text-center mb-6">Arama Sonuçları</h3>
                 {filteredTailors.length > 0 ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredTailors.map((tailor) => (
@@ -165,7 +166,7 @@ export function FindTailorForm() {
                   </div>
                 ) : (
                   <p className="text-center text-muted-foreground">
-                    Bu mahallede henüz Terzin<span className="text-primary">Go</span> noktası bulunmuyor.
+                    Bu bölgede henüz Terzin<span className="text-primary">Go</span> noktası bulunmuyor.
                   </p>
                 )}
               </div>

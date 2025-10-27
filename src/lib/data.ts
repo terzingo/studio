@@ -1,5 +1,4 @@
 import type { Tailor } from './types';
-import { PlaceHolderImages } from './placeholder-images';
 
 const mockTailors: Tailor[] = [
   {
@@ -69,7 +68,7 @@ const mockTailors: Tailor[] = [
     id: 'fatma-demir',
     name: 'Pratik Terzi Fatma',
     specialty: 'Hızlı Tadilat',
-    location: 'Bursa, Nilüfer, Ertuğrul',
+    location: 'İstanbul, Kadıköy, Göztepe',
     rating: 4.7,
     reviews: 210,
     imageId: 'tailor-4',
@@ -89,7 +88,7 @@ const mockTailors: Tailor[] = [
     id: 'kenan-erkin',
     name: 'Gömlek Atölyesi',
     specialty: 'Bespoke Gömlek',
-    location: 'İstanbul, Kadıköy, Moda',
+    location: 'İstanbul, Şişli, Nişantaşı',
     rating: 4.9,
     reviews: 88,
     imageId: 'tailor-5',
@@ -109,7 +108,7 @@ const mockTailors: Tailor[] = [
     id: 'sibel-canan',
     name: 'Sibelin Çocuk Dünyası',
     specialty: 'Çocuk Giyimi',
-    location: 'Antalya, Muratpaşa, Lara',
+    location: 'Ankara, Çankaya, Tunalı Hilmi',
     rating: 4.8,
     reviews: 65,
     imageId: 'tailor-6',

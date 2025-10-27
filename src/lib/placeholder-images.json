@@ -3,13 +3,13 @@
     {
       "id": "hero-1",
       "description": "E-ticaret paketini açan ve kıyafet deneyen mutlu bir kadın.",
-      "imageUrl": "https://images.unsplash.com/photo-1551842618-f2150c184285?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoYXBweSUyMHdvbWFuJTIwdW5ib3hpbmclMjBjbG90aGluZ3xlbnwwfHx8fDE3NjE2MTMzMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551842618-f2150c184285?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoYXBweSUyMHdvbWFuJTIwdW5ib3hpbmclMjBjbG90aGluZ3xlbnwwfHx8fDE3NjE2MTMzMTJ8MA&ixlib=rb-4.1.0&q=80&w=1920",
       "imageHint": "woman unboxing clothing"
     },
     {
       "id": "about-us",
       "description": "Terzi atölyesinde çalışan bir ekip.",
-      "imageUrl": "https://images.unsplash.com/photo-1753164597544-a2736833357e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0YWlsb3IlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1596796614445-ade55242f31b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YWlsb3IlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tailor workshop"
     },
     {
@@ -21,14 +21,14 @@
     {
       "id": "team-2",
       "description": "Ekip üyesi: Usta Modelist",
-      "imageUrl": "https://images.unsplash.com/photo-1692611153844-7007544badd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZW1hbGUlMjBmYXNoaW9uJTIwZGVzaWduZXJ8ZW58MHx8fHwxNzYxNTcxNzY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551909988-f5823d72a9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyMHx8ZmVtYWxlJTIwZmFzaGlvbiUyMGRlc2lnbmVyfGVufDB8fHx8MTc2MjI5NTM0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "female fashion designer"
     },
     {
       "id": "team-3",
       "description": "Ekip üyesi: Üretim Müdürü",
-      "imageUrl": "https://images.unsplash.com/photo-1666558890227-6f4d9c5b49ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmZW1hbGUlMjBwcm9kdWN0aW9uJTIwbWFuYWdlcnxlbnwwfHx8fDE3NjE1NzE3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "female production manager"
+      "imageUrl": "https://images.unsplash.com/photo-1622675383119-a28c3b4attc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGV4dGlsZSUyMG1hbmFnZXJ8ZW58MHx8fHwxNzYyMjk1NDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male textile manager"
     },
     {
       "id": "tailor-1",
@@ -39,13 +39,13 @@
     {
       "id": "tailor-2",
       "description": "Atölyesindeki profesyonel kadın terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1753164597532-43e1e15950bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmVtYWxlJTIwdGFpbG9yfGVufDB8fHx8MTc2MTUxMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1579588494028-3c35f29a0397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "female tailor"
     },
     {
       "id": "tailor-3",
       "description": "Genç, yaratıcı bir terzi tasarım üzerinde çalışıyor.",
-      "imageUrl": "https://images.unsplash.com/photo-1753164597521-3ed83003bbe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHRhaWxvcnxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1596131365839-1c8b332353a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2Rlcm4lMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "creative tailor"
     },
     {
@@ -99,7 +99,7 @@
     {
       "id": "portfolio-6",
       "description": "Renkli özel dikim gömlek koleksiyonu.",
-      "imageUrl": "https://images.unsplash.com/photo-1745636624898-b54d7ed57c17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdXN0b20lMjBzaGlydHN8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdXN0b20lMjBzaGlydHN8ZW58MHx8fHwxNzYyMjk1NTEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "custom shirts"
     },
     {
@@ -119,6 +119,18 @@
       "description": "Benzersiz astarlı özel dikim bir blazer.",
       "imageUrl": "https://images.unsplash.com/photo-1593032583946-963a793ac763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiZXNwb2tlJTIwYmxhemVyfGVufDB8fHx8MTc2MjI5NTAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bespoke blazer"
+    },
+    {
+      "id": "for-business-ecommerce",
+      "description": "Dizüstü bilgisayarda çalışan ve e-ticaret sitesini yöneten bir kişi.",
+      "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlY29tbWVyY2UlMjBtYW5hZ2VyfGVufDB8fHx8MTc2MjI5NjAyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce manager"
+    },
+    {
+      "id": "for-business-tailor",
+      "description": "Atölyesinde dikiş makinesi kullanan bir terzi.",
+      "imageUrl": "https://images.unsplash.com/photo-1621417531737-05c0834e89c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0YWlsb3IlMjBzZXdpbmclMjBtYWNoaW5lfGVufDB8fHx8MTc2MjI5NjA5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tailor sewing"
     }
   ]
 }
