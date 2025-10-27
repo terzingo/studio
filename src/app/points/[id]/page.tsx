@@ -87,7 +87,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                                 {tailor.services.map((service) => (
                                     <li key={service.name} className="flex justify-between items-center border-b pb-2">
                                         <span className="text-foreground">{service.name}</span>
-                                        <Badge variant={service.price.includes('Ücretsiz') ? 'default' : 'secondary'}>{service.price}</Badge>
+                                        <Badge variant={service.price.toLowerCase().includes('ücretsiz') ? 'default' : 'secondary'}>{service.price}</Badge>
                                     </li>
                                 ))}
                             </ul>

@@ -14,9 +14,9 @@ const mockTailors: Tailor[] = [
     services: [
       { name: 'Paça Tadilatı', price: 'Ücretsiz*' },
       { name: 'Bel Tadilatı', price: 'Ücretsiz*' },
-      { name: 'Özel Dikim Takım Elbise', price: '₺8000' },
-      { name: 'Gömlek Dikimi', price: '₺1500' },
-      { name: 'Abiye Tadilatı', price: '₺750' },
+      { name: 'Özel Dikim Takım Elbise', price: '8000 TL' },
+      { name: 'Gömlek Dikimi', price: '1500 TL' },
+      { name: 'Abiye Tadilatı', price: '750 TL' },
     ],
     customerReviews: [
         { id: 'rev1', name: 'Can B.', rating: 5, comment: 'TerzinGo koduyla pantolonumu ücretsiz yaptırdım. Çok memnun kaldım.', date: '12.05.2024' },
@@ -36,8 +36,8 @@ const mockTailors: Tailor[] = [
     services: [
       { name: 'Elbise Boyu Kısaltma', price: 'Ücretsiz*' },
       { name: 'Pens Tadilatı', price: 'Ücretsiz*' },
-      { name: 'Özel Dikim Gelinlik', price: '₺15000' },
-      { name: 'Abiye Elbise Dikimi', price: '₺7000' },
+      { name: 'Özel Dikim Gelinlik', price: '15000 TL' },
+      { name: 'Abiye Elbise Dikimi', price: '7000 TL' },
     ],
     customerReviews: [
         { id: 'rev3', name: 'Ebru S.', rating: 5, comment: 'İnternetten aldığım elbiseyi Zeynep Hanım tam üstüme göre ayarladı, harika oldu!', date: '20.06.2024' },
@@ -56,9 +56,9 @@ const mockTailors: Tailor[] = [
     bio: 'Deri ve vintage parçalara olan tutkumu mesleğime dönüştürdüm. TerzinGo noktası olarak ceket ve pantolon tadilatlarınızı özenle yapıyorum.',
     services: [
       { name: 'Paça Tadilatı', price: 'Ücretsiz*' },
-      { name: 'Özel Dikim Deri Ceket', price: '₺6000' },
-      { name: 'Vintage Ceket Onarımı', price: '₺1000' },
-      { name: 'Kot Pantolon Daraltma', price: '₺300' },
+      { name: 'Özel Dikim Deri Ceket', price: '6000 TL' },
+      { name: 'Vintage Ceket Onarımı', price: '1000 TL' },
+      { name: 'Kot Pantolon Daraltma', price: '300 TL' },
     ],
     customerReviews: [
         { id: 'rev5', name: 'Ozan T.', rating: 5, comment: 'Mustafa Usta deriyi konuşturuyor. Ceketim yeniden doğmuş gibi oldu.', date: '05.06.2024' }
@@ -76,9 +76,9 @@ const mockTailors: Tailor[] = [
     bio: 'Her türlü tadilat işleriniz için güvenilir adresiniz. Hızlı, temiz ve uygun fiyatlı hizmet sunuyorum. TerzinGo müşterilerine öncelikli hizmet veriyorum.',
     services: [
       { name: 'Paça Tadilatı', price: 'Ücretsiz*' },
-      { name: 'Fermuar Değişimi', price: '₺150' },
+      { name: 'Fermuar Değişimi', price: '150 TL' },
       { name: 'Elbise Boyu Kısaltma', price: 'Ücretsiz*' },
-      { name: 'Beden Daraltma', price: '₺400' },
+      { name: 'Beden Daraltma', price: '400 TL' },
     ],
     customerReviews: [
         { id: 'rev6', name: 'Ayşe G.', rating: 4, comment: 'Fatma Hanım çok hızlı ve işini iyi yapıyor. TerzinGo koduyla geldim, hemen yardımcı oldu.', date: '18.06.2024' }
@@ -97,8 +97,8 @@ const mockTailors: Tailor[] = [
     services: [
       { name: 'Kol Boyu Kısaltma', price: 'Ücretsiz*' },
       { name: 'Pens Tadilatı', price: 'Ücretsiz*' },
-      { name: 'Özel Dikim Gömlek (Mısır Pamuğu)', price: '₺2500' },
-      { name: 'Monogram İşleme', price: '₺200' },
+      { name: 'Özel Dikim Gömlek (Mısır Pamuğu)', price: '2500 TL' },
+      { name: 'Monogram İşleme', price: '200 TL' },
     ],
     customerReviews: [
         { id: 'rev7', name: 'Barış A.', rating: 5, comment: 'Gömleklerim hiç bu kadar iyi olmamıştı. Kenan Bey gerçekten bir sanatçı.', date: '25.05.2024' }
@@ -117,8 +117,8 @@ const mockTailors: Tailor[] = [
     services: [
       { name: 'Paça Kısaltma', price: 'Ücretsiz*' },
       { name: 'Bel Daraltma', price: 'Ücretsiz*' },
-      { name: 'Özel Dikim Çocuk Elbisesi', price: '₺1200' },
-      { name: 'Kostüm Dikimi', price: '₺1500' },
+      { name: 'Özel Dikim Çocuk Elbisesi', price: '1200 TL' },
+      { name: 'Kostüm Dikimi', price: '1500 TL' },
     ],
     customerReviews: [
         { id: 'rev8', name: 'Pelin V.', rating: 5, comment: 'Kızımın elbisesini tam üzerine göre yaptılar. Çok teşekkürler.', date: '02.06.2024' }

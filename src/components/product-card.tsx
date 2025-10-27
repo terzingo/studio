@@ -43,7 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 Satıcı: <Link href={`/points/${tailor.id}`} className="hover:underline">{tailor.name}</Link>
             </p>
         )}
-        <p className="font-semibold text-lg mt-2 text-primary">{product.price.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</p>
+        <p className="font-semibold text-lg mt-2 text-primary">{`${product.price} TL`}</p>
       </CardFooter>
     </Card>
   );
