@@ -8,6 +8,9 @@ import { Toaster } from "@/components/ui/toaster"
 export const metadata: Metadata = {
   title: 'TerzinGo | E-Ticarette İadeye Son',
   description: 'Satın aldığınız kıyafetler tam üstünüze göre olsun. TerzinGo ile iadelerle uğraşmayın, ücretsiz tadilat hizmetinden yararlanın.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
