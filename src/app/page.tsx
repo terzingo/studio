@@ -49,46 +49,6 @@ export default function Home() {
       </section>
 
       <FindTailorForm />
-      
-      <section id="how-it-works" className="w-full py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Ekosistemi</h2>
-            <p className="mt-4 text-muted-foreground md:text-lg">
-              Alışveriş deneyimini herkes için kusursuz hale getiriyoruz: Müşteriler, E-ticaret Markaları ve Terziler.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Users className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-bold font-headline">Müşteriler İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Beden uyumsuzluğuna ve iade süreçlerine son. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Briefcase className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-bold font-headline">E-Ticaret İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Yüksek iade oranlarını düşürün, operasyonel maliyetleri azaltın ve müşteri memnuniyetini zirveye taşıyın.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Store className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-bold font-headline">Terziler İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Dijital ekonomiye dahil olun, yeni müşteriler kazanın ve gelirinizi artırın. Atölyeniz mahallenin gözdesi olsun.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="featured-products" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -137,7 +97,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       <section id="for-business" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Çözüm Ortağımız Olun</h2>
@@ -149,6 +109,46 @@ export default function Home() {
                 <Link href="/for-business">İşletmeler ve Terziler İçin</Link>
               </Button>
             </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="w-full py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Ekosistemi</h2>
+            <p className="mt-4 text-muted-foreground md:text-lg">
+              Alışveriş deneyimini herkes için kusursuz hale getiriyoruz: Müşteriler, E-ticaret Markaları ve Terziler.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                <Users className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold font-headline">Müşteriler İçin</h3>
+              <p className="mt-2 text-muted-foreground">
+                Beden uyumsuzluğuna ve iade süreçlerine son. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                <Briefcase className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold font-headline">E-Ticaret İçin</h3>
+              <p className="mt-2 text-muted-foreground">
+                Yüksek iade oranlarını düşürün, operasyonel maliyetleri azaltın ve müşteri memnuniyetini zirveye taşıyın.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                <Store className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold font-headline">Terziler İçin</h3>
+              <p className="mt-2 text-muted-foreground">
+                Dijital ekonomiye dahil olun, yeni müşteriler kazanın ve gelirinizi artırın. Atölyeniz mahallenin gözdesi olsun.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
