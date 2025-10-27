@@ -4,6 +4,7 @@ import { getTailors } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { CheckCircle, MapPin, Package, Scissors } from 'lucide-react';
 import Link from 'next/link';
+import { FindTailorForm } from '@/components/find-tailor-form';
 
 export default function Home() {
   const tailors = getTailors();
@@ -11,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative w-full h-[70vh] md:h-[90vh] flex items-center justify-center text-center text-white">
+      <section className="relative w-full h-[80vh] md:h-screen flex items-center justify-center text-center text-white">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -40,6 +41,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FindTailorForm />
       
       <section id="how-it-works" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">

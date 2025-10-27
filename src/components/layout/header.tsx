@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Scissors } from 'lucide-react';
+import { Menu, Scissors, LogIn } from 'lucide-react';
 
 function Logo() {
   return (
@@ -20,7 +20,7 @@ const navLinks = [
   { href: '/#how-it-works', label: 'Nasıl Çalışır?' },
   { href: '/points', label: 'TerzinGo Noktaları' },
   { href: '/about', label: 'Hakkımızda' },
-  { href: '#', label: 'İşletmeler İçin' },
+  { href: '#for-business', label: 'İşletmeler İçin' },
 ];
 
 export function Header() {
@@ -41,8 +41,11 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost">Giriş Yap</Button>
-            <Button>Kayıt Ol</Button>
+            <Button variant="ghost">Müşteri Girişi</Button>
+            <Button>
+              <LogIn className="mr-2 h-4 w-4" />
+              Terzi Girişi
+            </Button>
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -68,8 +71,8 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto flex flex-col space-y-2">
-                   <Button variant="ghost">Giriş Yap</Button>
-                   <Button>Kayıt Ol</Button>
+                   <Button variant="ghost">Müşteri Girişi</Button>
+                   <Button>Terzi Girişi</Button>
                 </div>
               </div>
             </SheetContent>
