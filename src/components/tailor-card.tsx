@@ -30,9 +30,8 @@ export function TailorCard({ tailor }: TailorCardProps) {
             )}
         </CardHeader>
         <CardContent className="p-4">
-            <Badge variant="secondary" className="mb-2">{tailor.specialty}</Badge>
             <CardTitle className="text-xl font-headline font-bold">
-                <Link href={`/tailors/${tailor.id}`} className="hover:text-primary transition-colors">
+                <Link href={`/points/${tailor.id}`} className="hover:text-primary transition-colors">
                     {tailor.name}
                 </Link>
             </CardTitle>
@@ -51,10 +50,16 @@ export function TailorCard({ tailor }: TailorCardProps) {
                 </div>
                 <span className="ml-2 text-sm text-muted-foreground">({tailor.reviews} yorum)</span>
             </div>
+             <div className="mt-3 flex flex-wrap gap-2">
+                {tailor.services.slice(0, 2).map((service) => (
+                    <Badge key={service.name} variant="outline">{service.name}</Badge>
+                ))}
+                {tailor.services.length > 2 && <Badge variant="outline">...</Badge>}
+            </div>
         </CardContent>
         <CardFooter className="p-4 pt-0">
             <Button asChild className="w-full">
-                <Link href={`/tailors/${tailor.id}`}>Profili Görüntüle</Link>
+                <Link href={`/points/${tailor.id}`}>Noktayı Görüntüle</Link>
             </Button>
         </CardFooter>
     </Card>

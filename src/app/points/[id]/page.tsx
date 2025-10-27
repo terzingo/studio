@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Star, MapPin, Calendar, MessageSquare, User } from 'lucide-react';
+import { Star, MapPin, Phone, MessageSquare, User, PackageCheck } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function TailorProfilePage({ params }: { params: { id: string } }) {
@@ -48,9 +48,13 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
               </div>
             </CardHeader>
             <CardContent className="flex flex-col gap-2">
+               <Button size="lg" variant="outline" className="w-full">
+                 <PackageCheck className="mr-2 h-4 w-4" />
+                Takip Kodu Gir
+              </Button>
               <Button size="lg" className="w-full">
-                <Calendar className="mr-2 h-4 w-4" />
-                Randevu Al
+                <Phone className="mr-2 h-4 w-4" />
+                Ara
               </Button>
               <Button size="lg" variant="secondary" className="w-full">
                 <MessageSquare className="mr-2 h-4 w-4" />
@@ -62,19 +66,34 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
         <div className="md:col-span-2">
             <Card>
                 <CardHeader>
-                    <h2 className="text-xl font-bold font-headline">Terzi Hakkında</h2>
+                    <h2 className="text-xl font-bold font-headline">TerzinGo Noktası Hakkında</h2>
                 </CardHeader>
                 <CardContent>
                     <p className="text-muted-foreground">{tailor.bio}</p>
                 </CardContent>
             </Card>
 
-            <Tabs defaultValue="portfolio" className="w-full mt-8">
+            <Tabs defaultValue="services" className="w-full mt-8">
                 <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="portfolio">Portföy</TabsTrigger>
                     <TabsTrigger value="services">Hizmetler</TabsTrigger>
+                    <TabsTrigger value="portfolio">Portföy</TabsTrigger>
                     <TabsTrigger value="reviews">Yorumlar</TabsTrigger>
                 </TabsList>
+                <TabsContent value="services" className="mt-4">
+                    <Card>
+                        <CardContent className="pt-6">
+                            <p className="text-sm text-muted-foreground mb-4">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde TerzinGo kodu ile ücretsizdir.</p>
+                            <ul className="space-y-4">
+                                {tailor.services.map((service) => (
+                                    <li key={service.name} className="flex justify-between items-center border-b pb-2">
+                                        <span className="text-foreground">{service.name}</span>
+                                        <Badge variant={service.price.includes('Ücretsiz') ? 'default' : 'secondary'}>{service.price}</Badge>
+                                    </li>
+                                ))}
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
                 <TabsContent value="portfolio" className="mt-4">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {portfolioImages.map((image) => (
@@ -92,20 +111,6 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                             </div>
                         ))}
                     </div>
-                </TabsContent>
-                <TabsContent value="services" className="mt-4">
-                    <Card>
-                        <CardContent className="pt-6">
-                            <ul className="space-y-4">
-                                {tailor.services.map((service) => (
-                                    <li key={service.name} className="flex justify-between items-center border-b pb-2">
-                                        <span className="text-foreground">{service.name}</span>
-                                        <Badge variant="outline">{service.price}</Badge>
-                                    </li>
-                                ))}
-                            </ul>
-                        </CardContent>
-                    </Card>
                 </TabsContent>
                 <TabsContent value="reviews" className="mt-4">
                     <div className="space-y-6">

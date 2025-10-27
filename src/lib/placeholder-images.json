@@ -2,97 +2,121 @@
   "placeholderImages": [
     {
       "id": "hero-1",
-      "description": "A stylish tailor measuring fabric in a modern workshop.",
+      "description": "E-ticaret paketini açan ve kıyafet deneyen mutlu bir kadın.",
+      "imageUrl": "https://images.unsplash.com/photo-1551842618-f2150c184285?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoYXBweSUyMHdvbWFuJTIwdW5ib3hpbmclMjBjbG90aGluZ3xlbnwwfHx8fDE3NjE2MTMzMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman unboxing clothing"
+    },
+    {
+      "id": "about-us",
+      "description": "Terzi atölyesinde çalışan bir ekip.",
       "imageUrl": "https://images.unsplash.com/photo-1753164597544-a2736833357e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0YWlsb3IlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tailor workshop"
     },
     {
+      "id": "team-1",
+      "description": "Ekip üyesi: Mali Danışman",
+      "imageUrl": "https://images.unsplash.com/photo-1549923746-9507eec27243?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYWxlJTIwZmluYW5jZSUyMGV4cGVydHxlbnwwfHx8fDE3NjE1NzE3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male finance expert"
+    },
+    {
+      "id": "team-2",
+      "description": "Ekip üyesi: Usta Modelist",
+      "imageUrl": "https://images.unsplash.com/photo-1692611153844-7007544badd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZW1hbGUlMjBmYXNoaW9uJTIwZGVzaWduZXJ8ZW58MHx8fHwxNzYxNTcxNzY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female fashion designer"
+    },
+    {
+      "id": "team-3",
+      "description": "Ekip üyesi: Üretim Müdürü",
+      "imageUrl": "https://images.unsplash.com/photo-1666558890227-6f4d9c5b49ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmZW1hbGUlMjBwcm9kdWN0aW9uJTIwbWFuYWdlcnxlbnwwfHx8fDE3NjE1NzE3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female production manager"
+    },
+    {
       "id": "tailor-1",
-      "description": "Portrait of a smiling male tailor.",
+      "description": "Gülümseyen erkek terzi portresi.",
       "imageUrl": "https://images.unsplash.com/photo-1638432249748-829a35c334cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFsZSUyMHRhaWxvcnxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "male tailor"
     },
     {
       "id": "tailor-2",
-      "description": "Portrait of a professional female tailor in her studio.",
+      "description": "Atölyesindeki profesyonel kadın terzi.",
       "imageUrl": "https://images.unsplash.com/photo-1753164597532-43e1e15950bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmVtYWxlJTIwdGFpbG9yfGVufDB8fHx8MTc2MTUxMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "female tailor"
     },
     {
       "id": "tailor-3",
-      "description": "A young, creative tailor working on a design.",
+      "description": "Genç, yaratıcı bir terzi tasarım üzerinde çalışıyor.",
       "imageUrl": "https://images.unsplash.com/photo-1753164597521-3ed83003bbe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHRhaWxvcnxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "creative tailor"
     },
     {
       "id": "tailor-4",
-      "description": "An experienced tailor focusing on details.",
+      "description": "Deneyimli bir terzi detaylara odaklanıyor.",
       "imageUrl": "https://images.unsplash.com/photo-1662833595899-07c57d617f56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXhwZXJpZW5jZWQlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "experienced tailor"
     },
     {
       "id": "tailor-5",
-      "description": "A modern tailor with a measuring tape around his neck.",
+      "description": "Boynunda mezura olan modern bir terzi.",
       "imageUrl": "https://images.unsplash.com/photo-1684259498917-b0cde0133e14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern tailor"
     },
     {
       "id": "tailor-6",
-      "description": "A tailor inspecting a finished suit.",
+      "description": "Bitmiş bir takımı inceleyen bir terzi.",
       "imageUrl": "https://images.unsplash.com/photo-1673022674911-d03de432d6f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0YWlsb3IlMjBzdWl0fGVufDB8fHx8MTc2MTUxMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tailor suit"
     },
     {
       "id": "portfolio-1",
-      "description": "A beautifully crafted wedding dress on a mannequin.",
+      "description": "Manken üzerinde güzel bir gelinlik.",
       "imageUrl": "https://images.unsplash.com/photo-1525169087805-031a4da0623c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWRkaW5nJTIwZHJlc3N8ZW58MHx8fHwxNzYxNDc3MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding dress"
     },
     {
       "id": "portfolio-2",
-      "description": "A sharp, custom-made men's suit.",
+      "description": "Özel dikim şık bir erkek takımı.",
       "imageUrl": "https://images.unsplash.com/photo-1633655442356-ab2dbc69c772?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjdXN0b20lMjBzdWl0fGVufDB8fHx8MTc2MTUxMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "custom suit"
     },
     {
       "id": "portfolio-3",
-      "description": "An elegant evening gown.",
+      "description": "Zarif bir gece elbisesi.",
       "imageUrl": "https://images.unsplash.com/photo-1565324777053-0f607a0d3bdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxldmVuaW5nJTIwZ293bnxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "evening gown"
     },
     {
       "id": "portfolio-4",
-      "description": "A stylish leather jacket.",
+      "description": "Şık bir deri ceket.",
       "imageUrl": "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsZWF0aGVyJTIwamFja2V0fGVufDB8fHx8MTc2MTM4NTg4NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leather jacket"
     },
     {
       "id": "portfolio-5",
-      "description": "A classic tailored trench coat.",
+      "description": "Klasik bir trençkot.",
       "imageUrl": "https://images.unsplash.com/photo-1619603364904-c0498317e145?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJlbmNoJTIwY29hdHxlbnwwfHx8fDE3NjE0MTYwMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "trench coat"
     },
     {
       "id": "portfolio-6",
-      "description": "A collection of colorful custom shirts.",
+      "description": "Renkli özel dikim gömlek koleksiyonu.",
       "imageUrl": "https://images.unsplash.com/photo-1745636624898-b54d7ed57c17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdXN0b20lMjBzaGlydHN8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "custom shirts"
     },
     {
       "id": "portfolio-7",
-      "description": "Detailed stitching on a pair of jeans.",
+      "description": "Kot pantolon üzerinde detaylı dikiş.",
       "imageUrl": "https://images.unsplash.com/photo-1625479142928-c2f2914318f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkZW5pbSUyMHN0aXRjaGluZ3xlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "denim stitching"
     },
     {
       "id": "portfolio-8",
-      "description": "A flowing summer dress with floral patterns.",
+      "description": "Çiçek desenli, dökümlü bir yazlık elbise.",
       "imageUrl": "https://images.unsplash.com/photo-1593105522065-9a6ecd21aeb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW1tZXIlMjBkcmVzc3xlbnwwfHx8fDE3NjE0NTIxNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "summer dress"
     },
     {
       "id": "portfolio-9",
-      "description": "A bespoke blazer with unique lining.",
+      "description": "Benzersiz astarlı özel dikim bir blazer.",
       "imageUrl": "https://picsum.photos/seed/p9/800/600",
       "imageHint": "bespoke blazer"
     }

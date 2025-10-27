@@ -22,23 +22,22 @@ export function Footer() {
           <div className="space-y-4">
             <Logo />
             <p className="text-muted-foreground text-sm">
-              Stil sahibi dokunuşlar, usta ellerde hayat buluyor.
+              E-ticarette iade oranlarını düşüren yenilikçi çözüm.
             </p>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">Keşfet</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/tailors" className="text-sm text-muted-foreground hover:text-primary">Terzi Bul</Link></li>
+              <li><Link href="/points" className="text-sm text-muted-foreground hover:text-primary">TerzinGo Noktaları</Link></li>
               <li><Link href="/#how-it-works" className="text-sm text-muted-foreground hover:text-primary">Nasıl Çalışır?</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Hizmetler</Link></li>
+              <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">Hakkımızda</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">Şirket</h3>
+            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">İş Ortaklığı</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Hakkımızda</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Kariyer</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Basın</Link></li>
+              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">E-Ticaret Çözümleri</Link></li>
+              <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">TerzinGo Noktası Ol</Link></li>
             </ul>
           </div>
           <div>

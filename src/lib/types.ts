@@ -1,5 +1,3 @@
-import type { PlaceHolderImages } from './placeholder-images';
-
 export type Tailor = {
   id: string;
   name: string;
@@ -7,8 +5,8 @@ export type Tailor = {
   location: string;
   rating: number;
   reviews: number;
-  imageId: (typeof PlaceHolderImages)[number]['id'];
-  portfolioImageIds: (typeof PlaceHolderImages)[number]['id'][];
+  imageId: string;
+  portfolioImageIds: string[];
   bio: string;
   services: {
     name: string;

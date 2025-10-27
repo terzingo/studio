@@ -6,8 +6,8 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'TerzinGo Demo Sitesi',
-  description: 'Hayalinizdeki kıyafete TerzinGo ile ulaşın.',
+  title: 'TerzinGo | E-Ticarette İadeye Son',
+  description: 'Satın aldığınız kıyafetler tam üstünüze göre olsun. TerzinGo ile iadelerle uğraşmayın, ücretsiz tadilat hizmetinden yararlanın.',
 };
 
 export default function RootLayout({

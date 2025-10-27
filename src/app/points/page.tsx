@@ -6,7 +6,7 @@ import { TailorCard } from '@/components/tailor-card';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
-export default function TailorsPage() {
+export default function PointsPage() {
   const allTailors = getTailors();
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -20,9 +20,9 @@ export default function TailorsPage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline">Terzi Bul</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline">TerzinGo Noktaları</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Alanında uzman terzilerimizi keşfedin ve ihtiyaçlarınıza en uygun olanı bulun.
+          Size en yakın TerzinGo noktasını bulun, tadilat ve diğer hizmetlerden yararlanın.
         </p>
       </div>
 
@@ -31,7 +31,7 @@ export default function TailorsPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Terzi, uzmanlık alanı veya şehir arayın..."
+            placeholder="Nokta adı, uzmanlık alanı veya şehir arayın..."
             className="w-full pl-10 h-12 text-base"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -47,7 +47,7 @@ export default function TailorsPage() {
         </div>
       ) : (
         <div className="text-center py-16">
-          <p className="text-lg text-muted-foreground">Aradığınız kriterlere uygun terzi bulunamadı.</p>
+          <p className="text-lg text-muted-foreground">Aradığınız kriterlere uygun TerzinGo noktası bulunamadı.</p>
         </div>
       )}
     </div>

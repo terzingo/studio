@@ -17,10 +17,10 @@ function Logo() {
 }
 
 const navLinks = [
-  { href: '/tailors', label: 'Terzi Bul' },
   { href: '/#how-it-works', label: 'Nasıl Çalışır?' },
-  { href: '/#services', label: 'Hizmetler' },
-  { href: '/#about', label: 'Hakkımızda' },
+  { href: '/points', label: 'TerzinGo Noktaları' },
+  { href: '/about', label: 'Hakkımızda' },
+  { href: '#', label: 'İşletmeler İçin' },
 ];
 
 export function Header() {
