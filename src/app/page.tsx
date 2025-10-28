@@ -1,12 +1,17 @@
+'use client';
+import React from 'react';
 import Image from 'next/image';
+import Autoplay from "embla-carousel-autoplay"
+
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { CheckCircle, MapPin, Package, Scissors, Users, Briefcase, Store } from 'lucide-react';
+import { Briefcase, Store, Users } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
@@ -14,21 +19,35 @@ export default function Home() {
   const topRowProducts = products.slice(0, Math.ceil(products.length / 2));
   const bottomRowProducts = products.slice(Math.ceil(products.length / 2));
   
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-1');
+  const heroImages = PlaceHolderImages.filter(img => ['hero-1', 'hero-2', 'hero-3', 'hero-4'].includes(img.id));
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  )
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            data-ai-hint={heroImage.imageHint}
-            priority
-          />
-        )}
+       <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full h-full"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
+          <CarouselContent className="h-full">
+            {heroImages.map((heroImage) => (
+              <CarouselItem key={heroImage.id} className="h-full">
+                <Image
+                  src={heroImage.imageUrl}
+                  alt={heroImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={heroImage.imageHint}
+                  priority={heroImages.indexOf(heroImage) === 0}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 p-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">

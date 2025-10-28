@@ -7,6 +7,24 @@
       "imageHint": "woman unboxing clothing"
     },
     {
+      "id": "hero-2",
+      "description": "Bir terzinin müşterinin üzerinde ölçü alması.",
+      "imageUrl": "https://images.unsplash.com/photo-1596796614445-ade55242f31b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YWlsb3IlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "tailor measuring customer"
+    },
+    {
+      "id": "hero-3",
+      "description": "Elbise askılarında asılı duran çeşitli renkli kıyafetler.",
+      "imageUrl": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG90aGluZyUyMHJhY2t8ZW58MHx8fHwxNzYyMzI0MDI0fDA&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "clothing rack"
+    },
+    {
+      "id": "hero-4",
+      "description": "Online alışveriş yapan bir kişinin yakın çekimden görünüşü.",
+      "imageUrl": "https://images.unsplash.com/photo-1561715276-a2d02e249ab8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvbmxpbmUlMjBzaG9wcGluZyUyMGNsb3RoaW5nfGVufDB8fHx8MTc2MjMyNDAyNHww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "online shopping"
+    },
+    {
       "id": "about-us",
       "description": "Terzi atölyesinde çalışan bir ekip.",
       "imageUrl": "https://images.unsplash.com/photo-1596796614445-ade55242f31b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YWlsb3IlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
