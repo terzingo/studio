@@ -29,12 +29,12 @@ export default function Home() {
        <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
         <Carousel
           plugins={[plugin.current]}
-          className="w-full h-full"
+          className="absolute inset-0 w-full h-full"
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="h-full">
-            {heroImages.map((heroImage) => (
+            {heroImages.map((heroImage, index) => (
               <CarouselItem key={heroImage.id} className="h-full">
                 <Image
                   src={heroImage.imageUrl}
@@ -42,7 +42,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                   data-ai-hint={heroImage.imageHint}
-                  priority={heroImages.indexOf(heroImage) === 0}
+                  priority={index === 0}
                 />
               </CarouselItem>
             ))}
