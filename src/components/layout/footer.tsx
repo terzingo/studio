@@ -5,6 +5,7 @@ import { Twitter, Instagram, Facebook } from 'lucide-react';
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2" aria-label="TerzinGo Anasayfa">
+      <Image src="/logo.png" alt="TerzinGo Logo" width={32} height={32} />
       <span className="text-xl font-bold font-headline text-foreground">
         Terzin<span className="text-primary">Go</span>
       </span>
