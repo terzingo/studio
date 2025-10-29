@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Map, Users } from 'lucide-react';
 import { getTailors } from '@/lib/data';
 import { TailorCard } from './tailor-card';
+import Link from 'next/link';
 
 const locationData = {
   İstanbul: {
@@ -149,9 +150,11 @@ export function FindTailorForm() {
               </Button>
             </div>
             <div className='text-center my-4'>
-                <Button variant="link" className='text-base'>
-                    <Map className="mr-2" />
-                    veya Haritadan Bul
+                <Button variant="link" asChild className='text-base'>
+                    <Link href="/map">
+                        <Map className="mr-2" />
+                        veya Haritadan Bul
+                    </Link>
                 </Button>
             </div>
 
