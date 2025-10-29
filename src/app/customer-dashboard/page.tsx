@@ -9,6 +9,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Box, Edit, Settings, User } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 const alterations = [
   { id: 'TAD001', item: 'Kot Pantolon', status: 'Terzide', date: '25.07.2024', tailor: 'Atölye Yılmaz' },
@@ -35,6 +36,8 @@ const getStatusBadge = (status: string) => {
 }
 
 export default function CustomerDashboardPage() {
+  const router = useRouter();
+  
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <header className="bg-white dark:bg-gray-900 shadow-sm">
@@ -102,8 +105,7 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {alterations.map(alt => (
-                                     <TableRow key={alt.id} asChild>
-                                        <Link href={`/customer-dashboard/alterations/${alt.id}`} className="cursor-pointer">
+                                     <TableRow key={alt.id} onClick={() => router.push(`/customer-dashboard/alterations/${alt.id}`)} className="cursor-pointer">
                                             <TableCell className="font-medium">
                                                 <span className="hover:underline text-primary">
                                                     {alt.id}
@@ -113,7 +115,6 @@ export default function CustomerDashboardPage() {
                                             <TableCell>{getStatusBadge(alt.status)}</TableCell>
                                             <TableCell>{alt.tailor}</TableCell>
                                             <TableCell className="text-right">{alt.date}</TableCell>
-                                        </Link>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -134,18 +135,16 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {orders.map(order => (
-                                     <TableRow key={order.id} asChild>
-                                        <Link href={`/customer-dashboard/orders/${order.id}`} className="cursor-pointer">
-                                            <TableCell className="font-medium">
-                                                <span className="hover:underline text-primary">
-                                                    {order.id}
-                                                </span>
-                                            </TableCell>
-                                            <TableCell>{order.item}</TableCell>
-                                            <TableCell>{order.price}</TableCell>
-                                            <TableCell>{order.tailor}</TableCell>
-                                            <TableCell className="text-right">{order.date}</TableCell>
-                                        </Link>
+                                     <TableRow key={order.id} onClick={() => router.push(`/customer-dashboard/orders/${order.id}`)} className="cursor-pointer">
+                                        <TableCell className="font-medium">
+                                            <span className="hover:underline text-primary">
+                                                {order.id}
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>{order.item}</TableCell>
+                                        <TableCell>{order.price}</TableCell>
+                                        <TableCell>{order.tailor}</TableCell>
+                                        <TableCell className="text-right">{order.date}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
