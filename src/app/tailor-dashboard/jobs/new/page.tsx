@@ -15,10 +15,10 @@ export default function NewJobPage() {
     const [error, setError] = useState('');
 
     const handleNext = () => {
-        if (code.trim().toUpperCase() === 'TZN12345') {
+        if (code.trim() !== '') {
             router.push('/tailor-dashboard/jobs/new/verify');
         } else {
-            setError('Geçersiz veya bulunamayan kod. Lütfen tekrar deneyin.');
+            setError('Lütfen bir tadilat kodu girin.');
         }
     };
 
@@ -39,7 +39,7 @@ export default function NewJobPage() {
                     <CardHeader>
                         <CardTitle>Müşteri Tadilat Kodu</CardTitle>
                         <CardDescription>
-                            Müşterinin e-ticaret sitesinden aldığı veya mobil uygulamasında görünen TerzinGo tadilat kodunu girin.
+                            Müşterinin e-ticaret sitesinden aldığı veya mobil uygulamasında görünen Terzin<span className="text-primary">Go</span> tadilat kodunu girin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
