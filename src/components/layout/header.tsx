@@ -40,10 +40,14 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost">Müşteri Girişi</Button>
-            <Button>
-              <LogIn className="mr-2 h-4 w-4" />
-              Terzi Girişi
+            <Button variant="ghost" asChild>
+                <Link href="/customer-login">Müşteri Girişi</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/tailor-login">
+                <LogIn className="mr-2 h-4 w-4" />
+                Terzi Girişi
+              </Link>
             </Button>
           </div>
           <Sheet>
@@ -70,8 +74,12 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto flex flex-col space-y-2">
-                   <Button variant="ghost">Müşteri Girişi</Button>
-                   <Button>Terzi Girişi</Button>
+                   <Button variant="ghost" asChild>
+                     <Link href="/customer-login">Müşteri Girişi</Link>
+                   </Button>
+                   <Button asChild>
+                     <Link href="/tailor-login">Terzi Girişi</Link>
+                   </Button>
                 </div>
               </div>
             </SheetContent>
@@ -81,3 +89,5 @@ export function Header() {
     </header>
   );
 }
+
+    
