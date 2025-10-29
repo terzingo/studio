@@ -7,25 +7,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
 import { LayoutDashboard, Briefcase, DollarSign, ExternalLink, FileText, Banknote, MoreHorizontal, Package, PackageCheck, Percent, Search, Mail, Settings, Truck, Upload, Users, CircleCheck } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { useRouter } from "next/navigation"
 
 const recentJobs = [
-  { id: 'JOB001', customer: 'Ahmet Ç.', item: 'Takım Elbise Paça', status: 'Beklemede', date: '2 saat önce' },
-  { id: 'JOB002', customer: 'Zeynep S.', item: 'Abiye Daraltma', status: 'İşleme Alındı', date: 'Dün' },
-  { id: 'JOB003', customer: 'Murat V.', item: 'Gömlek Kol Boyu', status: 'Tamamlandı', date: '01.08.2024' },
-]
-
-const products = [
-    {id: "PROD-001", name: "Vintage Deri Ceket", stock: 1, price: 850, category: "İkinci El"},
-    {id: "PROD-002", name: "Özel Dikim Blazer", stock: 3, price: 1300, category: "Özel Tasarım"},
+  { id: 'TAD004', customer: 'Ahmet Ç.', item: 'Takım Elbise Paça', status: 'Beklemede', date: '2 saat önce' },
+  { id: 'TAD005', customer: 'Zeynep S.', item: 'Abiye Daraltma', status: 'İşleme Alındı', date: 'Dün' },
+  { id: 'TAD006', customer: 'Murat V.', item: 'Gömlek Kol Boyu', status: 'Tamamlandı', date: '01.08.2024' },
 ]
 
 const getStatusBadge = (status: string) => {
@@ -38,17 +30,17 @@ const getStatusBadge = (status: string) => {
 }
 
 const chartData = [
-  { month: "Nisan", total: Math.floor(Math.random() * 2000) + 1000 },
-  { month: "Mayıs", total: Math.floor(Math.random() * 2000) + 1000 },
-  { month: "Haziran", total: Math.floor(Math.random() * 2000) + 1000 },
-  { month: "Temmuz", total: Math.floor(Math.random() * 2000) + 1000 },
-  { month: "Ağustos", total: Math.floor(Math.random() * 2000) + 1000 },
-  { month: "Eylül", total: Math.floor(Math.random() * 2000) + 1000 },
+  { month: "Nisan", total: Math.floor(Math.random() * 5000) + 2000 },
+  { month: "Mayıs", total: Math.floor(Math.random() * 5000) + 2000 },
+  { month: "Haziran", total: Math.floor(Math.random() * 5000) + 2000 },
+  { month: "Temmuz", total: Math.floor(Math.random() * 5000) + 4000 },
+  { month: "Ağustos", total: Math.floor(Math.random() * 5000) + 3000 },
+  { month: "Eylül", total: Math.floor(Math.random() * 5000) + 1000 },
 ]
 
 export default function TailorDashboardPage() {
-    const { toast } = useToast();
-    
+  const router = useRouter();
+
   return (
     <div className="flex min-h-screen w-full bg-muted/40">
       <aside className="hidden w-64 flex-col border-r bg-background sm:flex">
@@ -58,32 +50,32 @@ export default function TailorDashboardPage() {
             </Link>
         </div>
         <nav className="flex flex-col gap-1 p-2">
-            <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
-                <Link href="#">
+            <Button variant="ghost" className="justify-start gap-2 text-base font-normal bg-muted" asChild>
+                <Link href="/tailor-dashboard">
                     <LayoutDashboard className="h-5 w-5"/>
                     <span>Panel</span>
                 </Link>
             </Button>
             <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
-                <Link href="#">
+                <Link href="/tailor-dashboard/jobs">
                     <Briefcase className="h-5 w-5"/>
                     <span>İşler</span>
                 </Link>
             </Button>
             <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
-                <Link href="#">
+                <Link href="/tailor-dashboard/products">
                     <Package className="h-5 w-5"/>
                     <span>Ürünler</span>
                 </Link>
             </Button>
             <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
-                <Link href="#">
+                <Link href="/tailor-dashboard/customers">
                     <Users className="h-5 w-5"/>
                     <span>Müşteriler</span>
                 </Link>
             </Button>
              <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
-                <Link href="#">
+                <Link href="/tailor-dashboard/earnings">
                     <DollarSign className="h-5 w-5"/>
                     <span>Kazançlar</span>
                 </Link>
@@ -135,37 +127,43 @@ export default function TailorDashboardPage() {
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
             <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+                    <Card className="hover:bg-muted/50 transition-colors">
+                        <Link href="/tailor-dashboard/earnings">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Toplam Kazanç</CardTitle>
+                                <DollarSign className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">15,231.89 TL</div>
+                                <p className="text-xs text-muted-foreground">Geçen aydan +%20.1</p>
+                            </CardContent>
+                        </Link>
+                    </Card>
+                     <Card className="hover:bg-muted/50 transition-colors">
+                         <Link href="/tailor-dashboard/jobs">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Bekleyen İşler</CardTitle>
+                                <Briefcase className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">+12</div>
+                                <p className="text-xs text-muted-foreground">Yeni tadilat talebi</p>
+                            </CardContent>
+                        </Link>
+                    </Card>
+                    <Card className="hover:bg-muted/50 transition-colors">
+                        <Link href="/tailor-dashboard/jobs">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Tamamlanan İşler (Ay)</CardTitle>
+                                <PackageCheck className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">238</div>
+                                <p className="text-xs text-muted-foreground">Toplamda 1543 iş tamamlandı</p>
+                            </CardContent>
+                        </Link>
+                    </Card>
                     <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Toplam Kazanç</CardTitle>
-                            <DollarSign className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">15,231.89 TL</div>
-                            <p className="text-xs text-muted-foreground">Geçen aydan +%20.1</p>
-                        </CardContent>
-                    </Card>
-                        <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Bekleyen İşler</CardTitle>
-                            <Briefcase className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">+12</div>
-                            <p className="text-xs text-muted-foreground">Yeni tadilat talebi</p>
-                        </CardContent>
-                    </Card>
-                        <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Tamamlanan İşler (Ay)</CardTitle>
-                            <PackageCheck className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">238</div>
-                            <p className="text-xs text-muted-foreground">Toplamda 1543 iş tamamlandı</p>
-                        </CardContent>
-                    </Card>
-                        <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium">TerzinGo Komisyonu</CardTitle>
                             <Percent className="h-4 w-4 text-muted-foreground" />
@@ -177,12 +175,15 @@ export default function TailorDashboardPage() {
                     </Card>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                        <Card className="md:col-span-2">
-                        <CardHeader>
+                    <Card className="md:col-span-2">
+                        <CardHeader className="flex items-center justify-between">
                             <CardTitle>Aylık Kazanç Grafiği</CardTitle>
+                             <Button variant="link" asChild>
+                                <Link href="/tailor-dashboard/earnings">Tümünü Gör <ExternalLink className="h-4 w-4 ml-2"/></Link>
+                            </Button>
                         </CardHeader>
                         <CardContent className="pl-2">
-                                <ResponsiveContainer width="100%" height={350}>
+                            <ResponsiveContainer width="100%" height={350}>
                                 <RechartsBarChart data={chartData}>
                                     <XAxis dataKey="month" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
                                     <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value} TL`} />
@@ -191,10 +192,12 @@ export default function TailorDashboardPage() {
                             </ResponsiveContainer>
                         </CardContent>
                     </Card>
-                        <Card>
-                        <CardHeader>
+                    <Card>
+                        <CardHeader className="flex items-center justify-between">
                             <CardTitle>Son İşlemler</CardTitle>
-                            <CardDescription>Atölyenize gelen son 3 iş.</CardDescription>
+                             <Button variant="link" asChild>
+                                <Link href="/tailor-dashboard/jobs">Tümünü Gör <ExternalLink className="h-4 w-4 ml-2"/></Link>
+                            </Button>
                         </CardHeader>
                         <CardContent>
                             <Table>
@@ -208,8 +211,11 @@ export default function TailorDashboardPage() {
                                 </TableHeader>
                                 <TableBody>
                                     {recentJobs.map(job => (
-                                        <TableRow key={job.id}>
-                                            <TableCell>{job.customer}</TableCell>
+                                        <TableRow key={job.id} onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)} className="cursor-pointer">
+                                            <TableCell>
+                                                <div className="font-medium">{job.customer}</div>
+                                                <div className="text-xs text-muted-foreground">{job.id}</div>
+                                            </TableCell>
                                             <TableCell>{job.item}</TableCell>
                                             <TableCell>{getStatusBadge(job.status)}</TableCell>
                                             <TableCell className="text-right">{job.date}</TableCell>
