@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -18,6 +17,7 @@ import React from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Textarea } from '@/components/ui/textarea';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 function ApplicationForm() {
   const { toast } = useToast();
@@ -112,8 +112,7 @@ function ApplicationForm() {
   );
 }
 
-
-export default function TailorLoginPage() {
+function LoginForm() {
   const router = useRouter();
 
   const handleLogin = (e: React.FormEvent) => {
@@ -122,70 +121,76 @@ export default function TailorLoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-            <Link href="/" aria-label="Anasayfa">
-              <h1 className="text-4xl font-bold font-headline tracking-tight text-gray-900 dark:text-gray-100">
-                Terzin<span className="text-primary">Go</span>
-              </h1>
-            </Link>
-            <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 font-headline">
-              İş Ortağı Platformu
-            </h2>
+      <form onSubmit={handleLogin}>
+        <CardHeader className="space-y-1 px-0">
+          <CardTitle className="text-2xl">Giriş Yap</CardTitle>
+          <CardDescription>
+            İşletmenizi yönetmek için panele giriş yapın.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4 px-0">
+          <div className="space-y-2">
+            <Label htmlFor="username">Kullanıcı Adı</Label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input id="username" placeholder="ornek_terzi" defaultValue="ornek_terzi" required className="pl-10" />
+              </div>
           </div>
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-            <div className="lg:col-span-2 w-full max-w-md mx-auto lg:mx-0">
-                 <div className="mb-6">
-                     <h3 className="text-2xl font-bold font-headline">Zaten İş Ortağı mısınız?</h3>
-                     <p className="text-muted-foreground mt-1">İşletmenizi yönetmek için panele giriş yapın.</p>
-                 </div>
-              <Card>
-                <form onSubmit={handleLogin}>
-                  <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl">Giriş Yap</CardTitle>
-                    <CardDescription>
-                      Demo panele erişmek için aşağıdaki bilgileri kullanın.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="username">Kullanıcı Adı</Label>
-                       <div className="relative">
-                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                          <Input id="username" placeholder="ornek_terzi" defaultValue="ornek_terzi" required className="pl-10" />
-                       </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="password">Şifre</Label>
-                      <div className="relative">
-                          <Key className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                          <Input id="password" type="password" required defaultValue="sifre123" className="pl-10" />
-                      </div>
-                    </div>
-                  </CardContent>
-                  <CardFooter className="flex flex-col gap-4">
-                    <Button className="w-full" type="submit">
-                      Giriş Yap
-                    </Button>
-                  </CardFooter>
-                </form>
-              </Card>
+          <div className="space-y-2">
+            <Label htmlFor="password">Şifre</Label>
+            <div className="relative">
+                <Key className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input id="password" type="password" required defaultValue="sifre123" className="pl-10" />
             </div>
+          </div>
+        </CardContent>
+        <CardContent className="px-0">
+            <Button className="w-full" type="submit">Giriş Yap</Button>
+        </CardContent>
+      </form>
+  )
+}
 
-            <div className="lg:col-span-3 w-full">
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle className="text-3xl font-headline">Terzin<span className="text-primary">Go</span> İş Ortağı Olun</CardTitle>
-                  <CardDescription>İşletmenizi dijital dünyaya taşıyın, binlerce yeni müşteriye ulaşın!</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <ApplicationForm />
-                </CardContent>
-              </Card>
-            </div>
-        </div>
+
+export default function TailorLoginPage() {
+
+  return (
+    <div className="min-h-screen w-full bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="text-center mb-8">
+          <Link href="/" aria-label="Anasayfa">
+            <h1 className="text-4xl font-bold font-headline tracking-tight text-gray-900 dark:text-gray-100">
+              Terzin<span className="text-primary">Go</span>
+            </h1>
+          </Link>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 font-headline">
+            İş Ortağı Platformu
+          </h2>
       </div>
+      
+      <Tabs defaultValue="login" className="w-full max-w-2xl">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="login">Giriş Yap</TabsTrigger>
+          <TabsTrigger value="register">İş Ortağı Ol</TabsTrigger>
+        </TabsList>
+        <TabsContent value="login">
+          <Card>
+            <CardContent className="pt-6">
+              <LoginForm />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="register">
+          <Card>
+            <CardHeader>
+                <CardTitle className="text-3xl font-headline">Terzin<span className="text-primary">Go</span> İş Ortağı Olun</CardTitle>
+                <CardDescription>İşletmenizi dijital dünyaya taşıyın, binlerce yeni müşteriye ulaşın!</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <ApplicationForm />
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

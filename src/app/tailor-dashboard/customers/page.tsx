@@ -1,3 +1,4 @@
+'use client'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Briefcase, DollarSign, File, ListFilter, MoreHorizontal, Package, Search, Users } from "lucide-react";
 import Link from "next/link";
-import TailorLayout from "../layout";
+import { useRouter } from "next/navigation";
 
 const customers = [
     {
@@ -40,85 +41,87 @@ const customers = [
 ];
 
 export default function TailorCustomersPage() {
+    const router = useRouter();
+
     return (
-        <TailorLayout>
-            <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-                <Card>
-                    <CardHeader className="flex flex-row items-center">
-                        <div className="grid gap-2">
-                             <CardTitle className="text-2xl font-bold">Müşteriler</CardTitle>
-                             <CardDescription>Müşteri listenizi ve işlem geçmişlerini görüntüleyin.</CardDescription>
-                        </div>
-                        <div className="ml-auto flex items-center gap-2">
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="sm" className="h-7 gap-1">
-                                        <ListFilter className="h-3.5 w-3.5" />
-                                        <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Filtrele</span>
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                    <DropdownMenuItem>En Yeni</DropdownMenuItem>
-                                    <DropdownMenuItem>En Çok İşlem</DropdownMenuItem>
-                                    <DropdownMenuItem>En Yüksek Harcama</DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                            <Button size="sm" variant="outline" className="h-7 gap-1">
-                                <File className="h-3.5 w-3.5" />
-                                <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Dışa Aktar</span>
-                            </Button>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>Müşteri</TableHead>
-                                    <TableHead>Toplam İş</TableHead>
-                                    <TableHead>Toplam Harcama</TableHead>
-                                    <TableHead>Müşteri Tarihi</TableHead>
-                                    <TableHead><span className="sr-only">Eylemler</span></TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {customers.map(customer => (
-                                    <TableRow key={customer.id}>
-                                        <TableCell>
-                                            <div className="flex items-center gap-4">
-                                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                                    <AvatarImage src={customer.avatar} alt={customer.name} />
-                                                    <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
-                                                </Avatar>
-                                                <div className="grid gap-1">
-                                                    <p className="text-sm font-medium leading-none">{customer.name}</p>
-                                                    <p className="text-sm text-muted-foreground">{customer.email}</p>
-                                                </div>
+        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+            <Card>
+                <CardHeader className="flex flex-row items-center">
+                    <div className="grid gap-2">
+                         <CardTitle className="text-2xl font-bold">Müşteriler</CardTitle>
+                         <CardDescription>Müşteri listenizi ve işlem geçmişlerini görüntüleyin.</CardDescription>
+                    </div>
+                    <div className="ml-auto flex items-center gap-2">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="sm" className="h-7 gap-1">
+                                    <ListFilter className="h-3.5 w-3.5" />
+                                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Filtrele</span>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuItem>En Yeni</DropdownMenuItem>
+                                <DropdownMenuItem>En Çok İşlem</DropdownMenuItem>
+                                <DropdownMenuItem>En Yüksek Harcama</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                        <Button asChild size="sm" variant="outline" className="h-7 gap-1">
+                           <Link href="/tailor-dashboard/customers">
+                             <File className="h-3.5 w-3.5" />
+                             <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Dışa Aktar</span>
+                           </Link>
+                        </Button>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Müşteri</TableHead>
+                                <TableHead>Toplam İş</TableHead>
+                                <TableHead>Toplam Harcama</TableHead>
+                                <TableHead>Müşteri Tarihi</TableHead>
+                                <TableHead><span className="sr-only">Eylemler</span></TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {customers.map(customer => (
+                                <TableRow key={customer.id} className="cursor-pointer" onClick={() => router.push('/tailor-dashboard/customers')}>
+                                    <TableCell>
+                                        <div className="flex items-center gap-4">
+                                            <Avatar className="hidden h-9 w-9 sm:flex">
+                                                <AvatarImage src={customer.avatar} alt={customer.name} />
+                                                <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
+                                            </Avatar>
+                                            <div className="grid gap-1">
+                                                <p className="text-sm font-medium leading-none">{customer.name}</p>
+                                                <p className="text-sm text-muted-foreground">{customer.email}</p>
                                             </div>
-                                        </TableCell>
-                                        <TableCell>{customer.totalJobs}</TableCell>
-                                        <TableCell>{customer.totalSpent}</TableCell>
-                                        <TableCell>{customer.since}</TableCell>
-                                        <TableCell>
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger asChild>
-                                                    <Button aria-haspopup="true" size="icon" variant="ghost">
-                                                        <MoreHorizontal className="h-4 w-4" />
-                                                        <span className="sr-only">Menüyü aç</span>
-                                                    </Button>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent align="end">
-                                                    <DropdownMenuItem>Detayları Gör</DropdownMenuItem>
-                                                    <DropdownMenuItem>Mesaj Gönder</DropdownMenuItem>
-                                                </DropdownMenuContent>
-                                            </DropdownMenu>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </CardContent>
-                </Card>
-            </main>
-        </TailorLayout>
+                                        </div>
+                                    </TableCell>
+                                    <TableCell>{customer.totalJobs}</TableCell>
+                                    <TableCell>{customer.totalSpent}</TableCell>
+                                    <TableCell>{customer.since}</TableCell>
+                                    <TableCell>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button aria-haspopup="true" size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
+                                                    <MoreHorizontal className="h-4 w-4" />
+                                                    <span className="sr-only">Menüyü aç</span>
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuItem>Detayları Gör</DropdownMenuItem>
+                                                <DropdownMenuItem>Mesaj Gönder</DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </Card>
+        </main>
     )
 }

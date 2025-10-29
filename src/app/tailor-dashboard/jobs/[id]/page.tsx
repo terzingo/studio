@@ -1,13 +1,13 @@
+'use client'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
-import { Check, CircleDot, File, Send, SewingPin, Truck, Upload } from "lucide-react"
+import { Check, CircleDot, Mail, Truck, Upload, Scissors } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import TailorLayout from "../../layout"
 
 const mockJobDetails = {
     'TAD004': {
@@ -82,7 +82,7 @@ const getStatusBadge = (status: string) => {
 }
 
 export default function TailorJobDetailPage({ params }: { params: { id: string } }) {
-    const job = mockJobDetails[params.id as keyof typeof mockJobDetails];
+    const job = mockJobDetails[params.id as keyof typeof mockJobDetails] || Object.values(mockJobDetails)[0];
 
     if (!job) {
         notFound();
@@ -92,95 +92,92 @@ export default function TailorJobDetailPage({ params }: { params: { id: string }
     const afterImage = job.afterImageId ? PlaceHolderImages.find(img => img.id === job.afterImageId) : null;
 
     return (
-        <TailorLayout>
-            <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-                <Card>
-                    <CardHeader>
-                        <div className="flex justify-between items-start">
-                            <div>
-                                <CardTitle className="text-3xl font-headline">İş Detayı: #{job.id}</CardTitle>
-                                <CardDescription>
-                                    Müşteri: 
-                                    <Link href={`/tailor-dashboard/customers/${job.customerId}`} className="text-primary hover:underline ml-1">{job.customer}</Link>
-                                    | Talep Tarihi: {job.dateReceived}
-                                </CardDescription>
-                            </div>
-                            {getStatusBadge(job.status)}
+        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+            <Card>
+                <CardHeader>
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <CardTitle className="text-3xl font-headline">İş Detayı: #{job.id}</CardTitle>
+                            <CardDescription>
+                                Müşteri: 
+                                <Link href={`/tailor-dashboard/customers`} className="text-primary hover:underline ml-1">{job.customer}</Link>
+                                | Talep Tarihi: {job.dateReceived}
+                            </CardDescription>
                         </div>
-                    </CardHeader>
-                    <CardContent className="grid md:grid-cols-3 gap-8">
-                        <div className="md:col-span-2 space-y-8">
-                            <div>
-                                <h3 className="font-semibold text-lg mb-4">İş Zaman Tüneli</h3>
-                                {job.timeline.map((event, index) => (
-                                     <div key={index} className="flex gap-4">
-                                        <div className="flex flex-col items-center">
-                                            <div className={`flex h-8 w-8 items-center justify-center rounded-full ${event.completed ? 'bg-primary text-primary-foreground' : 'border bg-muted'}`}>
-                                                {event.completed ? <Check className="h-5 w-5" /> : <CircleDot className="h-5 w-5" />}
-                                            </div>
-                                            {index < job.timeline.length - 1 && <div className="w-px flex-1 bg-border" />}
+                        {getStatusBadge(job.status)}
+                    </div>
+                </CardHeader>
+                <CardContent className="grid md:grid-cols-3 gap-8">
+                    <div className="md:col-span-2 space-y-8">
+                        <div>
+                            <h3 className="font-semibold text-lg mb-4">İş Zaman Tüneli</h3>
+                            {job.timeline.map((event, index) => (
+                                 <div key={index} className="flex gap-4">
+                                    <div className="flex flex-col items-center">
+                                        <div className={`flex h-8 w-8 items-center justify-center rounded-full ${event.completed ? 'bg-primary text-primary-foreground' : 'border bg-muted'}`}>
+                                            {event.completed ? <Check className="h-5 w-5" /> : <CircleDot className="h-5 w-5" />}
                                         </div>
-                                        <div className="pb-8">
-                                            <p className="font-semibold">{event.status}</p>
-                                            <p className="text-sm text-muted-foreground">{event.date}</p>
-                                        </div>
+                                        {index < job.timeline.length - 1 && <div className="w-px flex-1 bg-border" />}
                                     </div>
-                                ))}
-                            </div>
-                             <Separator />
-                            <div>
-                                <h3 className="font-semibold text-lg mb-4">Öncesi & Sonrası</h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {beforeImage && (
-                                        <div>
-                                            <h4 className="text-center font-medium mb-2">Müşterinin Gönderdiği</h4>
-                                            <Image src={beforeImage.imageUrl} alt="Tadilat öncesi" width={400} height={500} className="rounded-lg object-cover" data-ai-hint={beforeImage.imageHint}/>
+                                    <div className="pb-8">
+                                        <p className="font-semibold">{event.status}</p>
+                                        <p className="text-sm text-muted-foreground">{event.date}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                         <Separator />
+                        <div>
+                            <h3 className="font-semibold text-lg mb-4">Öncesi & Sonrası</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {beforeImage && (
+                                    <div>
+                                        <h4 className="text-center font-medium mb-2">Müşterinin Gönderdiği</h4>
+                                        <Image src={beforeImage.imageUrl} alt="Tadilat öncesi" width={400} height={500} className="rounded-lg object-cover" data-ai-hint={beforeImage.imageHint}/>
+                                    </div>
+                                )}
+                                <div>
+                                    <h4 className="text-center font-medium mb-2">Tamamlanmış Hali</h4>
+                                    {afterImage ? (
+                                        <Image src={afterImage.imageUrl} alt="Tadilat sonrası" width={400} height={500} className="rounded-lg object-cover" data-ai-hint={afterImage.imageHint} />
+                                    ) : (
+                                        <div className="flex flex-col items-center justify-center h-full aspect-square border-2 border-dashed rounded-lg text-center p-4">
+                                            <p className="text-muted-foreground mb-2">İş tamamlandıktan sonra fotoğraf yükleyin.</p>
+                                            <Button variant="outline"><Upload className="mr-2 h-4 w-4"/> Fotoğraf Yükle</Button>
                                         </div>
                                     )}
-                                    <div>
-                                        <h4 className="text-center font-medium mb-2">Tamamlanmış Hali</h4>
-                                        {afterImage ? (
-                                            <Image src={afterImage.imageUrl} alt="Tadilat sonrası" width={400} height={500} className="rounded-lg object-cover" data-ai-hint={afterImage.imageHint} />
-                                        ) : (
-                                            <div className="flex flex-col items-center justify-center h-full aspect-square border-2 border-dashed rounded-lg text-center p-4">
-                                                <p className="text-muted-foreground mb-2">İş tamamlandıktan sonra fotoğraf yükleyin.</p>
-                                                <Button variant="outline"><Upload className="mr-2 h-4 w-4"/> Fotoğraf Yükle</Button>
-                                            </div>
-                                        )}
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="md:col-span-1 space-y-6">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="text-lg">İşlem ve Ücret</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="font-semibold">{job.item}</p>
-                                    <p className="text-3xl font-bold mt-2">{job.price}</p>
-                                     <div className="flex gap-2 mt-4">
-                                        <Button className="w-full">İşi Onayla</Button>
-                                        <Button variant="destructive" className="w-full">İptal Et</Button>
-                                     </div>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader><CardTitle className="text-lg">Müşteri Notları</CardTitle></CardHeader>
-                                <CardContent><p className="text-sm text-muted-foreground">{job.notesFromCustomer}</p></CardContent>
-                            </Card>
-                             <Card>
-                                <CardHeader><CardTitle className="text-lg">Müşteriye Mesaj</CardTitle></CardHeader>
-                                <CardContent className="space-y-2">
-                                     <p className="text-sm text-muted-foreground">{job.notesToCustomer || "Müşteriye henüz bir not göndermediniz."}</p>
-                                     <Button className="w-full"><Send className="mr-2 h-4 w-4" />Mesaj Gönder</Button>
-                                     <Button variant="outline" className="w-full"><File className="mr-2 h-4 w-4" />Fatura Oluştur</Button>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </CardContent>
-                </Card>
-            </main>
-        </TailorLayout>
+                    </div>
+                    <div className="md:col-span-1 space-y-6">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="text-lg">İşlem ve Ücret</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="font-semibold">{job.item}</p>
+                                <p className="text-3xl font-bold mt-2">{job.price}</p>
+                                 <div className="flex gap-2 mt-4">
+                                    <Button className="w-full">İşi Onayla</Button>
+                                    <Button variant="destructive" className="w-full">İptal Et</Button>
+                                 </div>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader><CardTitle className="text-lg">Müşteri Notları</CardTitle></CardHeader>
+                            <CardContent><p className="text-sm text-muted-foreground">{job.notesFromCustomer}</p></CardContent>
+                        </Card>
+                         <Card>
+                            <CardHeader><CardTitle className="text-lg">Müşteriye Mesaj</CardTitle></CardHeader>
+                            <CardContent className="space-y-2">
+                                 <p className="text-sm text-muted-foreground">{job.notesToCustomer || "Müşteriye henüz bir not göndermediniz."}</p>
+                                 <Button className="w-full"><Mail className="mr-2 h-4 w-4" />Mesaj Gönder</Button>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </CardContent>
+            </Card>
+        </main>
     )
 }

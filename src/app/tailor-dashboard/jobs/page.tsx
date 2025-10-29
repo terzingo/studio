@@ -8,7 +8,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import TailorLayout from "../layout";
 
 const allJobs = [
     { id: 'TAD004', customer: 'Ahmet Çelik', item: 'Takım Elbise Paça', status: 'Beklemede', date: '04.08.2024' },
@@ -34,83 +33,85 @@ export default function TailorJobsPage() {
     const router = useRouter();
 
     return (
-        <TailorLayout>
-            <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-                 <Card>
-                    <CardHeader className="flex flex-row items-center">
-                        <div className="grid gap-2">
-                            <CardTitle className="text-2xl font-bold">İşler</CardTitle>
-                            <CardDescription>Atölyenize gelen tüm tadilat işlerini yönetin.</CardDescription>
-                        </div>
-                        <div className="ml-auto flex items-center gap-2">
-                             <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                <Button variant="outline" size="sm" className="h-7 gap-1">
-                                    <ListFilter className="h-3.5 w-3.5" />
-                                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Filtrele</span>
-                                </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                    <DropdownMenuLabel>Duruma Göre</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem>Beklemede</DropdownMenuItem>
-                                    <DropdownMenuItem>İşleme Alındı</DropdownMenuItem>
-                                    <DropdownMenuItem>Tamamlandı</DropdownMenuItem>
-                                     <DropdownMenuItem>Teslim Edildi</DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                             <Button size="sm" variant="outline" className="h-7 gap-1">
+        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+             <Card>
+                <CardHeader className="flex flex-row items-center">
+                    <div className="grid gap-2">
+                        <CardTitle className="text-2xl font-bold">İşler</CardTitle>
+                        <CardDescription>Atölyenize gelen tüm tadilat işlerini yönetin.</CardDescription>
+                    </div>
+                    <div className="ml-auto flex items-center gap-2">
+                         <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                            <Button variant="outline" size="sm" className="h-7 gap-1">
+                                <ListFilter className="h-3.5 w-3.5" />
+                                <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Filtrele</span>
+                            </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Duruma Göre</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>Beklemede</DropdownMenuItem>
+                                <DropdownMenuItem>İşleme Alındı</DropdownMenuItem>
+                                <DropdownMenuItem>Tamamlandı</DropdownMenuItem>
+                                 <DropdownMenuItem>Teslim Edildi</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                         <Button asChild size="sm" variant="outline" className="h-7 gap-1">
+                            <Link href="/tailor-dashboard/jobs">
                                 <File className="h-3.5 w-3.5" />
                                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Dışa Aktar</span>
-                            </Button>
-                            <Button size="sm" className="h-7 gap-1">
+                            </Link>
+                        </Button>
+                        <Button asChild size="sm" className="h-7 gap-1">
+                            <Link href="/tailor-dashboard/jobs">
                                 <PlusCircle className="h-3.5 w-3.5" />
                                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Yeni İş Ekle</span>
-                            </Button>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>İş Kodu</TableHead>
-                                    <TableHead>Müşteri</TableHead>
-                                    <TableHead>Ürün</TableHead>
-                                    <TableHead>Durum</TableHead>
-                                    <TableHead>Tarih</TableHead>
-                                    <TableHead><span className="sr-only">Eylemler</span></TableHead>
+                            </Link>
+                        </Button>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>İş Kodu</TableHead>
+                                <TableHead>Müşteri</TableHead>
+                                <TableHead>Ürün</TableHead>
+                                <TableHead>Durum</TableHead>
+                                <TableHead>Tarih</TableHead>
+                                <TableHead><span className="sr-only">Eylemler</span></TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {allJobs.map(job => (
+                                <TableRow key={job.id} onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)} className="cursor-pointer">
+                                    <TableCell className="font-medium">{job.id}</TableCell>
+                                    <TableCell>{job.customer}</TableCell>
+                                    <TableCell>{job.item}</TableCell>
+                                    <TableCell>{getStatusBadge(job.status)}</TableCell>
+                                    <TableCell>{job.date}</TableCell>
+                                    <TableCell>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button aria-haspopup="true" size="icon" variant="ghost">
+                                                    <MoreHorizontal className="h-4 w-4" />
+                                                    <span className="sr-only">Menüyü aç</span>
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuItem onClick={(e) => {e.stopPropagation(); router.push(`/tailor-dashboard/jobs/${job.id}`)}}>Detayları Gör</DropdownMenuItem>
+                                                <DropdownMenuItem onClick={(e) => e.stopPropagation()}>Durumu Güncelle</DropdownMenuItem>
+                                                <DropdownMenuItem className="text-red-600" onClick={(e) => e.stopPropagation()}>İşi İptal Et</DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
                                 </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {allJobs.map(job => (
-                                    <TableRow key={job.id} onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)} className="cursor-pointer">
-                                        <TableCell className="font-medium">{job.id}</TableCell>
-                                        <TableCell>{job.customer}</TableCell>
-                                        <TableCell>{job.item}</TableCell>
-                                        <TableCell>{getStatusBadge(job.status)}</TableCell>
-                                        <TableCell>{job.date}</TableCell>
-                                        <TableCell>
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger asChild>
-                                                    <Button aria-haspopup="true" size="icon" variant="ghost">
-                                                        <MoreHorizontal className="h-4 w-4" />
-                                                        <span className="sr-only">Menüyü aç</span>
-                                                    </Button>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent align="end">
-                                                    <DropdownMenuItem>Detayları Gör</DropdownMenuItem>
-                                                    <DropdownMenuItem>Durumu Güncelle</DropdownMenuItem>
-                                                    <DropdownMenuItem className="text-red-600">İşi İptal Et</DropdownMenuItem>
-                                                </DropdownMenuContent>
-                                            </DropdownMenu>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </CardContent>
-                 </Card>
-            </main>
-        </TailorLayout>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+             </Card>
+        </main>
     )
 }
