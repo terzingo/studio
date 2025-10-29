@@ -1,17 +1,15 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import Autoplay from "embla-carousel-autoplay"
 
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Briefcase, Store, Users } from 'lucide-react';
+import { Briefcase, Store, Users, Shirt } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
@@ -19,50 +17,32 @@ export default function Home() {
   const topRowProducts = products.slice(0, Math.ceil(products.length / 2));
   const bottomRowProducts = products.slice(Math.ceil(products.length / 2));
   
-  const heroImages = PlaceHolderImages.filter(img => ['hero-1', 'hero-2', 'hero-3', 'hero-4'].includes(img.id));
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  )
-
   return (
     <div className="flex flex-col min-h-screen">
-       <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
-        <Carousel
-          plugins={[plugin.current]}
-          className="absolute inset-0 w-full h-full"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
-        >
-          <CarouselContent className="h-full">
-            {heroImages.map((heroImage, index) => (
-              <CarouselItem key={heroImage.id} className="h-full">
-                <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={heroImage.imageHint}
-                  priority={index === 0}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 p-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">
-            İnternetten Aldığınız Kıyafetler Üstünüze Olmuyor mu?
-          </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-            Terzin<span className="text-primary">Go</span> ile iade derdine son! Anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın Terzin<span className="text-primary">Go</span> noktasında ücretsiz olarak tadilat yaptırın.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="font-bold">
-              <a href="/#how-it-works">Nasıl Çalışır?</a>
-            </Button>
-            <Button asChild size="lg" variant="secondary" className="font-bold">
-              <Link href="/points">Tüm Noktaları Gör</Link>
-            </Button>
+       <section className="w-full py-16 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight">
+                  İnternetten Aldığınız Kıyafetler Üstünüze Olmuyor mu?
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  Terzin<span className="text-primary">Go</span> ile iade derdine son! Anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın Terzin<span className="text-primary">Go</span> noktasında ücretsiz olarak tadilat yaptırın.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                 <Button asChild size="lg" className="font-bold">
+                    <a href="/#how-it-works">Nasıl Çalışır?</a>
+                  </Button>
+                  <Button asChild size="lg" variant="secondary" className="font-bold">
+                    <Link href="/points">Tüm Noktaları Gör</Link>
+                  </Button>
+              </div>
+            </div>
+             <div className="flex items-center justify-center">
+              <Shirt className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 text-primary/10" strokeWidth={0.5} />
+            </div>
           </div>
         </div>
       </section>
