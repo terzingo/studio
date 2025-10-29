@@ -65,7 +65,6 @@ export default function TailorDashboardPage() {
       <aside className="hidden w-64 flex-col border-r bg-background sm:flex">
         <div className="border-b p-4">
             <Link href="/" className="flex items-center gap-2 font-semibold">
-                <Image src="/logo.png" alt="TerzinGo" width={30} height={30} />
                 <span className="font-headline text-lg">Terzin<span className="text-primary">Go</span></span>
             </Link>
         </div>
@@ -331,5 +330,3 @@ export default function TailorDashboardPage() {
     </div>
   )
 }
-
-    
