@@ -1,10 +1,11 @@
 
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { CheckCircle, Circle, SewingPin, Truck } from "lucide-react";
+import { CheckCircle, Circle, Scissors, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -18,8 +19,8 @@ const mockAlterationDetails = {
         tailorId: 'ahmet-yilmaz',
         status: 'Terzide',
         productImageId: 'product-5',
-        beforeImageId: 'alteration-before-1',
-        afterImageId: 'alteration-after-1',
+        beforeImageId: 'portfolio-7',
+        afterImageId: 'product-5',
         timeline: [
             { status: 'Teslim Alındı', date: '24.07.2024 14:30', completed: true },
             { status: 'Tadilat Başladı', date: '25.07.2024 10:00', completed: true },
@@ -35,13 +36,13 @@ const mockAlterationDetails = {
         tailorId: 'fatma-demir',
         status: 'Tamamlandı',
         productImageId: 'product-3',
-        beforeImageId: 'alteration-before-2',
-        afterImageId: 'alteration-after-2',
+        beforeImageId: 'portfolio-8',
+        afterImageId: 'product-3',
         timeline: [
             { status: 'Teslim Alındı', date: '16.07.2024 11:00', completed: true },
             { status: 'Tadilat Başladı', date: '17.07.2024 09:15', completed: true },
             { status: 'Tamamlandı', date: '18.07.2024 17:00', completed: true },
-            { status: 'Teslime Hazır', date: '18.07.2024 17:05', completed: false },
+            { status: 'Teslime Hazır', date: '18.07.2024 17:05', completed: true },
         ],
         notes: "Elbise boyu 5cm kısaltıldı ve yanlardan pens atıldı."
     },
@@ -52,8 +53,8 @@ const mockAlterationDetails = {
         tailorId: 'kenan-erkin',
         status: 'Teslim Alındı',
         productImageId: 'product-4',
-        beforeImageId: 'alteration-before-3',
-        afterImageId: 'alteration-after-3',
+        beforeImageId: 'portfolio-6',
+        afterImageId: 'product-4',
         timeline: [
             { status: 'Teslim Alındı', date: '10.07.2024 16:00', completed: true },
             { status: 'Tadilat Başladı', date: '11.07.2024 11:30', completed: true },
@@ -85,8 +86,8 @@ const TimelineIcon = ({ status, completed }: { status: string; completed: boolea
         className: `h-5 w-5 ${completed ? 'text-primary' : 'text-muted-foreground'}`
     };
 
-    if (status.includes('Hazır') || status.includes('Tamamlandı')) return <CheckCircle {...iconProps} />;
-    if (status.includes('Tadilat')) return <SewingPin {...iconProps} />;
+    if (status.includes('Hazır') || status.includes('Tamamlandı') || status.includes('Edildi')) return <CheckCircle {...iconProps} />;
+    if (status.includes('Tadilat')) return <Scissors {...iconProps} />;
     if (status.includes('Teslim')) return <Truck {...iconProps} />;
     return <Circle {...iconProps} />;
 };

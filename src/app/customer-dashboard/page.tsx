@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, Box, Edit, History, Settings, User } from "lucide-react"
+import { Box, Edit, Settings, User } from "lucide-react"
 import Link from "next/link"
 
 const alterations = [
@@ -102,16 +102,18 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {alterations.map(alt => (
-                                     <TableRow key={alt.id} className="cursor-pointer hover:bg-muted/50">
-                                        <TableCell className="font-medium">
-                                            <Link href={`/customer-dashboard/alterations/${alt.id}`} className="hover:underline text-primary">
-                                                {alt.id}
-                                            </Link>
-                                        </TableCell>
-                                        <TableCell>{alt.item}</TableCell>
-                                        <TableCell>{getStatusBadge(alt.status)}</TableCell>
-                                        <TableCell>{alt.tailor}</TableCell>
-                                        <TableCell className="text-right">{alt.date}</TableCell>
+                                     <TableRow key={alt.id} asChild>
+                                        <Link href={`/customer-dashboard/alterations/${alt.id}`} className="cursor-pointer">
+                                            <TableCell className="font-medium">
+                                                <span className="hover:underline text-primary">
+                                                    {alt.id}
+                                                </span>
+                                            </TableCell>
+                                            <TableCell>{alt.item}</TableCell>
+                                            <TableCell>{getStatusBadge(alt.status)}</TableCell>
+                                            <TableCell>{alt.tailor}</TableCell>
+                                            <TableCell className="text-right">{alt.date}</TableCell>
+                                        </Link>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -132,16 +134,18 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {orders.map(order => (
-                                     <TableRow key={order.id} className="cursor-pointer hover:bg-muted/50">
-                                        <TableCell className="font-medium">
-                                            <Link href={`/customer-dashboard/orders/${order.id}`} className="hover:underline text-primary">
-                                                {order.id}
-                                            </Link>
-                                        </TableCell>
-                                        <TableCell>{order.item}</TableCell>
-                                        <TableCell>{order.price}</TableCell>
-                                        <TableCell>{order.tailor}</TableCell>
-                                        <TableCell className="text-right">{order.date}</TableCell>
+                                     <TableRow key={order.id} asChild>
+                                        <Link href={`/customer-dashboard/orders/${order.id}`} className="cursor-pointer">
+                                            <TableCell className="font-medium">
+                                                <span className="hover:underline text-primary">
+                                                    {order.id}
+                                                </span>
+                                            </TableCell>
+                                            <TableCell>{order.item}</TableCell>
+                                            <TableCell>{order.price}</TableCell>
+                                            <TableCell>{order.tailor}</TableCell>
+                                            <TableCell className="text-right">{order.date}</TableCell>
+                                        </Link>
                                     </TableRow>
                                 ))}
                             </TableBody>
