@@ -12,7 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { BarChart, Briefcase, CheckCircle, ChevronDown, DollarSign, ExternalLink, FileText, Landmark, MoreHorizontal, Package, PackageCheck, Percent, Search, Send, Settings, Truck, Upload, Users } from "lucide-react"
+import { LayoutDashboard, Briefcase, DollarSign, ExternalLink, FileText, Banknote, MoreHorizontal, Package, PackageCheck, Percent, Search, Mail, Settings, Truck, Upload, Users, CircleCheck } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
@@ -60,7 +60,7 @@ export default function TailorDashboardPage() {
         <nav className="flex flex-col gap-1 p-2">
             <Button variant="ghost" className="justify-start gap-2 text-base font-normal" asChild>
                 <Link href="#">
-                    <BarChart className="h-5 w-5"/>
+                    <LayoutDashboard className="h-5 w-5"/>
                     <span>Panel</span>
                 </Link>
             </Button>

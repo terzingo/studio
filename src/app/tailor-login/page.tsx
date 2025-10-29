@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { User, Key, Send, CheckCircle } from 'lucide-react';
+import { User, Key, Mail, CircleCheck } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -42,7 +42,7 @@ function ApplicationForm() {
       <CardContent>
         {formSubmitted ? (
           <Alert variant="default" className="border-green-500 bg-green-50 text-green-900 dark:bg-green-950 dark:text-green-200">
-            <CheckCircle className="h-4 w-4 !text-green-500" />
+            <CircleCheck className="h-4 w-4 !text-green-500" />
             <AlertTitle>Başvurunuz başarıyla alındı!</AlertTitle>
             <AlertDescription>
               Ekibimiz başvurunuzu en kısa sürede inceleyip size geri dönüş yapacaktır.
@@ -107,7 +107,7 @@ function ApplicationForm() {
 
             <div className="flex justify-end">
               <Button type="submit">
-                <Send className="mr-2 h-4 w-4"/>
+                <Mail className="mr-2 h-4 w-4"/>
                 Başvuruyu Gönder
               </Button>
             </div>
