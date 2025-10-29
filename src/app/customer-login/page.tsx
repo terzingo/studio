@@ -30,17 +30,13 @@ export default function CustomerLoginPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
             <Link href="/" aria-label="Anasayfa">
-                 <Image
-                    src="/logo.png"
-                    alt="TerzinGo Logo"
-                    width={200}
-                    height={50}
-                    className="mx-auto mb-4"
-                />
+              <h1 className="text-4xl font-bold font-headline tracking-tight text-gray-900 dark:text-gray-100">
+                Terzin<span className="text-primary">Go</span>
+              </h1>
             </Link>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 font-headline">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 font-headline">
             Müşteri Paneli
-          </h1>
+          </h2>
           <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
             Tadilatlarınızı takip etmek için giriş yapın.
           </p>
@@ -83,5 +79,3 @@ export default function CustomerLoginPage() {
     </div>
   );
 }
-
-    
