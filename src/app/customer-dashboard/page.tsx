@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, Box, Edit, History, Settings, User } from "lucide-react"
+import Link from "next/link"
 
 const alterations = [
   { id: 'TAD001', item: 'Kot Pantolon', status: 'Terzide', date: '25.07.2024', tailor: 'Atölye Yılmaz' },
@@ -62,16 +63,18 @@ export default function CustomerDashboardPage() {
               <CardContent>
                 <div className="space-y-4">
                     {alterations.filter(a => a.status === 'Terzide' || a.status === 'Tamamlandı').map(alt => (
-                        <div key={alt.id} className="flex items-center justify-between p-4 border rounded-lg">
-                            <div className="flex items-center gap-4">
-                                <Box className="h-8 w-8 text-primary"/>
-                                <div>
-                                    <p className="font-semibold">{alt.item} - {alt.tailor}</p>
-                                    <p className="text-sm text-muted-foreground">Tadilat Kodu: {alt.id}</p>
+                        <Link key={alt.id} href={`/customer-dashboard/alterations/${alt.id}`} className="block transition-transform hover:scale-[1.02]">
+                            <div className="flex items-center justify-between p-4 border rounded-lg">
+                                <div className="flex items-center gap-4">
+                                    <Box className="h-8 w-8 text-primary"/>
+                                    <div>
+                                        <p className="font-semibold">{alt.item} - {alt.tailor}</p>
+                                        <p className="text-sm text-muted-foreground">Tadilat Kodu: {alt.id}</p>
+                                    </div>
                                 </div>
+                                {getStatusBadge(alt.status)}
                             </div>
-                            {getStatusBadge(alt.status)}
-                        </div>
+                        </Link>
                     ))}
                     {alterations.filter(a => a.status === 'Terzide' || a.status === 'Tamamlandı').length === 0 && (
                         <p className="text-muted-foreground text-center py-4">Şu anda aktif bir tadilatınız bulunmuyor.</p>
@@ -99,8 +102,12 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {alterations.map(alt => (
-                                     <TableRow key={alt.id}>
-                                        <TableCell className="font-medium">{alt.id}</TableCell>
+                                     <TableRow key={alt.id} className="cursor-pointer hover:bg-muted/50">
+                                        <TableCell className="font-medium">
+                                            <Link href={`/customer-dashboard/alterations/${alt.id}`} className="hover:underline text-primary">
+                                                {alt.id}
+                                            </Link>
+                                        </TableCell>
                                         <TableCell>{alt.item}</TableCell>
                                         <TableCell>{getStatusBadge(alt.status)}</TableCell>
                                         <TableCell>{alt.tailor}</TableCell>
@@ -125,8 +132,12 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {orders.map(order => (
-                                     <TableRow key={order.id}>
-                                        <TableCell className="font-medium">{order.id}</TableCell>
+                                     <TableRow key={order.id} className="cursor-pointer hover:bg-muted/50">
+                                        <TableCell className="font-medium">
+                                            <Link href={`/customer-dashboard/orders/${order.id}`} className="hover:underline text-primary">
+                                                {order.id}
+                                            </Link>
+                                        </TableCell>
                                         <TableCell>{order.item}</TableCell>
                                         <TableCell>{order.price}</TableCell>
                                         <TableCell>{order.tailor}</TableCell>
@@ -196,5 +207,3 @@ export default function CustomerDashboardPage() {
     </div>
   )
 }
-
-    
