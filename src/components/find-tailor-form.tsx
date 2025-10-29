@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Select,
@@ -66,9 +65,8 @@ export function FindTailorForm() {
       <div className="container mx-auto px-4 md:px-6">
         <Card className="max-w-4xl mx-auto shadow-2xl -mt-48 relative z-20">
           <CardHeader>
-            <CardTitle className="text-2xl md:text-3xl font-bold font-headline text-center flex justify-center items-center flex-col gap-2">
-               <Image src="/logo.png" alt="TerzinGo Logo" width={140} height={35} />
-               <span>Noktasını Bulun</span>
+            <CardTitle className="text-2xl md:text-3xl font-bold font-headline text-center">
+              Terzin<span className="text-primary">Go</span> Noktasını Bulun
             </CardTitle>
           </CardHeader>
           <CardContent>
