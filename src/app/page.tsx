@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Briefcase, Store, Users, VenetianMask, Blend } from 'lucide-react';
+import { Briefcase, Store, Users } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
@@ -28,7 +28,12 @@ const SkirtIcon = () => (
     </svg>
 );
 
-const DressIcon = VenetianMask;
+const DressIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 4l3.5 4-3.5 4-3.5-4L12 4zM4 12h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z"/>
+    </svg>
+);
+
 
 const CoatIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
@@ -94,7 +99,7 @@ const AnimatedIcon = () => {
                 delay: 0.5,
               }}
             >
-              <Icon className={`w-48 h-48 md:w-64 md:h-64 ${colorClass}`} strokeWidth={0.5} />
+              <Icon className={`w-32 h-32 md:w-48 md:h-48 ${colorClass}`} strokeWidth={0.5} />
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -112,7 +117,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
        <section className="w-full py-16 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl md:text-4xl font-bold font-headline tracking-tight">
@@ -124,7 +129,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                  <Button asChild size="lg" className="font-bold">
-                    <a href="/#how-it-works">Nasıl Çalışır?</a>
+                    <Link href="/how-it-works">Nasıl Çalışır?</Link>
                   </Button>
                   <Button asChild size="lg" variant="secondary" className="font-bold">
                     <Link href="/points">Tüm Noktaları Gör</Link>
@@ -202,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="w-full py-16 md:py-24 bg-card">
+      <section id="how-it-works-cards" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Ekosistemi</h2>
@@ -211,38 +216,42 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Users className="h-8 w-8" />
+            <Link href="/how-it-works#for-customers" className="block">
+              <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 h-full">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                  <Users className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold font-headline">Müşteriler İçin</h3>
+                <p className="mt-2 text-muted-foreground">
+                  Beden uyumsuzluğuna ve iade süreçlerine son. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-headline">Müşteriler İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Beden uyumsuzluğuna ve iade süreçlerine son. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Briefcase className="h-8 w-8" />
+            </Link>
+            <Link href="/how-it-works#for-ecommerce" className="block">
+              <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 h-full">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                  <Briefcase className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold font-headline">E-Ticaret İçin</h3>
+                <p className="mt-2 text-muted-foreground">
+                  Yüksek iade oranlarını düşürün, operasyonel maliyetleri azaltın ve müşteri memnuniyetini zirveye taşıyın.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-headline">E-Ticaret İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Yüksek iade oranlarını düşürün, operasyonel maliyetleri azaltın ve müşteri memnuniyetini zirveye taşıyın.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
-                <Store className="h-8 w-8" />
+            </Link>
+            <Link href="/how-it-works#for-tailors" className="block">
+              <div className="flex flex-col items-center text-center p-6 border rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 h-full">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mb-4">
+                  <Store className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold font-headline">Terziler İçin</h3>
+                <p className="mt-2 text-muted-foreground">
+                  Dijital ekonomiye dahil olun, yeni müşteriler kazanın ve gelirinizi artırın. Atölyeniz mahallenin gözdesi olsun.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-headline">Terziler İçin</h3>
-              <p className="mt-2 text-muted-foreground">
-                Dijital ekonomiye dahil olun, yeni müşteriler kazanın ve gelirinizi artırın. Atölyeniz mahallenin gözdesi olsun.
-              </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
-    
