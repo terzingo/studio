@@ -2,21 +2,50 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Briefcase, Store, Users, Shirt, VenetianMask, Blend } from 'lucide-react';
+import { Briefcase, Store, Users, VenetianMask, Blend } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
 
+// Custom SVG Icons for clothing items
+const ShirtIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
+  </svg>
+);
+
+const PantsIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2v20m-4-20v20M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+  </svg>
+);
+
+const SkirtIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 22h16l-3-12H7L4 22zM4 8h16a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2z"/>
+    </svg>
+);
+
+const DressIcon = VenetianMask;
+
+const CoatIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 2L12 6 8 2" />
+      <path d="M12 6V22" />
+      <path d="M8 22H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2" />
+      <path d="M16 22h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2" />
+    </svg>
+);
+
+
 const iconComponents = [
-  Shirt,
-  // Using generic icons for pants, skirt, dress, shorts, coat as they don't exist in lucide
-  () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-minus"><path d="M5 12h14"/></svg>, // Represents Pants
-  () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l6 6 6-6M4 6l6 6 6-6"/></svg>, // Represents Skirt
-  VenetianMask, // Represents Dress
-  Blend, // Represents Coat
+  ShirtIcon,
+  PantsIcon,
+  SkirtIcon,
+  DressIcon,
+  CoatIcon,
 ];
 
 const iconColors = [
@@ -85,7 +114,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 max-w-6xl mx-auto">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-4">
+              <div className="space-y-2">
                 <h1 className="text-3xl md:text-4xl font-bold font-headline tracking-tight">
                   İnternetten Aldığınız Kıyafetler Üstünüze Olmuyor mu?
                 </h1>
@@ -112,7 +141,7 @@ export default function Home() {
       <FindTailorForm />
 
       <section id="featured-products" className="w-full py-16 md:py-24 animated-gradient-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Noktalarımızdaki Ürünler</h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
@@ -139,7 +168,7 @@ export default function Home() {
       </section>
 
       <section id="featured-points" className="w-full py-16 md:py-24 bg-primary/5">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Öne Çıkan Terzin<span className="text-primary">Go</span> Noktaları</h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
@@ -160,7 +189,7 @@ export default function Home() {
       </section>
       
       <section id="for-business" className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+        <div className="container mx-auto px-4 md:px-6 text-center max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Çözüm Ortağımız Olun</h2>
             <p className="mt-4 text-muted-foreground md:text-lg max-w-3xl mx-auto">
               İade oranlarınızı düşürün, müşteri memnuniyetini artırın veya atölyenize yeni müşteriler kazandırın. Terzin<span className="text-primary">Go</span> ile işinizi büyütün.
@@ -174,7 +203,7 @@ export default function Home() {
       </section>
 
       <section id="how-it-works" className="w-full py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Ekosistemi</h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
@@ -215,3 +244,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

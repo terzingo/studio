@@ -20,7 +20,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
   const portfolioImages = tailor.portfolioImageIds.map(id => PlaceHolderImages.find(img => img.id === id)).filter(Boolean);
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12">
+    <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
       <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
           <Card className="sticky top-24">
@@ -147,3 +147,5 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
     </div>
   );
 }
+
+    

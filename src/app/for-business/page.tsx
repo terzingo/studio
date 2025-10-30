@@ -10,7 +10,7 @@ export default function ForBusinessPage() {
   const tailorImage = PlaceHolderImages.find(img => img.id === 'for-business-tailor');
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12">
+    <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">İşinizi Terzin<span className="text-primary">Go</span> ile Büyütün</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -125,7 +125,7 @@ export default function ForBusinessPage() {
             </div>
              <div className="mt-10">
                 <Button size="lg" asChild>
-                    <Link href="#">Terzin<span className="text-primary-foreground group-hover:text-black">Go</span> Noktası Olun</Link>
+                    <Link href="/tailor-login">Terzin<span className="text-primary-foreground group-hover:text-black">Go</span> Noktası Olun</Link>
                 </Button>
             </div>
           </div>
@@ -135,3 +135,5 @@ export default function ForBusinessPage() {
     </div>
   );
 }
+
+    

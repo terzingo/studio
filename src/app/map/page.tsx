@@ -39,7 +39,7 @@ export default function MapPage() {
 
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12">
+    <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">
           Terzin<span className="text-primary">Go</span> Haritası
@@ -85,3 +85,5 @@ export default function MapPage() {
     </div>
   );
 }
+
+    
