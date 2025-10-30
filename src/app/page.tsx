@@ -1,15 +1,77 @@
 'use client';
-import React from 'react';
-import Image from 'next/image';
-
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Briefcase, Store, Users, Shirt } from 'lucide-react';
+import { Briefcase, Store, Users, Shirt, VenetianMask, Blend } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
+
+const iconComponents = [
+  Shirt,
+  // Using generic icons for pants, skirt, dress, shorts, coat as they don't exist in lucide
+  () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-minus"><path d="M5 12h14"/></svg>, // Represents Pants
+  () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l6 6 6-6M4 6l6 6 6-6"/></svg>, // Represents Skirt
+  VenetianMask, // Represents Dress
+  Blend, // Represents Coat
+];
+
+const iconColors = [
+  'text-primary',
+  'text-red-400',
+  'text-green-400',
+  'text-yellow-400',
+  'text-blue-400',
+  'text-purple-400',
+];
+
+
+const AnimatedIcon = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % iconComponents.length);
+    }, 3000); // Change icon every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const Icon = iconComponents[index];
+  const colorClass = iconColors[index % iconColors.length];
+
+  return (
+     <div className="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+        <AnimatePresence>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 50, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1, transition: { duration: 0.5 } }}
+            exit={{ opacity: 0, x: -50, scale: 0.8, transition: { duration: 0.5 } }}
+            whileHover={{ scale: 1.1 }}
+            className="absolute"
+          >
+             <motion.div
+              animate={{
+                filter: ['brightness(100%)', 'brightness(150%)', 'brightness(100%)'],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'easeInOut',
+                delay: 0.5,
+              }}
+            >
+              <Icon className={`w-48 h-48 md:w-64 md:h-64 ${colorClass}`} strokeWidth={0.5} />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+  )
+}
 
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
@@ -20,14 +82,14 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
        <section className="w-full py-16 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+        <div className="container px-4 md:px-6 max-w-6xl mx-auto">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight">
+                <h1 className="text-3xl md:text-4xl font-bold font-headline tracking-tight">
                   İnternetten Aldığınız Kıyafetler Üstünüze Olmuyor mu?
                 </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                <p className="max-w-[600px] text-muted-foreground md:text-lg">
                   Terzin<span className="text-primary">Go</span> ile iade derdine son! Anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın Terzin<span className="text-primary">Go</span> noktasında ücretsiz olarak tadilat yaptırın.
                 </p>
               </div>
@@ -41,7 +103,7 @@ export default function Home() {
               </div>
             </div>
              <div className="flex items-center justify-center">
-              <Shirt className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 text-primary/10" strokeWidth={0.5} />
+              <AnimatedIcon />
             </div>
           </div>
         </div>
@@ -153,5 +215,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
