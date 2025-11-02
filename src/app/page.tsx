@@ -314,35 +314,52 @@ export default function Home() {
       {/* Hero Section - Clean & Impactful */}
       <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden">
         {/* Animated gradient background */}
-        <div className="absolute inset-0 animated-gradient-background" />
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
+          <motion.div
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%'],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)',
+              backgroundSize: '200% 200%',
+            }}
+          />
+        </div>
 
         {/* Floating geometric shapes */}
         <motion.div style={{ y: y1, opacity }} className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <motion.div style={{ y: y2, opacity }} className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-        <div className="container relative px-4 md:px-6 max-w-6xl mx-auto py-16">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="container relative px-4 md:px-6 max-w-7xl mx-auto py-16">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col justify-center space-y-6"
+              className="flex flex-col justify-center space-y-10"
             >
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 border border-primary/30 text-primary font-semibold text-sm w-fit backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-purple-500/20 border border-primary/30 text-primary font-semibold text-sm w-fit backdrop-blur-sm"
               >
                 <Sparkles className="w-5 h-5" />
                 <span>İade Derdine Son!</span>
               </motion.div>
 
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl font-bold font-headline tracking-tight leading-tight">
+              <div className="space-y-8">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight leading-[1.1]">
                   Beden Uymazsa,{' '}
-                  <span className="relative inline-block">
+                  <span className="relative inline-block mt-2">
                     <span className="relative z-10 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
                       İade Değil Tadilat
                     </span>
@@ -350,24 +367,24 @@ export default function Home() {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ delay: 0.8, duration: 0.6 }}
-                      className="absolute -bottom-1.5 left-0 right-0 h-1.5 bg-gradient-to-r from-primary/40 via-purple-600/40 to-pink-600/40 origin-left rounded-full"
+                      className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-primary/40 via-purple-600/40 to-pink-600/40 origin-left rounded-full"
                     />
                   </span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                  Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-primary">TerzinGo</span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-primary">TerziGo</span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button asChild size="lg" className="font-bold text-base h-12 shadow-lg hover:shadow-primary/40 transition-all group">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="font-bold text-lg h-14 shadow-lg hover:shadow-xl transition-all group">
                   <Link href="/how-it-works">
                     <span>Nasıl Çalışır?</span>
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="font-bold text-base h-12 border-2 hover:bg-background/80">
+                <Button asChild size="lg" variant="outline" className="font-bold text-lg h-14 border-2 hover:bg-primary/5">
                   <Link href="/for-business">
                     <Briefcase className="mr-2 w-5 h-5" />
                     İşletmeler İçin
@@ -375,13 +392,43 @@ export default function Home() {
                 </Button>
               </div>
 
+              {/* Trust indicators - Fixed with proper spacing */}
+              <div className="flex flex-wrap gap-6 pt-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="flex items-center gap-2 text-sm bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-muted-foreground font-medium">100% Ücretsiz</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex items-center gap-2 text-sm bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-muted-foreground font-medium">500+ Terzi Noktası</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex items-center gap-2 text-sm bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-muted-foreground font-medium">2-5 Gün Teslimat</span>
+                </motion.div>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center justify-center -mr-16"
+              className="flex items-center justify-center"
             >
               <AnimatedIconCarousel />
             </motion.div>
@@ -393,8 +440,8 @@ export default function Home() {
       <FindTailorForm />
 
       {/* Featured Products Section - Container constrained */}
-      <section id="featured-products" className="w-full py-20 md:py-28 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <section id="featured-products" className="w-full py-20 md:py-28 bg-gradient-to-br from-primary/5 via-purple-500/5 to-transparent relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -402,11 +449,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-             <h2 className="text-4xl md:text-5xl font-bold font-headline">
-              Noktalarımızdaki <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">İkinci El</span> Ürünler
+            <h2 className="text-4xl md:text-5xl font-bold font-headline bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              Noktalarımızdaki Ürünler
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Terzin<span className="text-primary">Go</span> noktalarında özenle seçilmiş ikinci el ve özel tasarım ürünleri keşfedin.
+              Özenle seçilmiş ikinci el ve özel tasarım ürünler
             </p>
           </motion.div>
 
@@ -431,7 +478,7 @@ export default function Home() {
       </section>
 
       {/* Featured Tailors Section */}
-      <section id="featured-points" className="w-full py-20 md:py-28 bg-muted/30">
+      <section id="featured-points" className="w-full py-20 md:py-28 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -445,7 +492,7 @@ export default function Home() {
               <span>En Popüler Noktalar</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-headline">
-              Öne Çıkan Terzin<span className="text-primary">Go</span> Noktaları
+              Öne Çıkan TerziGo Noktaları
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
               Müşterilerimizin en çok tercih ettiği profesyonel terziler
@@ -454,53 +501,122 @@ export default function Home() {
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredTailors.map((tailor, index) => (
-                <motion.div
-                    key={tailor.id}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                >
-                    <TailorCard tailor={tailor} />
-                </motion.div>
+              <motion.div
+                key={tailor.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <TailorCard tailor={tailor} />
+              </motion.div>
             ))}
           </div>
-           <div className="text-center mt-12">
-                <Button size="lg" asChild>
-                    <Link href="/points">Tüm Noktaları Gör</Link>
-                </Button>
-            </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Button asChild size="lg" className="font-bold text-lg h-14">
+              <Link href="/points">
+                Tüm Noktaları Keşfet
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-       <section className="w-full py-20 md:py-28">
-         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-            <div className="bg-primary/5 rounded-2xl p-8 md:p-12 border border-primary/20 text-center">
-                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
-                        İşinizi Büyütmeye Hazır Mısınız?
-                    </h2>
-                    <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-                        E-ticaret iade oranlarınızı düşürün veya atölyenize yeni müşteriler kazandırın. Terzin<span className="text-primary">Go</span> iş ortağı olun.
-                    </p>
-                    <div className="flex justify-center gap-4">
-                        <Button size="lg" asChild>
-                            <Link href="/for-business">E-Ticaret Çözümleri</Link>
-                        </Button>
-                        <Button size="lg" variant="secondary" asChild>
-                             <Link href="/tailor-login">Terzin<span className="text-primary">Go</span> Noktası Ol</Link>
-                        </Button>
-                    </div>
-                </motion.div>
-            </div>
-         </div>
-       </section>
+      {/* CTA Section for Businesses */}
+      <section className="relative w-full py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
+        <motion.div
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 50%)',
+            backgroundSize: '200% 200%',
+          }}
+        />
 
+        <div className="container relative mx-auto px-4 md:px-6 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold font-headline bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                E-Ticaret Firması mısınız?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                İade maliyetlerinizi <span className="font-bold text-primary">%75'e kadar azaltın</span>, müşteri memnuniyetini artırın. Bugün TerziGo ekosisteminin parçası olun.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
+                <Link href="/for-business">
+                  <Briefcase className="mr-2 w-5 h-5" />
+                  <span>İşbirliği Yap</span>
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button size="lg" asChild variant="outline" className="font-bold text-lg h-14 border-2">
+                <Link href="/how-it-works">
+                  Detaylı Bilgi Al
+                </Link>
+              </Button>
+            </div>
+
+            {/* Quick stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">%75</div>
+                <div className="text-sm text-muted-foreground">Maliyet Azalması</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">2-5</div>
+                <div className="text-sm text-muted-foreground">Gün Teslimat</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <div className="text-sm text-muted-foreground">Terzi Noktası</div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
