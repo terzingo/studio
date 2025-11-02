@@ -9,52 +9,37 @@ import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
 
-// Simple, clear and recognizable clothing icons - Updated professional versions
+// Simple, clear and recognizable clothing icons
 const TshirtIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M165 60l-10-10a30 30 0 0 0-45-20h-20a30 30 0 0 0-45 20l-10 10-15-5v30l20 5v100h100V90l20-5V55z" />
-    <path d="M100 25a22 22 0 0 1 20 15h-40a22 22 0 0 1 20-15z" opacity="0.2" fill="white" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
+        <path d="M160 50l-10-10a25 25 0 0 0-40-15h-20a25 25 0 0 0-40 15l-10 10-20-5v30l20 5v100h100V80l20-5V45z"/>
+        <path d="M100 20a20 20 0 0 1 18 12h-36a20 20 0 0 1 18-12z" opacity="0.2" fill="white"/>
+    </svg>
 );
 
 const PantsIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M55 20h90v20H55z" opacity="0.7" />
-    <path d="M55 40L65 90l-15 90h40V95a5 5 0 0 1 10 0v85h40l-15-90 10-50z" />
-    <path d="M80 50L75 80" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
-    <path d="M120 50l5 30" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
-    <path d="M100 40v55" stroke="white" strokeWidth="2" fill="none" opacity="0.3" />
-  </svg>
-);
-
-const ShortsIcon = ({ className = "" }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M50 40h100v15H50z" opacity="0.7"/>
-        <path d="M50 55l15 65h30V80a5 5 0 0 1 10 0v40h30l15-65z"/>
-        <circle cx="95" cy="47" r="3" fill="white" opacity="0.5"/>
-        <circle cx="105" cy="47" r="3" fill="white" opacity="0.5"/>
-        <path d="M90 65 l-2 15" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
-        <path d="M110 65 l2 15" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
-  </svg>
+        <path d="M60 20h80v20H60z" opacity="0.7"/>
+        <path d="M60 40L70 90l-15 90h35V95a5 5 0 0 1 10 0v85h35l-15-90 10-50z"/>
+        <path d="M100 40v55" stroke="white" strokeWidth="2" fill="none" opacity="0.3"/>
+    </svg>
 );
 
 const SkirtIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M60 40h80v15H60z" opacity="0.7" />
-    <path d="M60 55L40 160h120L140 55z" />
-    <path d="M100 55v105" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
-    <path d="M75 55L65 160" stroke="white" strokeWidth="1.5" fill="none" opacity="0.15" />
-    <path d="M125 55L135 160" stroke="white" strokeWidth="1.5" fill="none" opacity="0.15" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
+        <path d="M60 40h80v15H60z" opacity="0.7"/>
+        <path d="M60 55L40 160h120L140 55z"/>
+        <path d="M100 55v105" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
+    </svg>
 );
 
 const DressIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M65 30h70v55H65z" />
-    <path d="M65 30a20 20 0 0 0-25 0L35 50v20h15v-5h15zM135 30a20 20 0 0 1 25 0L165 50v20h-15v-5h-15z" opacity="0.7"/>
-    <path d="M50 85L30 170h140L150 85H50z" />
-    <path d="M100 25a18 18 0 0 1 15 10h-30a18 18 0 0 1 15-10z" opacity="0.2" fill="white" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
+        <path d="M60 30h80v55H60z"/>
+        <path d="M60 30a20 20 0 0 0-20 0L35 50v20h10v-5h15zM140 30a20 20 0 0 1 20 0l5 20v20h-10v-5h-15z" opacity="0.7"/>
+        <path d="M45 85L25 170h150L155 85H45z"/>
+        <path d="M100 25a18 18 0 0 1 15 10h-30a18 18 0 0 1 15-10z" opacity="0.2" fill="white"/>
+    </svg>
 );
 
 const JacketIcon = ({ className = "" }) => (
@@ -63,13 +48,8 @@ const JacketIcon = ({ className = "" }) => (
     <path d="M60 40h80v130H60z"/>
     <path d="M60 40L90 70 60 80zM140 40L110 70 140 80z" fill="white" opacity="0.15"/>
     <path d="M100 40v130" stroke="white" strokeWidth="3" opacity="0.1" />
-    <circle cx="100" cy="80" r="4" fill="white" opacity="0.5"/>
-    <circle cx="100" cy="110" r="4" fill="white" opacity="0.5"/>
-    <rect x="70" y="120" width="20" height="4" rx="2" fill="white" opacity="0.2"/>
-    <rect x="110" y="120" width="20" height="4" rx="2" fill="white" opacity="0.2"/>
   </svg>
 );
-
 const CoatIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
     <path d="M35 35l20 10v135H35zM165 35l-20 10v135h20z" opacity="0.8"/>
@@ -78,8 +58,12 @@ const CoatIcon = ({ className = "" }) => (
     <path d="M90 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
     <path d="M110 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
     <rect x="55" y="100" width="90" height="10" fill="white" opacity="0.2" />
-    <rect x="65" y="130" width="25" height="5" rx="2" fill="white" opacity="0.2" />
-    <rect x="110" y="130" width="25" height="5" rx="2" fill="white" opacity="0.2" />
+  </svg>
+);
+const ShortsIcon = ({ className = "" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
+        <path d="M50 40h100v15H50z" opacity="0.7"/>
+        <path d="M50 55l15 65h30V80a5 5 0 0 1 10 0v40h30l15-65z"/>
   </svg>
 );
 
@@ -292,7 +276,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-purple-500/20 border border-primary/30 text-primary font-semibold text-sm w-fit backdrop-blur-sm"
               >
-                <Sparkles className="w-5 h-5" />
+                <CheckCircle2 className="w-5 h-5" />
                 <span>İade Derdine Son!</span>
               </motion.div>
 
@@ -402,18 +386,14 @@ export default function Home() {
             <div className="flex w-max animate-scroll mb-6">
               {[...topRowProducts, ...topRowProducts, ...topRowProducts].map((product, index) => (
                 <div key={`top-${product.id}-${index}`} className="w-[300px] flex-shrink-0 px-3">
-                  <Link href={`/products/${product.id}`}>
-                    <ProductCard product={product} />
-                  </Link>
+                  <ProductCard product={product} />
                 </div>
               ))}
             </div>
             <div className="flex w-max animate-scroll-reverse">
               {[...bottomRowProducts, ...bottomRowProducts, ...bottomRowProducts].map((product, index) => (
                 <div key={`bottom-${product.id}-${index}`} className="w-[300px] flex-shrink-0 px-3">
-                  <Link href={`/products/${product.id}`}>
-                    <ProductCard product={product} />
-                  </Link>
+                  <ProductCard product={product} />
                 </div>
               ))}
             </div>
