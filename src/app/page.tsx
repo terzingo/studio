@@ -126,17 +126,6 @@ const AnimatedIconCarousel = () => {
             ))}
           </motion.div>
           
-          {/* Label with slide-in animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-8 text-center"
-          >
-            <span className={`text-3xl font-bold bg-gradient-to-r ${currentIcon.color} bg-clip-text text-transparent drop-shadow-lg`}>
-              {currentIcon.name}
-            </span>
-          </motion.div>
         </motion.div>
       </AnimatePresence>
 
@@ -563,5 +552,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
