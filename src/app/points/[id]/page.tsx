@@ -48,10 +48,6 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
               </div>
             </CardHeader>
             <CardContent className="flex flex-col gap-2">
-               <Button size="lg" variant="outline" className="w-full">
-                 <PackageCheck className="mr-2 h-4 w-4" />
-                Takip Kodu Gir
-              </Button>
               <Button size="lg" className="w-full">
                 <Phone className="mr-2 h-4 w-4" />
                 Ara
@@ -60,6 +56,16 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                 <MessageSquare className="mr-2 h-4 w-4" />
                 Mesaj Gönder
               </Button>
+              <div className="mt-4 space-y-2 text-center">
+                <Image 
+                    src="https://i.imgur.com/agBAbIM.png" 
+                    alt="Harita konumu" 
+                    width={500} 
+                    height={300} 
+                    className="rounded-md w-full aspect-video object-cover"
+                />
+                <Button variant="link">Haritayı Büyüt</Button>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -147,5 +153,3 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
     </div>
   );
 }
-
-    
