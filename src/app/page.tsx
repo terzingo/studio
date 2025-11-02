@@ -128,7 +128,7 @@ const AnimatedIconCarousel = () => {
         </motion.div>
       </AnimatePresence>
       
-        <div className="absolute -bottom-8 -right-8 z-20">
+        <div className="absolute -bottom-8 -left-8 z-20">
             <Image
               src="https://i.imgur.com/00ihVfJ.png"
               alt="Ücretsiz Tadilat Sticker"
