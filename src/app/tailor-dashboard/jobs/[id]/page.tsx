@@ -8,6 +8,7 @@ import { Check, CircleDot, Mail, Truck, Upload, Scissors, Hammer } from "lucide-
 import Image from "next/image"
 import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
+import { allJobs } from "../page"
 
 const mockJobDetails = {
     'TAD004': {
@@ -84,13 +85,18 @@ const getStatusBadge = (status: string) => {
 export default function TailorJobDetailPage() {
     const params = useParams();
     const jobId = typeof params.id === 'string' ? params.id : '';
-    const job = mockJobDetails[jobId as keyof typeof mockJobDetails] || Object.values(mockJobDetails)[0];
+    const jobData = allJobs.find(j => j.id === jobId);
+    
+    // Fallback to a mock detail if not in the main list, for robustness
+    const jobDetail = mockJobDetails[jobId as keyof typeof mockJobDetails];
+
+    const job = jobData ? { ...jobData, ...jobDetail, id: jobData.id, customer: jobData.customer, item: jobData.item } : jobDetail;
 
     if (!job) {
         notFound();
     }
 
-    const beforeImage = PlaceHolderImages.find(img => img.id === job.beforeImageId);
+    const beforeImage = job.beforeImageId ? PlaceHolderImages.find(img => img.id === job.beforeImageId) : null;
     const afterImage = job.afterImageId ? PlaceHolderImages.find(img => img.id === job.afterImageId) : null;
     
     const canCompleteJob = job.status === 'İşleme Alındı' || job.status === 'Tamamlandı';
