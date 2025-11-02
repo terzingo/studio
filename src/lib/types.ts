@@ -28,4 +28,16 @@ export type Product = {
   category: 'İkinci El' | 'Özel Tasarım';
   imageId: string;
   tailorId: string;
+  description: string;
+  brand: string;
+  condition: 'Yeni gibi' | 'Az kullanılmış' | 'İyi durumda' | 'Tadilat görmüş';
+  fabric: string;
+  measurements: {
+    shoulder?: string;
+    bust?: string;
+    waist?: string;
+    hip?: string;
+    sleeve?: string;
+    length?: string;
+  };
 };
