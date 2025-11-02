@@ -125,7 +125,16 @@ const AnimatedIconCarousel = () => {
               />
             ))}
           </motion.div>
-          
+          {/* New sticker image */}
+          <div className="absolute -bottom-10 -right-10 z-20">
+            <Image
+              src="https://i.imgur.com/00ihVfJ.png"
+              alt="Ücretsiz Tadilat Sticker"
+              width={160}
+              height={160}
+              className="transform rotate-[-6deg] animate-pulse-border rounded-full border-4 border-primary p-1 bg-background"
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
 

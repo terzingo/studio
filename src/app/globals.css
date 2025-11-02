@@ -130,4 +130,17 @@ body {
     background-size: 400% 400%;
     animation: animated-gradient 25s ease infinite;
   }
+  @keyframes pulse-border {
+    0%, 100% {
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+      border-color: hsl(var(--primary) / 0.8);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.8);
+      border-color: hsl(var(--primary) / 1);
+    }
+  }
+  .animate-pulse-border {
+    animation: pulse-border 2.5s ease-in-out infinite;
+  }
 }
