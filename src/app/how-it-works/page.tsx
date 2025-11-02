@@ -158,8 +158,8 @@ export default function HowItWorksPage() {
                     description="Tadilatların yanı sıra, atölyenizde sunduğunuz özel dikim ve ikinci el ürün satışı gibi hizmetlerle ek gelir elde edin."
                 />
                 <div className="pl-24 pt-4">
-                    <Button asChild size="lg">
-                        <Link href="/tailor-login">TerzinGo Noktası Olun</Link>
+                    <Button asChild size="lg" className="group">
+                        <Link href="/tailor-login">Terzin<span className="text-primary-foreground group-hover:text-black transition-colors">Go</span> Noktası Olun</Link>
                     </Button>
                 </div>
             </Section>

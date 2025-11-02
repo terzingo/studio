@@ -124,31 +124,6 @@ export default function PointsPage() {
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="grid gap-1.5">
-                    <label className="font-semibold text-sm">Mahalle</label>
-                    <Select
-                        disabled={!selectedDistrict}
-                        onValueChange={(value) => {
-                            setSelectedNeighborhood(value);
-                        }}
-                        value={selectedNeighborhood || ''}
-                    >
-                        <SelectTrigger className="w-full h-12 text-base">
-                            <SelectValue placeholder="Mahalle Seçin" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {selectedCity &&
-                            selectedDistrict &&
-                            allLocationsData[selectedCity].districts[selectedDistrict as District].neighborhoods.map(
-                                (neighborhood) => (
-                                <SelectItem key={neighborhood} value={neighborhood}>
-                                    {neighborhood}
-                                </SelectItem>
-                                )
-                            )}
-                        </SelectContent>
-                    </Select>
-                </div>
             </div>
           </CardContent>
        </Card>

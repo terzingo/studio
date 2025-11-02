@@ -125,7 +125,7 @@ export default function ForBusinessPage() {
             </div>
              <div className="mt-10">
                 <Button size="lg" asChild>
-                    <Link href="/tailor-login">Terzin<span className="text-primary-foreground group-hover:text-black">Go</span> Noktası Olun</Link>
+                    <Link href="/tailor-login" className="group">Terzin<span className="text-primary-foreground group-hover:text-black transition-colors">Go</span> Noktası Olun</Link>
                 </Button>
             </div>
           </div>
