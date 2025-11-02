@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Briefcase, MapPin, Scissors, ShoppingCart, Star, Store, Ticket, Users } from 'lucide-react';
+import { ArrowRight, Briefcase, MapPin, Scissors, ShoppingCart, Star, Store, Ticket, Users, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,7 +20,21 @@ const StepCard = ({ icon, step, title, description }: { icon: React.ReactNode, s
     </div>
 );
 
-const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse = false }: { id: string, title: React.ReactNode, subtitle: string, imageUrl?: string, imageHint?: string, children: React.ReactNode, reverse?: boolean }) => (
+const Advantages = ({ title, items }: { title: string, items: string[] }) => (
+    <div className="pl-6 mt-12">
+        <h4 className="font-bold text-xl mb-4">{title}</h4>
+        <ul className="space-y-3">
+            {items.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
+
+const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse = false, advantages }: { id: string, title: React.ReactNode, subtitle: string, imageUrl?: string, imageHint?: string, children: React.ReactNode, reverse?: boolean, advantages?: { title: string; items: string[]; } }) => (
     <section id={id} className="w-full py-16 md:py-24 border-b last-of-type:border-none">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-12">
@@ -30,6 +44,7 @@ const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse =
             <div className={`grid md:grid-cols-2 gap-12 items-center ${reverse ? 'md:grid-flow-col-dense' : ''}`}>
                 <div className={`space-y-12 ${reverse ? 'md:col-start-1' : ''}`}>
                     {children}
+                    {advantages && <Advantages title={advantages.title} items={advantages.items} />}
                 </div>
                 {imageUrl && (
                     <div className="flex items-center justify-center">
@@ -72,6 +87,15 @@ export default function HowItWorksPage() {
                 subtitle="Beden uyumsuzluğuna ve iade süreçlerine son verin. Satın aldığınız ürünler ücretsiz tadilatla tam üstünüze göre olsun."
                 imageUrl={customerImage?.imageUrl}
                 imageHint={customerImage?.imageHint}
+                advantages={{
+                    title: 'Avantajlarınız',
+                    items: [
+                        'Online aldığınız kıyafetler için mükemmel beden uyumu.',
+                        'Beden uyuşmazlığı nedeniyle iade işlemleriyle uğraşmaya son.',
+                        'Anlaşmalı mağazalardan alınan ürünler için tamamen ücretsiz tadilat hizmeti.',
+                        'Türkiye geneline yayılmış geniş ve profesyonel terzi ağına erişim.'
+                    ]
+                }}
             >
                 <StepCard
                     icon={<ShoppingCart size={32} />}
@@ -106,6 +130,15 @@ export default function HowItWorksPage() {
                 imageUrl={ecommerceImage?.imageUrl}
                 imageHint={ecommerceImage?.imageHint}
                 reverse
+                 advantages={{
+                    title: 'Avantajlarınız',
+                    items: [
+                        'Beden uyumsuzluğuna bağlı iade oranlarında %75\'e varan azalma.',
+                        'İade kargo, ürün kontrolü ve yeniden stoklama gibi operasyonel maliyetlerden tasarruf.',
+                        'Müşterilere sunulan benzersiz bir katma değer ile artan müşteri memnuniyeti ve sadakati.',
+                        'Rakiplerden farklılaşarak pazarda rekabet avantajı elde etme.'
+                    ]
+                }}
             >
                 <StepCard
                     icon={<Briefcase size={32} />}
@@ -138,6 +171,15 @@ export default function HowItWorksPage() {
                 subtitle="Atölyenizi dijital ekonomiye taşıyın, yeni müşteriler ve ek gelir fırsatları ile işinizi büyütün."
                 imageUrl={tailorImage?.imageUrl}
                 imageHint={tailorImage?.imageHint}
+                 advantages={{
+                    title: 'Avantajlarınız',
+                    items: [
+                        'Platform üzerinden bölgenizdeki binlerce e-ticaret müşterisine ulaşarak yeni ve sürekli bir müşteri akışı.',
+                        'Anlaşmalı markalardan gelen düzenli işler sayesinde artan ve öngörülebilir gelir.',
+                        'Atölyenizde sunduğunuz diğer hizmetler (özel dikim, ürün satışı) için potansiyel müşteri kazanımı.',
+                        'İş takibi, müşteri iletişimi ve ödemeleri kolaylaştıran dijital yönetim paneli.'
+                    ]
+                }}
             >
                 <StepCard
                     icon={<Users size={32} />}
@@ -166,5 +208,3 @@ export default function HowItWorksPage() {
         </div>
     );
 }
-
-      
