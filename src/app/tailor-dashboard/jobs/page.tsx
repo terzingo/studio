@@ -8,14 +8,17 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+
 
 const allJobs = [
-    { id: 'TAD004', customer: 'Ahmet Çelik', item: 'Takım Elbise Paça', status: 'Beklemede', date: '04.08.2024' },
-    { id: 'TAD005', customer: 'Zeynep Sancak', item: 'Abiye Daraltma', status: 'İşleme Alındı', date: '03.08.2024' },
-    { id: 'TAD006', customer: 'Murat Varlı', item: 'Gömlek Kol Boyu', status: 'Tamamlandı', date: '01.08.2024' },
-    { id: 'TAD001', customer: 'Ayşe Kaya', item: 'Kot Pantolon', status: 'Teslim Edildi', date: '25.07.2024' },
-    { id: 'TAD002', customer: 'Can Yılmaz', item: 'Yazlık Elbise', status: 'Teslim Edildi', date: '18.07.2024' },
-    { id: 'TAD003', customer: 'Selin Doğan', item: 'Gömlek', status: 'İptal Edildi', date: '12.07.2024' },
+    { id: 'TAD004', customer: 'Ahmet Çelik', item: 'Takım Elbise Paça', status: 'Beklemede', date: '04.08.2024', imageId: 'product-13' },
+    { id: 'TAD005', customer: 'Zeynep Sancak', item: 'Abiye Daraltma', status: 'İşleme Alındı', date: '03.08.2024', imageId: 'product-2' },
+    { id: 'TAD006', customer: 'Murat Varlı', item: 'Gömlek Kol Boyu', status: 'Tamamlandı', date: '01.08.2024', imageId: 'product-4' },
+    { id: 'TAD001', customer: 'Ayşe Kaya', item: 'Kot Pantolon', status: 'Teslim Edildi', date: '25.07.2024', imageId: 'product-5' },
+    { id: 'TAD002', customer: 'Can Yılmaz', item: 'Yazlık Elbise', status: 'Teslim Edildi', date: '18.07.2024', imageId: 'product-3' },
+    { id: 'TAD003', customer: 'Selin Doğan', item: 'Gömlek', status: 'İptal Edildi', date: '12.07.2024', imageId: 'product-8' },
 ];
 
 const getStatusBadge = (status: string) => {
@@ -75,6 +78,7 @@ export default function TailorJobsPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
+                                <TableHead className="hidden w-[100px] sm:table-cell"><span className="sr-only">Resim</span></TableHead>
                                 <TableHead>İş Kodu</TableHead>
                                 <TableHead>Müşteri</TableHead>
                                 <TableHead>Ürün</TableHead>
@@ -84,33 +88,42 @@ export default function TailorJobsPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {allJobs.map(job => (
-                                <TableRow key={job.id}>
-                                  <TableCell className="font-medium">
-                                    <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full text-primary hover:underline">
-                                      {job.id}
-                                    </Link>
-                                  </TableCell>
-                                  <TableCell>
-                                    <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
-                                      {job.customer}
-                                    </Link>
-                                  </TableCell>
-                                  <TableCell>
-                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
-                                      {job.item}
-                                     </Link>
-                                  </TableCell>
-                                  <TableCell>
-                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
-                                      {getStatusBadge(job.status)}
-                                     </Link>
-                                  </TableCell>
-                                  <TableCell>
-                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
-                                      {job.date}
-                                     </Link>
-                                  </TableCell>
+                            {allJobs.map(job => {
+                                const image = PlaceHolderImages.find(p => p.id === job.imageId)
+                                return (
+                                    <TableRow key={job.id}>
+                                    <TableCell className="hidden sm:table-cell">
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                            {image && (
+                                                <Image src={image.imageUrl} alt={job.item} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint}/>
+                                            )}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell className="font-medium">
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full text-primary hover:underline">
+                                        {job.id}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                        {job.customer}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                        {job.item}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                        {getStatusBadge(job.status)}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                        {job.date}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
@@ -129,7 +142,7 @@ export default function TailorJobsPage() {
                                         </DropdownMenu>
                                     </TableCell>
                                 </TableRow>
-                            ))}
+                            )})}
                         </TableBody>
                     </Table>
                 </CardContent>
