@@ -88,12 +88,15 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                 <TabsContent value="services" className="mt-4">
                     <Card>
                         <CardContent className="pt-6">
-                            <p className="text-sm text-muted-foreground mb-4">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde Terzin<span className="text-primary">Go</span> kodu ile ücretsizdir.</p>
+                            <p className="text-sm text-muted-foreground mb-6">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde Terzin<span className="text-primary">Go</span> kodu ile ücretsizdir.</p>
                             <ul className="space-y-4">
                                 {tailor.services.map((service) => (
-                                    <li key={service.name} className="flex justify-between items-center border-b pb-2">
-                                        <span className="text-foreground">{service.name}</span>
-                                        <Badge variant={service.price.toLowerCase().includes('ücretsiz') ? 'default' : 'secondary'}>{service.price}</Badge>
+                                    <li key={service.name} className="flex justify-between items-center border-b pb-3">
+                                        <span className="font-medium text-foreground">{service.name}</span>
+                                        <div className='flex flex-col items-end'>
+                                          <Badge variant={service.note ? "default" : "secondary"}>{service.price}</Badge>
+                                          {service.note && <span className="text-xs text-primary font-semibold mt-1">{service.note}</span>}
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

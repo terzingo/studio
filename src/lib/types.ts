@@ -11,6 +11,7 @@ export type Tailor = {
   services: {
     name: string;
     price: string;
+    note?: string; // Add optional note for special conditions
   }[];
   customerReviews: {
     id: string;
