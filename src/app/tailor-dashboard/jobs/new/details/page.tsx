@@ -17,7 +17,7 @@ import { useState } from "react";
 export default function JobDetailsPage() {
     const router = useRouter();
     const [imageTaken, setImageTaken] = useState(false);
-    const beforeImage = PlaceHolderImages.find(p => p.id === 'portfolio-2');
+    const beforeImage = PlaceHolderImages.find(p => p.id === 'product-13');
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -75,7 +75,7 @@ export default function JobDetailsPage() {
                                 </AlertDescription>
                             </Alert>
 
-                            <Button className="w-full" onClick={() => router.push('/tailor-dashboard/jobs/new/complete')} size="lg" disabled={!imageTaken}>
+                            <Button className="w-full" onClick={() => router.push('/tailor-dashboard/jobs/new/approval-sent')} size="lg" disabled={!imageTaken}>
                                 Müşteri Onayına Gönder <Send className="ml-2 h-4 w-4"/>
                             </Button>
                         </CardContent>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
-import { Check, CircleDot, Mail, Truck, Upload, Scissors } from "lucide-react"
+import { Check, CircleDot, Mail, Truck, Upload, Scissors, Hammer } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
@@ -92,6 +92,8 @@ export default function TailorJobDetailPage() {
 
     const beforeImage = PlaceHolderImages.find(img => img.id === job.beforeImageId);
     const afterImage = job.afterImageId ? PlaceHolderImages.find(img => img.id === job.afterImageId) : null;
+    
+    const canCompleteJob = job.status === 'İşleme Alındı' || job.status === 'Tamamlandı';
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -144,8 +146,7 @@ export default function TailorJobDetailPage() {
                                         <Image src={afterImage.imageUrl} alt="Tadilat sonrası" width={400} height={500} className="rounded-lg object-cover" data-ai-hint={afterImage.imageHint} />
                                     ) : (
                                         <div className="flex flex-col items-center justify-center h-full aspect-square border-2 border-dashed rounded-lg text-center p-4">
-                                            <p className="text-muted-foreground mb-2">İş tamamlandıktan sonra fotoğraf yükleyin.</p>
-                                            <Button variant="outline"><Upload className="mr-2 h-4 w-4"/> Fotoğraf Yükle</Button>
+                                            <p className="text-muted-foreground mb-2">İş tamamlandığında fotoğraf burada görünecek.</p>
                                         </div>
                                     )}
                                 </div>
@@ -160,8 +161,16 @@ export default function TailorJobDetailPage() {
                             <CardContent>
                                 <p className="font-semibold">{job.item}</p>
                                 <p className="text-3xl font-bold mt-2">{job.price}</p>
-                                 <div className="flex gap-2 mt-4">
-                                    <Button className="w-full">İşi Onayla</Button>
+                                 <div className="flex flex-col gap-2 mt-4">
+                                    {canCompleteJob ? (
+                                        <Button asChild className="w-full">
+                                            <Link href={`/tailor-dashboard/jobs/complete?jobId=${job.id}`}>
+                                                <Hammer className="mr-2 h-4 w-4"/> İşi Tamamla
+                                            </Link>
+                                        </Button>
+                                    ) : (
+                                         <Button className="w-full" disabled>İşi Onayla</Button>
+                                    )}
                                     <Button variant="destructive" className="w-full">İptal Et</Button>
                                  </div>
                             </CardContent>
