@@ -125,8 +125,11 @@ const AnimatedIconCarousel = () => {
               />
             ))}
           </motion.div>
-          {/* New sticker image */}
-          <div className="absolute -bottom-10 -right-10 z-20">
+        </motion.div>
+      </AnimatePresence>
+      
+      {/* New sticker image - INDEPENDENT */}
+      <div className="absolute -bottom-2 -right-10 z-20">
             <Image
               src="https://i.imgur.com/00ihVfJ.png"
               alt="Ücretsiz Tadilat Sticker"
@@ -134,9 +137,8 @@ const AnimatedIconCarousel = () => {
               height={160}
               className="transform rotate-[-6deg] animate-pulse-border rounded-full border-4 border-primary p-1 bg-background"
             />
-          </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
+
 
       {/* Preview of next icon */}
       <motion.div
@@ -503,7 +505,7 @@ export default function Home() {
                 E-Ticaret Firması mısınız?
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                İade maliyetlerinizi <span className="font-bold text-primary">%75'e kadar azaltın</span>, müşteri memnuniyetini artırın. Bugün TerziGo ekosisteminin parçası olun.
+                İade maliyetlerinizi <span className="font-bold text-primary">%75'e kadar azaltın</span>, müşteri memnuniyetini artırın. Bugün <span className="font-bold text-foreground">Terzin</span><span className="font-bold text-primary">Go</span> ekosisteminin parçası olun.
               </p>
             </div>
 
