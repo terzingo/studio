@@ -68,7 +68,7 @@ const mockTailors: Tailor[] = [
     id: 'fatma-demir',
     name: 'Pratik Terzi Fatma',
     specialty: 'Hızlı Tadilat',
-    location: 'İstanbul, Kadıköy, Göztepe',
+    location: 'İstanbul, Kadıköy, Moda',
     rating: 4.7,
     reviews: 210,
     imageId: 'tailor-4',
@@ -84,7 +84,7 @@ const mockTailors: Tailor[] = [
         { id: 'rev6', name: 'Ayşe G.', rating: 4, comment: 'Fatma Hanım çok hızlı ve işini iyi yapıyor. TerzinGo koduyla geldim, hemen yardımcı oldu.', date: '18.06.2024' }
     ]
   },
-    {
+  {
     id: 'kenan-erkin',
     name: 'Gömlek Atölyesi',
     specialty: 'Bespoke Gömlek',
@@ -108,7 +108,7 @@ const mockTailors: Tailor[] = [
     id: 'sibel-canan',
     name: 'Sibelin Çocuk Dünyası',
     specialty: 'Çocuk Giyimi',
-    location: 'Ankara, Çankaya, Tunalı Hilmi',
+    location: 'Ankara, Yenimahalle, Batıkent',
     rating: 4.8,
     reviews: 65,
     imageId: 'tailor-6',
@@ -122,6 +122,146 @@ const mockTailors: Tailor[] = [
     ],
     customerReviews: [
         { id: 'rev8', name: 'Pelin V.', rating: 5, comment: 'Kızımın elbisesini tam üzerine göre yaptılar. Çok teşekkürler.', date: '02.06.2024' }
+    ]
+  },
+  {
+    id: 'mehmet-usta',
+    name: 'Usta Eller',
+    specialty: 'Genel Tadilat',
+    location: 'İzmir, Bornova, Küçükpark',
+    rating: 4.6,
+    reviews: 152,
+    imageId: 'tailor-7',
+    portfolioImageIds: ['portfolio-2', 'portfolio-7'],
+    bio: 'Mahallenizin güvenilir terzisi. 30 yıllık tecrübe ile her türlü tadilat işiniz itina ile yapılır. TerzinGo ile dijital dünyadayız.',
+    services: [
+      { name: 'Paça Kısaltma', price: 'Ücretsiz*' },
+      { name: 'Fermuar Değişimi', price: '120 TL' },
+    ],
+    customerReviews: [
+      { id: 'rev9', name: 'Ahmet Y.', rating: 5, comment: 'Mehmet Usta işinin ehlidir. Her zaman memnun ayrılırım.', date: '11.07.2024' }
+    ]
+  },
+  {
+    id: 'aylin-tasarim',
+    name: 'Aylin Tasarım',
+    specialty: 'Kadın Giyim & Tasarım',
+    location: 'İstanbul, Kadıköy, Göztepe',
+    rating: 4.9,
+    reviews: 89,
+    imageId: 'tailor-8',
+    portfolioImageIds: ['portfolio-1', 'portfolio-8'],
+    bio: 'Kişiye özel tasarımlar ve modern dokunuşlarla kıyafetlerinize hayat veriyorum. TerzinGo müşterilerine özel ilgi.',
+    services: [
+      { name: 'Elbise Daraltma', price: 'Ücretsiz*' },
+      { name: 'Özel Bluz Dikimi', price: '900 TL' },
+    ],
+    customerReviews: [
+      { id: 'rev10', name: 'Zeynep D.', rating: 5, comment: 'Aylin Hanım harikalar yaratıyor. Eski elbisemi yeni gibi yaptı.', date: '09.07.2024' }
+    ]
+  },
+  {
+    id: 'emre-klasik',
+    name: 'Emre Klasik Giyim',
+    specialty: 'Klasik Erkek Giyim',
+    location: 'Ankara, Çankaya, Tunalı Hilmi',
+    rating: 4.8,
+    reviews: 110,
+    imageId: 'tailor-9',
+    portfolioImageIds: ['portfolio-2', 'portfolio-9'],
+    bio: 'Klasik giyim sanattır. Takım elbiselerinizi, ceketlerinizi ilk günkü özenle tamir ediyor, size özel hale getiriyoruz.',
+    services: [
+      { name: 'Ceket Kol Boyu', price: 'Ücretsiz*' },
+      { name: 'Takım Elbise Tadilatı', price: '1200 TL' },
+    ],
+    customerReviews: [
+      { id: 'rev11', name: 'Kaan A.', rating: 5, comment: 'İşçilikleri mükemmel. Takım elbisem tam üstüme oturdu.', date: '01.07.2024' }
+    ]
+  },
+  {
+    id: 'deniz-butik',
+    name: 'Deniz Butik Terzi',
+    specialty: 'Günlük Giyim Tadilatı',
+    location: 'İzmir, Karşıyaka, Bostanlı',
+    rating: 4.7,
+    reviews: 130,
+    imageId: 'tailor-10',
+    portfolioImageIds: ['portfolio-5', 'portfolio-7'],
+    bio: 'Günlük kıyafetlerinizdeki küçük dokunuşlarla büyük farklar yaratıyoruz. TerzinGo koduyla tüm işlemleriniz daha hızlı.',
+    services: [
+      { name: 'Pantolon Daraltma', price: 'Ücretsiz*' },
+      { name: 'Tişört Boyu Kısaltma', price: '100 TL' },
+    ],
+    customerReviews: [
+      { id: 'rev12', name: 'Seda N.', rating: 4, comment: 'Hızlı ve pratik çözümler için teşekkürler.', date: '28.06.2024' }
+    ]
+  },
+  {
+    id: 'levent-giyim',
+    name: 'Levent Giyim & Tadilat',
+    specialty: 'Genel Giyim',
+    location: 'İstanbul, Beşiktaş, Etiler',
+    rating: 4.5,
+    reviews: 95,
+    imageId: 'tailor-11',
+    portfolioImageIds: ['portfolio-6'],
+    bio: 'Her türlü giyim eşyanız için profesyonel tadilat hizmeti sunmaktayız.',
+    services: [
+      { name: 'Paça Tadilatı', price: 'Ücretsiz*' }
+    ],
+    customerReviews: [
+      { id: 'rev13', name: 'Caner T.', rating: 4, comment: 'İşlerini iyi yapıyorlar, tavsiye ederim.', date: '25.06.2024' }
+    ]
+  },
+  {
+    id: 'bebek-terzi',
+    name: 'Bebek Terzihanesi',
+    specialty: 'Lüks Giyim Tadilat',
+    location: 'İstanbul, Beşiktaş, Bebek',
+    rating: 4.9,
+    reviews: 78,
+    imageId: 'tailor-12',
+    portfolioImageIds: ['portfolio-9'],
+    bio: 'Marka kıyafetlerinizin orijinal dokusunu bozmadan, özenle tadilatını yapıyoruz.',
+    services: [
+      { name: 'Marka Ceket Tadilatı', price: '1500 TL' }
+    ],
+    customerReviews: [
+      { id: 'rev14', name: 'Leyla H.', rating: 5, comment: 'Pahalı ceketimi gönül rahatlığıyla emanet ettim, sonuç harika.', date: '22.06.2024' }
+    ]
+  },
+  {
+    id: 'bostanci-terzi',
+    name: 'Bostancı Terzi',
+    specialty: 'Hızlı ve Güvenilir',
+    location: 'İstanbul, Kadıköy, Bostancı',
+    rating: 4.6,
+    reviews: 180,
+    imageId: 'tailor-13',
+    portfolioImageIds: ['portfolio-7'],
+    bio: 'Acil tadilat işleriniz için Bostancı\'daki adresiniz. TerzinGo ile sıra beklemeden hizmet alın.',
+    services: [
+      { name: 'Fermuar Değişimi', price: '150 TL' }
+    ],
+    customerReviews: [
+      { id: 'rev15', name: 'Murat S.', rating: 5, comment: 'Aynı gün içinde pantolonumu hallettiler. Çok teşekkürler.', date: '20.06.2024' }
+    ]
+  },
+  {
+    id: 'mecidiyekoy-modern',
+    name: 'Modern Terzi Mecidiyeköy',
+    specialty: 'Modern Kesimler',
+    location: 'İstanbul, Şişli, Mecidiyeköy',
+    rating: 4.7,
+    reviews: 115,
+    imageId: 'tailor-14',
+    portfolioImageIds: ['portfolio-6'],
+    bio: 'Kıyafetlerinize modern bir dokunuş katmak için buradayız. Genç ve dinamik ekibimizle hizmetinizdeyiz.',
+    services: [
+      { name: 'Slim Fit Tadilat', price: 'Ücretsiz*' }
+    ],
+    customerReviews: [
+      { id: 'rev16', name: 'Gizem A.', rating: 5, comment: 'Gömleğimi tam istediğim gibi daralttılar.', date: '18.06.2024' }
     ]
   }
 ];

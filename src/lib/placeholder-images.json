@@ -39,7 +39,7 @@
     {
       "id": "team-1",
       "description": "Ekip üyesi: Mali Danışman",
-      "imageUrl": "https://images.unsplash.com/photo-1549923746-9507eec27243?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYWxlJTIwZmluYW5jZSUyMGV4cGVydHxlbnwwfHx8fDE3NjE1NzE3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1549923746-9507eec27243?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYWxlJTIwZmluYW5jZSUyMGV4cGVydHxlbnwwfHx8fDE3NjE1NzE3NjV8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "male finance expert"
     },
     {
@@ -57,38 +57,86 @@
     {
       "id": "tailor-1",
       "description": "Gülümseyen erkek terzi portresi.",
-      "imageUrl": "https://images.unsplash.com/photo-1638432249748-829a35c334cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFsZSUyMHRhaWxvcnxlbnwwfHx8fDE3NjE1MTMxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/S4CyfGK.png",
       "imageHint": "male tailor"
     },
     {
       "id": "tailor-2",
       "description": "Atölyesindeki profesyonel kadın terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1579588494028-3c35f29a0397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/8jnbnVX.png",
       "imageHint": "female tailor"
     },
     {
       "id": "tailor-3",
       "description": "Genç, yaratıcı bir terzi tasarım üzerinde çalışıyor.",
-      "imageUrl": "https://images.unsplash.com/photo-1596131365839-1c8b332353a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2Rlcm4lMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/8NlSKNc.png",
       "imageHint": "creative tailor"
     },
     {
       "id": "tailor-4",
       "description": "Deneyimli bir terzi detaylara odaklanıyor.",
-      "imageUrl": "https://images.unsplash.com/photo-1662833595899-07c57d617f56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXhwZXJpZW5jZWQlMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/wTr5TmV.png",
       "imageHint": "experienced tailor"
     },
     {
       "id": "tailor-5",
       "description": "Boynunda mezura olan modern bir terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1684259498917-b0cde0133e14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjB0YWlsb3J8ZW58MHx8fHwxNzYxNTEzMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/u806QNi.png",
       "imageHint": "modern tailor"
     },
     {
       "id": "tailor-6",
       "description": "Bitmiş bir takımı inceleyen bir terzi.",
-      "imageUrl": "https://images.unsplash.com/photo-1673022674911-d03de432d6f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0YWlsb3IlMjBzdWl0fGVufDB8fHx8MTc2MTUxMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://i.imgur.com/00qFjbd.png",
       "imageHint": "tailor suit"
+    },
+    {
+      "id": "tailor-7",
+      "description": "Terzi portresi 7",
+      "imageUrl": "https://i.imgur.com/GsrQ08G.png",
+      "imageHint": "tailor portrait"
+    },
+    {
+      "id": "tailor-8",
+      "description": "Terzi portresi 8",
+      "imageUrl": "https://i.imgur.com/WyWksFN.png",
+      "imageHint": "tailor sewing"
+    },
+    {
+      "id": "tailor-9",
+      "description": "Terzi portresi 9",
+      "imageUrl": "https://i.imgur.com/Cesc3qX.png",
+      "imageHint": "fashion designer"
+    },
+    {
+      "id": "tailor-10",
+      "description": "Terzi portresi 10",
+      "imageUrl": "https://i.imgur.com/YMVVT4U.png",
+      "imageHint": "male tailor"
+    },
+    {
+      "id": "tailor-11",
+      "description": "Terzi portresi 11",
+      "imageUrl": "https://i.imgur.com/NWkvgZ1.png",
+      "imageHint": "female tailor"
+    },
+    {
+      "id": "tailor-12",
+      "description": "Terzi portresi 12",
+      "imageUrl": "https://i.imgur.com/B5cRE8D.png",
+      "imageHint": "tailor working"
+    },
+    {
+      "id": "tailor-13",
+      "description": "Terzi portresi 13",
+      "imageUrl": "https://i.imgur.com/Jk7glAd.png",
+      "imageHint": "tailor details"
+    },
+    {
+      "id": "tailor-14",
+      "description": "Terzi portresi 14",
+      "imageUrl": "https://i.imgur.com/OR8rZLP.png",
+      "imageHint": "creative tailor"
     },
     {
       "id": "portfolio-1",
@@ -158,301 +206,301 @@
     },
     {
       "id": "product-1",
-      "description": "İkinci el, iyi durumda vintage deri ceket.",
+      "description": "Vintage Deri Ceket",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-2",
-      "description": "Göz alıcı kırmızı, özel tasarım abiye.",
+      "description": "Özel Tasarım Abiye",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-3",
-      "description": "Çiçek desenli pamuklu yazlık elbise.",
+      "description": "Pamuklu Yazlık Elbise",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-4",
-      "description": "Beyaz, İtalyan kesim erkek gömleği.",
+      "description": "İtalyan Kesim Gömlek",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-5",
-      "description": "Marka, dar kesim kot pantolon.",
+      "description": "Marka Kot Pantolon",
       "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
       "imageHint": "pantolon"
     },
     {
       "id": "product-6",
-      "description": "Prenses temalı kız çocuk kostümü.",
+      "description": "Kız Çocuk Kostümü",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-7",
-      "description": "Yumuşak dokulu bej kaşmir kaban.",
+      "description": "Kaşmir kaban",
       "imageUrl": "https://i.imgur.com/4m2ogWf.png",
       "imageHint": "mont"
     },
     {
       "id": "product-8",
-      "description": "Zarif, fildişi rengi ipek bluz.",
+      "description": "İpek bluz",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-9",
-      "description": "Rahat kesim açık mavi keten pantolon.",
+      "description": "Keten pantolon",
       "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
       "imageHint": "pantolon"
     },
     {
       "id": "product-10",
-      "description": "Sıcak tutan, desenli yün kazak.",
+      "description": "Yün kazak",
       "imageUrl": "https://i.imgur.com/BwVMo59.png",
       "imageHint": "tişört"
     },
     {
       "id": "product-11",
-      "description": "Siyah, şık deri eldivenler.",
+      "description": "Deri ceket",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-12",
-      "description": "Organik pamuktan yapılmış bebek tulumu.",
+      "description": "Bebek tulumu",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-13",
-      "description": "Modern kesim, lacivert erkek blazer ceket.",
+      "description": "Blazer ceket",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-14",
-      "description": "Parıltılı, metalik gece çantası.",
+      "description": "Gece çantası",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-15",
-      "description": "Yuvarlak çerçeveli, retro tarzı güneş gözlüğü.",
+      "description": "Sıfır Yaka Tişört",
       "imageUrl": "https://i.imgur.com/BwVMo59.png",
       "imageHint": "tişört"
     },
     {
       "id": "product-16",
-      "description": "Bordo, uzun kollu kadife elbise.",
+      "description": "Kadife elbise",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-17",
-      "description": "Gri, yünlü kumaştan yapılmış erkek yeleği.",
+      "description": "Erkek yeleği",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-18",
-      "description": "Sarı, kapüşonlu çocuk yağmurluğu.",
+      "description": "Çocuk yağmurluğu",
       "imageUrl": "https://i.imgur.com/4m2ogWf.png",
       "imageHint": "mont"
     },
     {
       "id": "product-19",
-      "description": "İpek, geometrik desenli fular.",
+      "description": "İpek fular",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-20",
-      "description": "Bordo rengi, ipek klasik kravat.",
+      "description": "İpek kravat",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-21",
-      "description": "Pileli, midi boy etek.",
+      "description": "Pileli etek",
       "imageUrl": "https://i.imgur.com/zEZ61Q9.png",
       "imageHint": "etek"
     },
     {
       "id": "product-22",
-      "description": "Eskitme görünümlü, mavi kot ceket.",
+      "description": "Kot ceket",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-23",
-      "description": "Pudra pembesi, sade ve şık nişan elbisesi.",
+      "description": "Nişan elbisesi",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-24",
-      "description": "Örgü detaylı, bej triko hırka.",
+      "description": "Triko hırka",
       "imageUrl": "https://i.imgur.com/4m2ogWf.png",
       "imageHint": "mont"
     },
     {
       "id": "product-25",
-      "description": "Keten kumaştan, askılı çocuk salopeti.",
+      "description": "Çocuk salopeti",
       "imageUrl": "https://i.imgur.com/DJb1v9k.png",
       "imageHint": "şort"
     },
     {
       "id": "product-26",
-      "description": "Doğal boya ile renklendirilmiş ipek eşarp.",
+      "description": "İpek eşarp",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-27",
-      "description": "Siyah, klasik kesim yün palto.",
+      "description": "Yün palto",
       "imageUrl": "https://i.imgur.com/4m2ogWf.png",
       "imageHint": "mont"
     },
     {
       "id": "product-28",
-      "description": "Siyah, dar kesim deri pantolon.",
+      "description": "Deri pantolon",
       "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
       "imageHint": "pantolon"
     },
     {
       "id": "product-29",
-      "description": "Beyaz, hakim yaka keten gömlek.",
+      "description": "Keten gömlek",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-30",
-      "description": "Saten yakalı, özel dikim smokin.",
+      "description": "Smokin",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-31",
-      "description": "Krem rengi, romantik dantelli bluz.",
+      "description": "Dantelli bluz",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-32",
-      "description": "Taba rengi, klasik süet ayakkabı.",
+      "description": "Süet ayakkabı",
       "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
       "imageHint": "pantolon"
     },
     {
       "id": "product-33",
-      "description": "Sevimli hayvan desenli çocuk pijama takımı.",
+      "description": "Pijama takımı",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-34",
-      "description": "Geniş kenarlı, hasır yazlık şapka.",
+      "description": "Hasır şapka",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-35",
-      "description": "Yumuşak dokulu, yün atkı.",
+      "description": "Yün atkı",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-36",
-      "description": "Gümüş, minimalist tasarımlı kol düğmeleri.",
+      "description": "Kol düğmeleri",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-37",
-      "description": "Koyu yeşil, saten kumaştan balo elbisesi.",
+      "description": "Saten balo elbisesi",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-38",
-      "description": "Kahverengi, postacı model deri çanta.",
+      "description": "Deri çanta",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-39",
-      "description": "Renkli, fırfırlı çocuk eteği.",
+      "description": "Çocuk eteği",
       "imageUrl": "https://i.imgur.com/zEZ61Q9.png",
       "imageHint": "etek"
     },
     {
       "id": "product-40",
-      "description": "Lacivert, pamuklu polo yaka tişört.",
-      "imageUrl": "https://i.imgur.com/BwVMo59.png",
-      "imageHint": "tişört"
+      "description": "Polo yaka tişört",
+      "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
+      "imageHint": "polo tişört"
     },
     {
       "id": "product-41",
-      "description": "Gri, yünlü kumaş pantolon.",
+      "description": "Yünlü pantolon",
       "imageUrl": "https://i.imgur.com/Rw3HsPC.png",
       "imageHint": "pantolon"
     },
     {
       "id": "product-42",
-      "description": "Gümüş rengi, payetli, askılı üst.",
+      "description": "Payetli üst",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-43",
-      "description": "Bej rengi, klasik trençkot.",
+      "description": "Trençkot",
       "imageUrl": "https://i.imgur.com/4m2ogWf.png",
       "imageHint": "mont"
     },
     {
       "id": "product-44",
-      "description": "Kelebek şeklinde, vintage broş.",
+      "description": "Vintage broş",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-45",
-      "description": "El örgüsü, yumuşak bebek battaniyesi.",
+      "description": "Bebek battaniyesi",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-46",
-      "description": "Ekose desenli, kalın yün ceket.",
+      "description": "Ekose ceket",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     },
     {
       "id": "product-47",
-      "description": "Kadife, siyah papyon.",
+      "description": "Kadife papyon",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-48",
-      "description": "Mavi, A kesim mezuniyet elbisesi.",
+      "description": "Mezuniyet elbisesi",
       "imageUrl": "https://i.imgur.com/0b7yUJz.png",
       "imageHint": "elbise"
     },
     {
       "id": "product-49",
-      "description": "Çizgili, pamuklu çocuk gömleği.",
+      "description": "Çizgili gömlek",
       "imageUrl": "https://i.imgur.com/j3ns8pP.png",
       "imageHint": "gömlek"
     },
     {
       "id": "product-50",
-      "description": "Örgü model, kahverengi deri kemer.",
+      "description": "Deri kemer",
       "imageUrl": "https://i.imgur.com/xHWKxwk.png",
       "imageHint": "deri ceket"
     }
