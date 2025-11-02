@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Heart, Share2, ChevronLeft, ChevronRight, Package, Truck, Shield, Ruler, MapPin, Clock, Tag, Shirt, Barbell, ScissorsIcon } from 'lucide-react';
+import { Star, Heart, Share2, ChevronLeft, ChevronRight, Package, Truck, Shield, Ruler, MapPin, Clock, Tag, Shirt, Weight, ScissorsIcon } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound, useParams } from 'next/navigation';
@@ -151,7 +151,7 @@ export default function ProductDetailPage() {
                     <div className="grid grid-cols-2 gap-4 text-sm">
                         {Object.entries(product.measurements).map(([key, value]) => (
                             <div key={key} className="flex items-center gap-2">
-                                {measurementIcons[key] || <Barbell className="w-4 h-4 text-muted-foreground" />}
+                                {measurementIcons[key] || <Weight className="w-4 h-4 text-muted-foreground" />}
                                 <span className='capitalize'>{key.replace('shoulder', 'Omuz').replace('bust', 'Göğüs').replace('waist', 'Bel').replace('sleeve', 'Kol').replace('length', 'Boy')}: <span className="font-medium">{value}</span></span>
                             </div>
                         ))}
