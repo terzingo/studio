@@ -20,7 +20,6 @@ export function TailorCard({ tailor }: TailorCardProps) {
         <CardHeader className="p-0">
             {image && (
                 <div className="relative h-56 w-full">
-                  <Link href={`/points/${tailor.id}`} tabIndex={-1}>
                     <Image
                         src={image.imageUrl}
                         alt={tailor.name}
@@ -28,15 +27,12 @@ export function TailorCard({ tailor }: TailorCardProps) {
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={image.imageHint}
                     />
-                  </Link>
                 </div>
             )}
         </CardHeader>
         <CardContent className="p-4 flex-grow">
             <CardTitle className="text-xl font-headline font-bold">
-                <Link href={`/points/${tailor.id}`} className="group-hover:text-primary transition-colors">
-                    {tailor.name}
-                </Link>
+                {tailor.name}
             </CardTitle>
             <div className="text-sm text-muted-foreground mt-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
