@@ -49,9 +49,9 @@ const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse =
 );
 
 export default function HowItWorksPage() {
-    const customerImage = PlaceHolderImages.find(img => img.id === 'hero-1');
-    const ecommerceImage = PlaceHolderImages.find(img => img.id === 'for-business-ecommerce');
-    const tailorImage = PlaceHolderImages.find(img => img.id === 'for-business-tailor');
+    const customerImage = PlaceHolderImages.find(img => img.id === 'how-it-works-customer');
+    const ecommerceImage = PlaceHolderImages.find(img => img.id === 'how-it-works-ecommerce');
+    const tailorImage = PlaceHolderImages.find(img => img.id === 'how-it-works-tailor');
 
     return (
         <div>
@@ -166,3 +166,5 @@ export default function HowItWorksPage() {
         </div>
     );
 }
+
+      
