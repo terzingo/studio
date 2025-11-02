@@ -1,7 +1,7 @@
 
 'use client';
 import { getTailorById, mockProducts } from '@/lib/data';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -19,8 +19,9 @@ const shuffleAndPick = (arr: any[], count: number) => {
 };
 
 
-export default function TailorProfilePage({ params }: { params: { id: string } }) {
-  const tailor = getTailorById(params.id);
+export default function TailorProfilePage() {
+  const params = useParams();
+  const tailor = getTailorById(params.id as string);
 
   const randomPortfolioItems = useMemo(() => {
     const randomProducts = shuffleAndPick(mockProducts, 5);
@@ -127,7 +128,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                                           <Badge variant={service.note ? "default" : "secondary"}>{service.price}</Badge>
                                           {service.note && (
                                             <span className="text-xs font-semibold mt-1 animate-pulse-text">
-                                                <span>Terzin</span><span className="text-primary">Go</span><span> kodu ile ücretsiz</span>
+                                                Terzin<span className="text-primary">Go</span> kodu ile ücretsiz
                                             </span>
                                           )}
                                         </div>
