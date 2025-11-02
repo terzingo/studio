@@ -85,7 +85,7 @@ export default function TailorJobsPage() {
                         </TableHeader>
                         <TableBody>
                             {allJobs.map(job => (
-                                <TableRow key={job.id} className="cursor-pointer">
+                                <TableRow key={job.id}>
                                   <TableCell className="font-medium">
                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full text-primary hover:underline">
                                       {job.id}
@@ -111,7 +111,7 @@ export default function TailorJobsPage() {
                                       {job.date}
                                      </Link>
                                   </TableCell>
-                                    <TableCell onClick={(e) => e.stopPropagation()}>
+                                    <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
                                                 <Button aria-haspopup="true" size="icon" variant="ghost">

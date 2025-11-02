@@ -86,7 +86,7 @@ export default function TailorCustomersPage() {
                         </TableHeader>
                         <TableBody>
                             {customers.map(customer => (
-                                <TableRow key={customer.id} className="cursor-pointer">
+                                <TableRow key={customer.id}>
                                     <TableCell>
                                         <Link href={`/tailor-dashboard/customers`} className="block w-full h-full">
                                             <div className="flex items-center gap-4">
@@ -116,7 +116,7 @@ export default function TailorCustomersPage() {
                                             {customer.since}
                                         </Link>
                                     </TableCell>
-                                    <TableCell onClick={(e) => e.stopPropagation()}>
+                                    <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
                                                 <Button aria-haspopup="true" size="icon" variant="ghost">

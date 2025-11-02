@@ -74,7 +74,7 @@ export default function TailorProductsPage() {
                                 const image = PlaceHolderImages.find(img => img.id === product.imageId);
                                 const productUrl = `/products/${product.id.replace('PROD', 'prod')}`;
                                 return (
-                                    <TableRow key={product.id} className="cursor-pointer">
+                                    <TableRow key={product.id}>
                                         <TableCell className="hidden sm:table-cell">
                                             <Link href={productUrl} className="block w-full h-full">
                                                 {image && <Image src={image.imageUrl} alt={product.name} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint} />}
@@ -103,7 +103,7 @@ export default function TailorProductsPage() {
                                             <Badge variant={product.category === 'İkinci El' ? 'secondary' : 'default'}>{product.category}</Badge>
                                             </Link>
                                         </TableCell>
-                                        <TableCell onClick={(e) => e.stopPropagation()}>
+                                        <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
                                                     <Button aria-haspopup="true" size="icon" variant="ghost">
