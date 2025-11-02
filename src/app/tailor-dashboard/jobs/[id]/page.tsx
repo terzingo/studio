@@ -7,7 +7,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { Check, CircleDot, Mail, Truck, Upload, Scissors } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { notFound } from "next/navigation"
+import { notFound, useParams } from "next/navigation"
 
 const mockJobDetails = {
     'TAD004': {
@@ -81,8 +81,10 @@ const getStatusBadge = (status: string) => {
     }
 }
 
-export default function TailorJobDetailPage({ params }: { params: { id: string } }) {
-    const job = mockJobDetails[params.id as keyof typeof mockJobDetails] || Object.values(mockJobDetails)[0];
+export default function TailorJobDetailPage() {
+    const params = useParams();
+    const jobId = typeof params.id === 'string' ? params.id : '';
+    const job = mockJobDetails[jobId as keyof typeof mockJobDetails] || Object.values(mockJobDetails)[0];
 
     if (!job) {
         notFound();
