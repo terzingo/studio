@@ -14,6 +14,10 @@ export function ProductCard({ product }: ProductCardProps) {
   const image = PlaceHolderImages.find(img => img.id === product.imageId);
   const tailor = getTailorById(product.tailorId);
 
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(amount);
+  };
+
   return (
     <Link href={`/products/${product.id}`} className="block h-full">
       <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group h-full flex flex-col">
@@ -42,7 +46,7 @@ export function ProductCard({ product }: ProductCardProps) {
                   Satıcı: <span className="hover:underline">{tailor.name}</span>
               </p>
           )}
-          <p className="font-semibold text-base mt-auto pt-2 text-primary">{`${product.price} TL`}</p>
+          <p className="font-semibold text-base mt-auto pt-2 text-primary">{formatCurrency(product.price)}</p>
         </CardFooter>
       </Card>
     </Link>
