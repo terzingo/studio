@@ -33,8 +33,6 @@ const AnimatedIconCarousel = () => {
   }, []);
 
   const currentIcon = iconData[index];
-  const nextIndex = (index + 1) % iconData.length;
-  const nextIcon = iconData[nextIndex];
 
   return (
     <div className="relative w-full h-[450px] flex items-center justify-center">
@@ -128,33 +126,6 @@ const AnimatedIconCarousel = () => {
         </motion.div>
       </AnimatePresence>
       
-        <div className="absolute -bottom-8 -left-8 z-20">
-            <Image
-              src="https://i.imgur.com/00ihVfJ.png"
-              alt="Ücretsiz Tadilat Sticker"
-              width={160}
-              height={160}
-              className="transform rotate-[-6deg] animate-pulse-border rounded-2xl border-4 border-primary p-1 bg-background"
-            />
-        </div>
-
-
-      {/* Preview of next icon */}
-      <motion.div
-        animate={{ opacity: [0.2, 0.35, 0.2] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute right-4 md:right-8"
-      >
-        <div className={`bg-gradient-to-br ${nextIcon.color} p-3 rounded-2xl shadow-lg flex items-center justify-center aspect-square w-24 h-24`}>
-          <Image
-            src={nextIcon.imageUrl}
-            alt={nextIcon.name}
-            width={70}
-            height={70}
-            className="opacity-80 object-contain"
-          />
-        </div>
-      </motion.div>
 
       {/* Decorative orbiting circles */}
       <motion.div
