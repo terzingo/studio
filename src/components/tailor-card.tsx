@@ -15,7 +15,8 @@ export function TailorCard({ tailor }: TailorCardProps) {
   const image = PlaceHolderImages.find(img => img.id === tailor.imageId);
 
   return (
-    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group">
+    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col">
+      <Link href={`/points/${tailor.id}`} className="flex flex-col h-full">
         <CardHeader className="p-0">
             {image && (
                 <div className="relative h-56 w-full">
@@ -29,11 +30,11 @@ export function TailorCard({ tailor }: TailorCardProps) {
                 </div>
             )}
         </CardHeader>
-        <CardContent className="p-4">
+        <CardContent className="p-4 flex-grow">
             <CardTitle className="text-xl font-headline font-bold">
-                <Link href={`/points/${tailor.id}`} className="hover:text-primary transition-colors">
+                <span className="group-hover:text-primary transition-colors">
                     {tailor.name}
-                </Link>
+                </span>
             </CardTitle>
             <div className="text-sm text-muted-foreground mt-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
@@ -57,11 +58,13 @@ export function TailorCard({ tailor }: TailorCardProps) {
                 {tailor.services.length > 2 && <Badge variant="outline">...</Badge>}
             </div>
         </CardContent>
-        <CardFooter className="p-4 pt-0">
-            <Button asChild className="w-full">
-                <Link href={`/points/${tailor.id}`}>Noktayı Görüntüle</Link>
+        <CardFooter className="p-4 pt-0 mt-auto">
+            <Button className="w-full" asChild>
+                {/* The outer link makes this redundant, but we keep it for structure and styling */}
+                <div>Noktayı Görüntüle</div>
             </Button>
         </CardFooter>
+      </Link>
     </Card>
   );
 }
