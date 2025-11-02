@@ -38,25 +38,27 @@ export default function TailorDashboardPage() {
 
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Button asChild className="h-24 text-lg" variant="outline">
-                <Link href="/tailor-dashboard/jobs/new">
-                    <PlusCircle className="h-8 w-8 mr-4"/>
-                    Yeni İş Ekle
-                </Link>
-            </Button>
-             <Button asChild className="h-24 text-lg" variant="secondary">
-                <Link href="/tailor-dashboard/products">
-                    <PackagePlus className="h-8 w-8 mr-4"/>
-                    Yeni Ürün Ekle
-                </Link>
-            </Button>
-             <Button asChild className="h-24 text-lg">
-                <Link href="/tailor-dashboard/print">
-                    <Printer className="h-8 w-8 mr-4"/>
-                    Baskı Yap
-                </Link>
-            </Button>
+        <div className="mx-auto w-full max-w-4xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Button asChild className="h-24 text-lg" variant="outline">
+                    <Link href="/tailor-dashboard/jobs/new">
+                        <PlusCircle className="h-8 w-8 mr-4"/>
+                        Yeni İş Ekle
+                    </Link>
+                </Button>
+                <Button asChild className="h-24 text-lg" variant="secondary">
+                    <Link href="/tailor-dashboard/products/new">
+                        <PackagePlus className="h-8 w-8 mr-4"/>
+                        Yeni Ürün Ekle
+                    </Link>
+                </Button>
+                <Button asChild className="h-24 text-lg">
+                    <Link href="/tailor-dashboard/print">
+                        <Printer className="h-8 w-8 mr-4"/>
+                        Baskı Yap
+                    </Link>
+                </Button>
+            </div>
         </div>
         <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
