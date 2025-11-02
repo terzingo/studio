@@ -164,9 +164,9 @@ export default function ProductDetailPage() {
 
             {/* Price */}
             <div className="flex items-end gap-3 py-4 border-y">
-              <div className="text-4xl font-bold text-primary">₺{product.price.toFixed(2)}</div>
+              <div className="text-4xl font-bold text-primary">{product.price.toFixed(2)} TL</div>
               {product.originalPrice > product.price && (
-                <div className="text-xl text-muted-foreground line-through pb-1">₺{product.originalPrice.toFixed(2)}</div>
+                <div className="text-xl text-muted-foreground line-through pb-1">{product.originalPrice.toFixed(2)} TL</div>
               )}
             </div>
 
@@ -274,7 +274,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div>
                   <div className="font-semibold text-sm">Ücretsiz Kargo</div>
-                  <div className="text-xs text-muted-foreground">500₺ üzeri</div>
+                  <div className="text-xs text-muted-foreground">500 TL üzeri</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -400,8 +400,8 @@ export default function ProductDetailPage() {
                   Örnek Ürün {i}
                 </h3>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-primary">₺599.90</span>
-                  <span className="text-sm text-muted-foreground line-through">₺799.90</span>
+                  <span className="font-bold text-primary">599.90 TL</span>
+                  <span className="text-sm text-muted-foreground line-through">799.90 TL</span>
                 </div>
               </div>
             ))}
