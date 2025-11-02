@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { getTailors, allLocationsData } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { Input } from '@/components/ui/input';
@@ -20,23 +20,33 @@ export default function PointsPage() {
   const [selectedDistrict, setSelectedDistrict] = useState<District | null>(null);
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<string | null>(null);
 
-  const filteredTailors = allTailors.filter((tailor) => {
-    const searchMatch =
-      tailor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tailor.specialty.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tailor.location.toLowerCase().includes(searchTerm.toLowerCase());
+  const tailorsToDisplay = useMemo(() => {
+    const filteredTailors = allTailors.filter((tailor) => {
+      const searchMatch =
+        tailor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tailor.specialty.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tailor.location.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const locationParts = tailor.location.split(',').map(p => p.trim());
-    const tailorCity = locationParts[0];
-    const tailorDistrict = locationParts.length > 1 ? locationParts[1] : '';
-    const tailorNeighborhood = locationParts.length > 2 ? locationParts[2] : '';
+      const locationParts = tailor.location.split(',').map(p => p.trim());
+      const tailorCity = locationParts[0];
+      const tailorDistrict = locationParts.length > 1 ? locationParts[1] : '';
+      const tailorNeighborhood = locationParts.length > 2 ? locationParts[2] : '';
 
-    const cityMatch = !selectedCity || tailorCity === selectedCity;
-    const districtMatch = !selectedDistrict || tailorDistrict === selectedDistrict;
-    const neighborhoodMatch = !selectedNeighborhood || tailorNeighborhood === selectedNeighborhood;
+      const cityMatch = !selectedCity || tailorCity === selectedCity;
+      const districtMatch = !selectedDistrict || tailorDistrict === selectedDistrict;
+      const neighborhoodMatch = !selectedNeighborhood || tailorNeighborhood === selectedNeighborhood;
 
-    return searchMatch && cityMatch && districtMatch && neighborhoodMatch;
-  });
+      return searchMatch && cityMatch && districtMatch && neighborhoodMatch;
+    });
+
+    if (filteredTailors.length > 0) {
+      return filteredTailors;
+    }
+    
+    // If no results, show 3 random tailors
+    return [...allTailors].sort(() => 0.5 - Math.random()).slice(0, 3);
+
+  }, [searchTerm, selectedCity, selectedDistrict, selectedNeighborhood, allTailors]);
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
@@ -150,15 +160,10 @@ export default function PointsPage() {
         </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredTailors.map((tailor) => (
+        {tailorsToDisplay.map((tailor) => (
           <TailorCard key={tailor.id} tailor={tailor} />
         ))}
       </div>
-      {filteredTailors.length === 0 && (
-        <div className="text-center py-16 text-muted-foreground">
-          <p>Seçtiğiniz kriterlere uygun Terzin<span className="text-primary">Go</span> noktası bulunamadı.</p>
-        </div>
-      )}
     </div>
   );
 }
