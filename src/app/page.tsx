@@ -364,26 +364,10 @@ export default function Home() {
           </motion.div>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredTailors.map((tailor, index) => (
+            {featuredTailors.map((tailor) => (
               <TailorCard
                 key={tailor.id}
                 tailor={tailor}
-                className={`
-                  transition-all duration-500
-                  [--initial-opacity:0] [--initial-y:30px]
-                  [--animate-opacity:1] [--animate-y:0]
-                `}
-                style={{
-                  opacity: 'var(--initial-opacity)',
-                  transform: 'translateY(var(--initial-y))',
-                }}
-                // This is a hack to use framer-motion's whileInView with a simple CSS animation
-                onViewportEnter={(el) => {
-                  if (!el) return;
-                  el.target.style.opacity = 'var(--animate-opacity)';
-                  el.target.style.transform = 'translateY(var(--animate-y))';
-                  el.target.style.transitionDelay = `${index * 0.1}s`;
-                }}
               />
             ))}
           </div>
