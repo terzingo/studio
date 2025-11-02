@@ -15,9 +15,9 @@ export function ProductCard({ product }: ProductCardProps) {
   const tailor = getTailorById(product.tailorId);
 
   return (
-    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group h-full flex flex-col">
-      <CardContent className="p-0">
-        <Link href="#">
+    <Link href={`/products/${product.id}`} className="block h-full">
+      <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group h-full flex flex-col">
+        <CardContent className="p-0">
             <div className="relative aspect-[4/3] w-full">
                 {image && (
                     <Image
@@ -30,21 +30,21 @@ export function ProductCard({ product }: ProductCardProps) {
                 )}
                 <Badge className="absolute top-2 right-2" variant={product.category === 'İkinci El' ? 'secondary' : 'default'}>{product.category}</Badge>
             </div>
-        </Link>
-      </CardContent>
-      <CardFooter className="flex flex-col items-start p-3 flex-grow">
-        <h3 className="font-headline font-semibold text-base leading-tight">
-            <Link href="#" className="hover:text-primary transition-colors line-clamp-2">
-                {product.name}
-            </Link>
-        </h3>
-        {tailor && (
-            <p className="text-xs text-muted-foreground mt-1">
-                Satıcı: <Link href={`/points/${tailor.id}`} className="hover:underline">{tailor.name}</Link>
-            </p>
-        )}
-        <p className="font-semibold text-base mt-auto pt-2 text-primary">{`${product.price} TL`}</p>
-      </CardFooter>
-    </Card>
+        </CardContent>
+        <CardFooter className="flex flex-col items-start p-3 flex-grow">
+          <h3 className="font-headline font-semibold text-base leading-tight">
+              <span className="hover:text-primary transition-colors line-clamp-2">
+                  {product.name}
+              </span>
+          </h3>
+          {tailor && (
+              <p className="text-xs text-muted-foreground mt-1">
+                  Satıcı: <span className="hover:underline">{tailor.name}</span>
+              </p>
+          )}
+          <p className="font-semibold text-base mt-auto pt-2 text-primary">{`${product.price} TL`}</p>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }
