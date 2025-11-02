@@ -21,10 +21,7 @@ export default function ProductDetailPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   if (!product || !tailor) {
-    //
     // In a real app, you'd want to show a proper not found page.
-    // For this demo, we'll just show a simple message.
-    // notFound(); 
     return (
         <div className="container mx-auto px-4 py-8 md:py-12 max-w-7xl text-center">
             <h1 className="text-2xl font-bold">Ürün Bulunamadı</h1>
