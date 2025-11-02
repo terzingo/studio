@@ -9,7 +9,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Box, Edit, Settings, User } from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 
 const alterations = [
   { id: 'TAD001', item: 'Kot Pantolon', status: 'Terzide', date: '25.07.2024', tailor: 'Atölye Yılmaz' },
@@ -36,7 +35,6 @@ const getStatusBadge = (status: string) => {
 }
 
 export default function CustomerDashboardPage() {
-  const router = useRouter();
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -105,11 +103,11 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {alterations.map(alt => (
-                                     <TableRow key={alt.id} onClick={() => router.push(`/customer-dashboard/alterations/${alt.id}`)} className="cursor-pointer">
+                                     <TableRow key={alt.id}>
                                             <TableCell className="font-medium">
-                                                <span className="hover:underline text-primary">
+                                                <Link href={`/customer-dashboard/alterations/${alt.id}`} className="hover:underline text-primary">
                                                     {alt.id}
-                                                </span>
+                                                </Link>
                                             </TableCell>
                                             <TableCell>{alt.item}</TableCell>
                                             <TableCell>{getStatusBadge(alt.status)}</TableCell>
@@ -135,11 +133,11 @@ export default function CustomerDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {orders.map(order => (
-                                     <TableRow key={order.id} onClick={() => router.push(`/customer-dashboard/orders/${order.id}`)} className="cursor-pointer">
+                                     <TableRow key={order.id}>
                                         <TableCell className="font-medium">
-                                            <span className="hover:underline text-primary">
+                                            <Link href={`/customer-dashboard/orders/${order.id}`} className="hover:underline text-primary">
                                                 {order.id}
-                                            </span>
+                                            </Link>
                                         </TableCell>
                                         <TableCell>{order.item}</TableCell>
                                         <TableCell>{order.price}</TableCell>

@@ -146,10 +146,14 @@ export default function TailorDashboardPage() {
                             </TableHeader>
                             <TableBody>
                                 {recentJobs.map(job => (
-                                    <TableRow key={job.id} onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)} className="cursor-pointer">
+                                    <TableRow key={job.id}>
                                         <TableCell>
                                             <div className="font-medium">{job.customer}</div>
-                                            <div className="text-xs text-muted-foreground">{job.id}</div>
+                                            <div className="text-xs text-muted-foreground">
+                                                <Link href={`/tailor-dashboard/jobs/${job.id}`} className="hover:underline text-primary">
+                                                    {job.id}
+                                                </Link>
+                                            </div>
                                         </TableCell>
                                         <TableCell>{job.item}</TableCell>
                                         <TableCell>{getStatusBadge(job.status)}</TableCell>
