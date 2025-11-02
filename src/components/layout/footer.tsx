@@ -33,8 +33,8 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">İş Ortaklığı</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/for-business" className="text-sm text-muted-foreground hover:text-primary">E-Ticaret Çözümleri</Link></li>
-              <li><Link href="/for-business#for-tailors" className="text-sm text-muted-foreground hover:text-primary">Terzin<span className="text-primary">Go</span> Noktası Ol</Link></li>
+              <li><Link href="/how-it-works#for-ecommerce" className="text-sm text-muted-foreground hover:text-primary">E-Ticaret Çözümleri</Link></li>
+              <li><Link href="/how-it-works#for-tailors" className="text-sm text-muted-foreground hover:text-primary">Terzin<span className="text-primary">Go</span> Noktası Ol</Link></li>
             </ul>
           </div>
           <div>

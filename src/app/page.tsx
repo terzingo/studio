@@ -249,9 +249,9 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-bold text-lg h-14 border-2 hover:bg-primary/5">
-                  <Link href="/for-business">
+                  <Link href="/how-it-works#for-tailors">
                     <Briefcase className="mr-2 w-5 h-5" />
-                    İşletmeler İçin
+                    Terzi misin?
                   </Link>
                 </Button>
               </div>
@@ -452,93 +452,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section for Businesses */}
-      <section className="relative w-full py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
-        <motion.div
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 50%)',
-            backgroundSize: '200% 200%',
-          }}
-        />
-
-        <div className="container relative mx-auto px-4 md:px-6 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center space-y-8"
-          >
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold font-headline bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-                E-Ticaret Firması mısınız?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                İade maliyetlerinizi <span className="font-bold text-primary">%75'e kadar azaltın</span>, müşteri memnuniyetini artırın. Bugün <span className="font-bold text-foreground">Terzin</span><span className="font-bold text-primary">Go</span> ekosisteminin parçası olun.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
-                <Link href="/for-business">
-                  <Briefcase className="mr-2 w-5 h-5" />
-                  <span>İşbirliği Yap</span>
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button size="lg" asChild variant="outline" className="font-bold text-lg h-14 border-2">
-                <Link href="/how-it-works">
-                  Detaylı Bilgi Al
-                </Link>
-              </Button>
-            </div>
-
-            {/* Quick stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 max-w-3xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-4xl font-bold text-primary mb-2">%75</div>
-                <div className="text-sm text-muted-foreground">Maliyet Azalması</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-4xl font-bold text-primary mb-2">2-5</div>
-                <div className="text-sm text-muted-foreground">Gün Teslimat</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                <div className="text-sm text-muted-foreground">Terzi Noktası</div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
