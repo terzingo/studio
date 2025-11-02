@@ -9,13 +9,14 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 interface TailorCardProps {
   tailor: Tailor;
+  className?: string; // Allow className to be passed
 }
 
-export function TailorCard({ tailor }: TailorCardProps) {
+export function TailorCard({ tailor, className }: TailorCardProps) {
   const image = PlaceHolderImages.find(img => img.id === tailor.imageId);
 
   return (
-    <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col">
+    <Card className={`w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col ${className}`}>
       <div className="flex flex-col h-full">
         <CardHeader className="p-0">
             {image && (
