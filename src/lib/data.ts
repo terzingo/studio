@@ -273,7 +273,10 @@ const mockProducts: Product[] = [
   { id: 'prod-4', name: 'İtalyan Kesim Gömlek', price: 1800, category: 'Özel Tasarım', imageId: 'product-4', tailorId: 'kenan-erkin', description: 'Mısır pamuğundan, bedene oturan kalıbıyla özel olarak dikilmiş erkek gömleği. Manşetlere isteğe bağlı monogram işlenebilir.', brand: 'Gömlek Atölyesi', condition: 'Yeni gibi', fabric: 'Mısır Pamuğu', measurements: { shoulder: '46 cm', sleeve: '66 cm', waist: '100 cm' } },
   { id: 'prod-5', name: 'Marka Kot Pantolon', price: 500, category: 'İkinci El', imageId: 'product-5', tailorId: 'ahmet-yilmaz', description: 'Çok az kullanılmış, eskitme detaylı, boru paça kot pantolon. Rengi ve dokusu ilk günkü gibidir.', brand: 'Bilindik Marka', condition: 'Az kullanılmış', fabric: 'Denim', measurements: { waist: '84 cm', hip: '102 cm', length: '105 cm' } },
   { id: 'prod-6', name: 'Kız Çocuk Kostümü', price: 900, category: 'Özel Tasarım', imageId: 'product-6', tailorId: 'sibel-canan', description: 'Elsa temalı, tül ve saten kumaşlardan yapılmış, el işlemesi kar tanesi detaylı kostüm. 5-6 yaş için uygundur.', brand: 'Sibelin Çocuk Dünyası', condition: 'Yeni gibi', fabric: 'Saten ve Tül', measurements: { bust: '60 cm', length: '90 cm' } },
-  // ... more products
+  { id: 'prod-7', name: 'Kaşmir Kaban', price: 2500, category: 'İkinci El', imageId: 'product-7', tailorId: 'emre-klasik', description: 'Yumuşak dokulu, saf kaşmirden, klasik kesim erkek kabanı. Soğuk kış günleri için idealdir.', brand: 'Vintage', condition: 'İyi durumda', fabric: 'Kaşmir', measurements: { shoulder: '50 cm', sleeve: '68 cm', length: '100 cm' } },
+  { id: 'prod-8', name: 'İpek Bluz', price: 750, category: 'Özel Tasarım', imageId: 'product-8', tailorId: 'aylin-tasarim', description: 'Saf ipekten, dökümlü, fırfır detaylı şık bluz.', brand: 'Aylin Tasarım', condition: 'Yeni gibi', fabric: 'İpek', measurements: { bust: '98 cm', length: '65 cm' } },
+  { id: 'prod-9', name: 'Keten Pantolon', price: 600, category: 'İkinci El', imageId: 'product-9', tailorId: 'deniz-butik', description: 'Yazlık, rahat kesim, bej rengi keten pantolon.', brand: 'Bilindik Marka', condition: 'Az kullanılmış', fabric: 'Keten', measurements: { waist: '80 cm', hip: '100 cm', length: '102 cm' } },
+  { id: 'prod-10', name: 'Yün Kazak', price: 400, category: 'İkinci El', imageId: 'product-10', tailorId: 'mehmet-usta', description: 'Sıcak tutan, boğazlı, İskandinav desenli yün kazak.', brand: 'Vintage', condition: 'İyi durumda', fabric: 'Yün', measurements: { bust: '108 cm', sleeve: '64 cm', length: '72 cm' } }
 ];
 
 
@@ -293,7 +296,9 @@ export function getProductById(id: string): Product | undefined {
     return mockProducts.find(p => p.id === id);
 }
 
-// New location data structure for the form
+
+// --- NEW DYNAMIC LOCATION DATA GENERATION ---
+
 const allTurkeyProvinces = [
   "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
   "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
@@ -306,27 +311,39 @@ const allTurkeyProvinces = [
   "Düzce"
 ];
 
-// Helper function to count tailors in a given location string part (city or district)
-const countTailors = (locationPart: string) => mockTailors.filter(t => t.location.includes(locationPart)).length;
+// Helper to generate a random number within a range
+const getRandomInt = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
-// Pre-calculate counts for locations defined in mockTailors
+// Generic list of districts and neighborhoods to be used for provinces without specific data
+const genericDistricts = {
+  "Merkez": { count: getRandomInt(1, 5), neighborhoods: ["Yeni Mahalle", "Cumhuriyet Mahallesi", "Atatürk Mahallesi"] },
+  "Sanayi": { count: getRandomInt(1, 3), neighborhoods: ["Organize Sanayi Bölgesi", "Sanayi Sitesi"] },
+  "Yıldız": { count: getRandomInt(1, 2), neighborhoods: ["Yıldıztepe", "Ayyıldız"] }
+};
+
+// Specific data for major cities to make it more realistic
 const istanbulDistricts = {
-  Beşiktaş: { count: countTailors('Beşiktaş'), neighborhoods: ['Levent', 'Etiler', 'Bebek'] },
-  Kadıköy: { count: countTailors('Kadıköy'), neighborhoods: ['Moda', 'Göztepe', 'Bostancı'] },
-  Şişli: { count: countTailors('Şişli'), neighborhoods: ['Nişantaşı', 'Mecidiyeköy', 'Harbiye'] },
+  Beşiktaş: { count: getRandomInt(2, 5), neighborhoods: ['Levent', 'Etiler', 'Bebek'] },
+  Kadıköy: { count: getRandomInt(3, 6), neighborhoods: ['Moda', 'Göztepe', 'Bostancı'] },
+  Şişli: { count: getRandomInt(2, 4), neighborhoods: ['Nişantaşı', 'Mecidiyeköy', 'Harbiye'] },
 };
 
 const ankaraDistricts = {
-  Çankaya: { count: countTailors('Çankaya'), neighborhoods: ['Kızılay', 'Tunalı Hilmi', 'Balgat'] },
-  Yenimahalle: { count: countTailors('Yenimahalle'), neighborhoods: ['Batıkent', 'Demetevler', 'Şentepe'] },
-  Keçiören: { count: countTailors('Keçiören'), neighborhoods: ['Etlik', 'Aktepe', 'Sanatoryum'] },
+  Çankaya: { count: getRandomInt(3, 7), neighborhoods: ['Kızılay', 'Tunalı Hilmi', 'Balgat'] },
+  Yenimahalle: { count: getRandomInt(1, 4), neighborhoods: ['Batıkent', 'Demetevler', 'Şentepe'] },
+  Keçiören: { count: getRandomInt(1, 3), neighborhoods: ['Etlik', 'Aktepe', 'Sanatoryum'] },
 };
 
 const izmirDistricts = {
-  Konak: { count: countTailors('Konak'), neighborhoods: ['Alsancak', 'Göztepe', 'Hatay'] },
-  Bornova: { count: countTailors('Bornova'), neighborhoods: ['Küçükpark', 'Evka 3', 'Özkanlar'] },
-  Karşıyaka: { count: countTailors('Karşıyaka'), neighborhoods: ['Bostanlı', 'Mavişehir', 'Alaybey'] },
+  Konak: { count: getRandomInt(2, 4), neighborhoods: ['Alsancak', 'Göztepe', 'Hatay'] },
+  Bornova: { count: getRandomInt(1, 4), neighborhoods: ['Küçükpark', 'Evka 3', 'Özkanlar'] },
+  Karşıyaka: { count: getRandomInt(2, 5), neighborhoods: ['Bostanlı', 'Mavişehir', 'Alaybey'] },
 };
+
 
 type LocationData = {
     [city: string]: {
@@ -340,20 +357,41 @@ type LocationData = {
     }
 }
 
-// Generate the full location data structure for all 81 provinces
+// Generate the full location data structure
 export const allLocationsData = allTurkeyProvinces.reduce((acc: LocationData, city) => {
-    acc[city] = {
-        count: countTailors(city),
-        districts: {}
-    };
+    let districts;
+    let cityCount: number;
 
+    // Use specific data for major cities, generic for others
     if (city === 'İstanbul') {
-        acc[city].districts = istanbulDistricts;
+        districts = istanbulDistricts;
     } else if (city === 'Ankara') {
-        acc[city].districts = ankaraDistricts;
+        districts = ankaraDistricts;
     } else if (city === 'İzmir') {
-        acc[city].districts = izmirDistricts;
+        districts = izmirDistricts;
+    } else {
+        districts = genericDistricts;
     }
+    
+    // Calculate total count for the city by summing up district counts
+    cityCount = Object.values(districts).reduce((sum, district) => sum + district.count, 0);
+
+    // Ensure cityCount is at least 1 for most provinces
+    // Let's allow 5 provinces to have 0 tailors as requested
+    const zeroProvinces = ["Bayburt", "Tunceli", "Ardahan", "Kilis", "Iğdır"];
+    if (cityCount === 0 && !zeroProvinces.includes(city)) {
+        cityCount = getRandomInt(1, 3);
+    }
+    // Final check for the 5 provinces that can be zero
+    if(zeroProvinces.includes(city)){
+        cityCount = 0;
+    }
+
+
+    acc[city] = {
+        count: cityCount,
+        districts: cityCount > 0 ? districts : {} // If city has no tailors, it has no districts with tailors
+    };
     
     return acc;
 }, {});
