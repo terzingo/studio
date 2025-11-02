@@ -14,7 +14,7 @@ function Logo() {
 }
 
 const navLinks = [
-  { href: '/#how-it-works', label: 'Nasıl Çalışır?' },
+  { href: '/how-it-works', label: 'Nasıl Çalışır?' },
   { href: '/points', label: 'Noktalar' },
   { href: '/about', label: 'Hakkımızda' },
   { href: '/for-business', label: 'İşletmeler İçin' },
@@ -87,5 +87,3 @@ export function Header() {
     </header>
   );
 }
-
-    
