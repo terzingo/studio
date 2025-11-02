@@ -18,7 +18,7 @@ import type { Tailor } from '@/lib/types';
 
 
 type City = keyof typeof allLocationsData;
-type District = keyof (typeof allLocationsData)[City];
+type District = keyof (typeof allLocationsData)[City]['districts'];
 
 export function FindTailorForm() {
     // Mock user's location for demonstration purposes
@@ -103,7 +103,7 @@ export function FindTailorForm() {
                     <label className="font-semibold text-sm">İlçe</label>
                     <Select
                     disabled={!selectedCity}
-                    onValuechange={(value: any) => {
+                    onValueChange={(value: any) => {
                         setSelectedDistrict(value);
                         setSelectedNeighborhood(null);
                         setShowResults(false);
@@ -139,7 +139,7 @@ export function FindTailorForm() {
                     <SelectContent>
                         {selectedCity &&
                         selectedDistrict &&
-                        allLocationsData[selectedCity].districts[selectedDistrict].neighborhoods.map(
+                        allLocationsData[selectedCity].districts[selectedDistrict as District].neighborhoods.map(
                             (neighborhood) => (
                             <SelectItem key={neighborhood} value={neighborhood}>
                                 {neighborhood}
