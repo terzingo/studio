@@ -8,11 +8,11 @@ const randomPrice = (min: number, max: number, step = 10) => {
 // Standardized list of services
 const createServices = () => [
   // Free with code services
-  { name: 'Paça Kısaltma*', price: `${randomPrice(120, 180)} TL`, note: 'Anlaşmalı Alışverişlerde Ücretsiz' },
-  { name: 'Basit Bel Daraltma*', price: `${randomPrice(150, 200)} TL`, note: 'Anlaşmalı Alışverişlerde Ücretsiz' },
-  { name: 'Pens Atma*', price: `${randomPrice(130, 180)} TL`, note: 'Anlaşmalı Alışverişlerde Ücretsiz' },
-  { name: 'Kol Boyu Kısaltma*', price: `${randomPrice(150, 220)} TL`, note: 'Anlaşmalı Alışverişlerde Ücretsiz' },
-  { name: 'Etek Boyu Kısaltma*', price: `${randomPrice(120, 180)} TL`, note: 'Anlaşmalı Alışverişlerde Ücretsiz' },
+  { name: 'Paça Kısaltma*', price: `${randomPrice(120, 180)} TL`, note: 'TerzinGo kodu ile ücretsiz' },
+  { name: 'Basit Bel Daraltma*', price: `${randomPrice(150, 200)} TL`, note: 'TerzinGo kodu ile ücretsiz' },
+  { name: 'Pens Atma*', price: `${randomPrice(130, 180)} TL`, note: 'TerzinGo kodu ile ücretsiz' },
+  { name: 'Kol Boyu Kısaltma*', price: `${randomPrice(150, 220)} TL`, note: 'TerzinGo kodu ile ücretsiz' },
+  { name: 'Etek Boyu Kısaltma*', price: `${randomPrice(120, 180)} TL`, note: 'TerzinGo kodu ile ücretsiz' },
   // Paid services
   { name: 'Pantolon Fermuar Değişimi', price: `${randomPrice(150, 250)} TL` },
   { name: 'Mont/Kaban Fermuar Değişimi', price: `${randomPrice(300, 450)} TL` },
