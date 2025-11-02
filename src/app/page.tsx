@@ -402,14 +402,18 @@ export default function Home() {
             <div className="flex w-max animate-scroll mb-6">
               {[...topRowProducts, ...topRowProducts, ...topRowProducts].map((product, index) => (
                 <div key={`top-${product.id}-${index}`} className="w-[300px] flex-shrink-0 px-3">
-                  <ProductCard product={product} />
+                  <Link href={`/products/${product.id}`}>
+                    <ProductCard product={product} />
+                  </Link>
                 </div>
               ))}
             </div>
             <div className="flex w-max animate-scroll-reverse">
               {[...bottomRowProducts, ...bottomRowProducts, ...bottomRowProducts].map((product, index) => (
                 <div key={`bottom-${product.id}-${index}`} className="w-[300px] flex-shrink-0 px-3">
-                  <ProductCard product={product} />
+                  <Link href={`/products/${product.id}`}>
+                    <ProductCard product={product} />
+                  </Link>
                 </div>
               ))}
             </div>
