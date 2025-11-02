@@ -86,7 +86,7 @@ export default function TailorCustomersPage() {
                         </TableHeader>
                         <TableBody>
                             {customers.map(customer => (
-                                <TableRow key={customer.id} className="cursor-pointer" onClick={() => router.push('/tailor-dashboard/customers')}>
+                                <TableRow key={customer.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/customers`)}>
                                     <TableCell>
                                         <div className="flex items-center gap-4">
                                             <Avatar className="hidden h-9 w-9 sm:flex">

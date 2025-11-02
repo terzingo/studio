@@ -50,7 +50,7 @@ export default function TailorProductsPage() {
                            </Link>
                         </Button>
                         <Button asChild size="sm" className="h-7 gap-1">
-                            <Link href="/tailor-dashboard/products">
+                            <Link href="/tailor-dashboard/products/new">
                                 <PlusCircle className="h-3.5 w-3.5" />
                                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Yeni Ürün Ekle</span>
                             </Link>
@@ -73,7 +73,7 @@ export default function TailorProductsPage() {
                             {products.map(product => {
                                 const image = PlaceHolderImages.find(img => img.id === product.imageId);
                                 return (
-                                    <TableRow key={product.id} className="cursor-pointer" onClick={() => router.push('/tailor-dashboard/products')}>
+                                    <TableRow key={product.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/products`)}>
                                         <TableCell className="hidden sm:table-cell">
                                             {image && <Image src={image.imageUrl} alt={product.name} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint} />}
                                         </TableCell>

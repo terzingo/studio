@@ -85,11 +85,9 @@ export default function TailorJobsPage() {
                         </TableHeader>
                         <TableBody>
                             {allJobs.map(job => (
-                                <TableRow key={job.id}>
+                                <TableRow key={job.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)}>
                                     <TableCell className="font-medium">
-                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="hover:underline text-primary">
-                                            {job.id}
-                                        </Link>
+                                        {job.id}
                                     </TableCell>
                                     <TableCell>{job.customer}</TableCell>
                                     <TableCell>{job.item}</TableCell>
@@ -98,13 +96,13 @@ export default function TailorJobsPage() {
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button aria-haspopup="true" size="icon" variant="ghost">
+                                                <Button aria-haspopup="true" size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
                                                     <MoreHorizontal className="h-4 w-4" />
                                                     <span className="sr-only">Menüyü aç</span>
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
-                                                <DropdownMenuItem onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)}>Detayları Gör</DropdownMenuItem>
+                                                <DropdownMenuItem>Detayları Gör</DropdownMenuItem>
                                                 <DropdownMenuItem>Durumu Güncelle</DropdownMenuItem>
                                                 <DropdownMenuItem className="text-red-600">İşi İptal Et</DropdownMenuItem>
                                             </DropdownMenuContent>
