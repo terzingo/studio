@@ -44,7 +44,7 @@ const DressIcon = ({ className = "" }) => (
 
 const JacketIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M40 30l20 10v130H40zM160 30l-20 10v130h20z" opacity="0.8"/>
+    <path d="M40 30l20 10v130H40z" opacity="0.8"/>
     <path d="M60 40h80v130H60z"/>
     <path d="M60 40L90 70 60 80zM140 40L110 70 140 80z" fill="white" opacity="0.15"/>
     <path d="M100 40v130" stroke="white" strokeWidth="3" opacity="0.1" />
@@ -282,10 +282,10 @@ export default function Home() {
 
               <div className="space-y-8">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight leading-[1.1]">
-                  Beden Uymazsa,{' '}
+                  Aklında Değil,{' '}
                   <span className="relative inline-block mt-2">
                     <span className="relative z-10 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      İade Değil Tadilat
+                      Üstünde Kalsın!
                     </span>
                     <motion.div
                       initial={{ scaleX: 0 }}
@@ -297,7 +297,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
-                  Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-primary">TerziGo</span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
+                  İade değil, tadilat yapın. Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-foreground">Terzi<span className="text-primary">Go</span></span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
                 </p>
               </div>
 
