@@ -52,7 +52,7 @@ export default function TailorDashboardPage() {
                         Yeni Ürün Ekle
                     </Link>
                 </Button>
-                <Button asChild className="h-24 text-lg" variant="default">
+                <Button asChild className="h-24 text-lg bg-purple-600 hover:bg-purple-700" variant="default">
                     <Link href="/tailor-dashboard/print">
                         <Printer className="h-8 w-8 mr-4"/>
                         Baskı Yap
