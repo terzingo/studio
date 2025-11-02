@@ -1,8 +1,8 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Briefcase, Store, Users, TrendingDown, Clock, Award, CheckCircle2, Sparkles, ArrowRight, Package, Truck, Scissors, MapPin, BarChart3, Shield, Zap } from 'lucide-react';
+import { Briefcase, CheckCircle2, Sparkles, ArrowRight, Star } from 'lucide-react';
 import Link from 'next/link';
 import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
@@ -99,64 +99,91 @@ const AnimatedIconCarousel = () => {
     <div className="relative w-full h-[450px] flex items-center justify-center">
       {/* Background glow effect */}
       <motion.div
-        key={`${index}-glow`}
-        initial={{ opacity: 0 }}
         animate={{
-          opacity: [0.3, 0.5, 0.3],
           scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 2.5,
+          duration: 3,
+          repeat: Infinity,
           ease: "easeInOut"
         }}
-        className={`absolute inset-0 bg-gradient-to-br ${currentIcon.color} rounded-full blur-3xl`}
+        className={`absolute inset-0 bg-gradient-to-br ${currentIcon.color} rounded-full blur-3xl opacity-30`}
       />
 
       {/* Main icon display */}
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
-          initial={{ opacity: 0, x: 100, scale: 0.7 }}
+          initial={{ opacity: 0, scale: 0.5, rotateY: -90 }}
           animate={{ 
             opacity: 1, 
-            x: 0,
             scale: 1, 
+            rotateY: 0,
             transition: { 
-              duration: 0.6,
+              duration: 0.8,
               ease: [0.34, 1.56, 0.64, 1]
             } 
           }}
           exit={{ 
             opacity: 0, 
-            x: -100,
-            scale: 0.7,
-            transition: { duration: 0.4 } 
+            scale: 0.5, 
+            rotateY: 90,
+            transition: { duration: 0.6 } 
           }}
           className="relative flex flex-col items-center z-10"
         >
           {/* Icon container with pulsing glow */}
           <motion.div
-             animate={{
-                filter: [
-                  "brightness(100%)",
-                  "brightness(150%)",
-                  "brightness(100%)",
-                ],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-            className={`relative bg-card/40 p-12 rounded-3xl backdrop-blur-sm border border-white/10 ${currentIcon.shadow} shadow-2xl`}
+            animate={{
+              boxShadow: [
+                `0 0 20px rgba(99, 102, 241, 0.3)`,
+                `0 0 60px rgba(99, 102, 241, 0.8)`,
+                `0 0 20px rgba(99, 102, 241, 0.3)`
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className={`relative bg-gradient-to-br ${currentIcon.color} p-12 rounded-3xl ${currentIcon.shadow} shadow-2xl`}
           >
             <currentIcon.Icon className="w-48 h-48 text-white drop-shadow-2xl" />
+            
+            {/* Floating particles */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-white rounded-full"
+                initial={{ 
+                  x: 0, 
+                  y: 0, 
+                  opacity: 0 
+                }}
+                animate={{
+                  x: [0, Math.random() * 100 - 50],
+                  y: [0, Math.random() * 100 - 50],
+                  opacity: [0, 1, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: i * 0.3,
+                }}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                }}
+              />
+            ))}
           </motion.div>
           
           {/* Label with slide-in animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0, transition: { delay: 0.2 }}}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
             className="mt-8 text-center"
           >
             <span className={`text-3xl font-bold bg-gradient-to-r ${currentIcon.color} bg-clip-text text-transparent drop-shadow-lg`}>
@@ -165,6 +192,17 @@ const AnimatedIconCarousel = () => {
           </motion.div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Preview of next icon */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 0.3, x: 0 }}
+        className="absolute right-0 opacity-30"
+      >
+        <div className={`bg-gradient-to-br ${nextIcon.color} p-6 rounded-2xl`}>
+          <nextIcon.Icon className="w-20 h-20 text-white" />
+        </div>
+      </motion.div>
 
       {/* Decorative orbiting circles */}
       <motion.div
@@ -187,207 +225,6 @@ const AnimatedIconCarousel = () => {
   );
 };
 
-const CounterStat = ({ end, label, suffix = '', prefix = '' }: { end: number; label: string; suffix?: string; prefix?: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      const duration = 2000;
-      const steps = 60;
-      const stepValue = end / steps;
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += stepValue;
-        if (current >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(current));
-        }
-      }, duration / steps);
-
-      return () => clearInterval(timer);
-    }
-  }, [end, isInView]);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, type: "spring" }}
-      viewport={{ once: true }}
-      className="text-center relative group"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-      <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 hover:border-primary/40 transition-all duration-300">
-        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-          {prefix}{count}{suffix}
-        </div>
-        <div className="mt-3 text-muted-foreground font-medium text-lg">{label}</div>
-      </div>
-    </motion.div>
-  );
-};
-
-const HowItWorksStep = ({ number, title, description, icon: Icon, delay }: { number: number; title: string; description: string; icon: any; delay: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      className="relative"
-    >
-      <div className="flex flex-col items-center text-center">
-        <motion.div
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          className="relative mb-6"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-full blur-xl opacity-50" />
-          <div className="relative w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-            <Icon className="w-12 h-12 text-white" />
-          </div>
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg font-bold text-primary">
-            {number}
-          </div>
-        </motion.div>
-        <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed">{description}</p>
-      </div>
-      {number < 4 && (
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: delay + 0.3 }}
-          viewport={{ once: true }}
-          className="hidden lg:block absolute top-12 left-full w-full h-1 bg-gradient-to-r from-primary to-transparent origin-left"
-        />
-      )}
-    </motion.div>
-  );
-};
-
-const ComparisonTable = () => {
-  return (
-    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="relative overflow-hidden rounded-2xl border-2 border-red-500/30 bg-red-500/5 p-8"
-      >
-        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Eski Yöntem
-        </div>
-        <h3 className="text-2xl font-bold mb-6 text-red-600">İade Maliyetleri</h3>
-        <div className="space-y-4">
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-red-600 text-sm">✗</span>
-            </div>
-            <div>
-              <p className="font-semibold">Kargo Maliyeti</p>
-              <p className="text-sm text-muted-foreground">Çift yönlü nakliye gideri</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-red-600 text-sm">✗</span>
-            </div>
-            <div>
-              <p className="font-semibold">İşlem Maliyeti</p>
-              <p className="text-sm text-muted-foreground">Depo, personel, yeniden paketleme</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-red-600 text-sm">✗</span>
-            </div>
-            <div>
-              <p className="font-semibold">Değer Kaybı</p>
-              <p className="text-sm text-muted-foreground">Hasar, etiket kayıpları</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-red-600 text-sm">✗</span>
-            </div>
-            <div>
-              <p className="font-semibold">Müşteri Kaybı</p>
-              <p className="text-sm text-muted-foreground">Kötü deneyim, sadakatsizlik</p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-6 pt-6 border-t border-red-500/30">
-          <p className="text-3xl font-bold text-red-600">~₺400-600</p>
-          <p className="text-sm text-muted-foreground">Ürün başına ortalama</p>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="relative overflow-hidden rounded-2xl border-2 border-green-500/30 bg-green-500/5 p-8"
-      >
-        <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-          <Sparkles className="w-4 h-4" />
-          Terzin<span className="text-primary-foreground group-hover:text-black">Go</span>
-        </div>
-        <h3 className="text-2xl font-bold mb-6 text-green-600">Tadilat Çözümü</h3>
-        <div className="space-y-4">
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-            </div>
-            <div>
-              <p className="font-semibold">Tek Seferlik Teslimat</p>
-              <p className="text-sm text-muted-foreground">Sadece terzi noktasına</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-            </div>
-            <div>
-              <p className="font-semibold">Profesyonel Tadilat</p>
-              <p className="text-sm text-muted-foreground">Ürün tam bedene uygun</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-            </div>
-            <div>
-              <p className="font-semibold">Sıfır Değer Kaybı</p>
-              <p className="text-sm text-muted-foreground">Ürün satıldı kalır</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-            </div>
-            <div>
-              <p className="font-semibold">Müşteri Memnuniyeti</p>
-              <p className="text-sm text-muted-foreground">Sadık müşteri kazanımı</p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-6 pt-6 border-t border-green-500/30">
-          <p className="text-3xl font-bold text-green-600">~₺100-150</p>
-          <p className="text-sm text-muted-foreground">Ürün başına ortalama</p>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
   const products = getProducts();
@@ -401,17 +238,34 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section - Ultra Premium */}
-      <section className="relative w-full min-h-screen flex items-center overflow-hidden">
+      {/* Hero Section - Clean & Impactful */}
+      <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden">
         {/* Animated gradient background */}
-        <div className="absolute inset-0 animated-gradient-background" />
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
+          <motion.div
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%'],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)',
+              backgroundSize: '200% 200%',
+            }}
+          />
+        </div>
 
         {/* Floating geometric shapes */}
         <motion.div style={{ y: y1, opacity }} className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <motion.div style={{ y: y2, opacity }} className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-        <div className="container relative px-4 md:px-6 max-w-6xl mx-auto py-20">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="container relative px-4 md:px-6 max-w-7xl mx-auto py-12">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -423,197 +277,272 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/40 border border-white/20 text-foreground/80 font-semibold text-sm w-fit backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-purple-500/20 border border-primary/30 text-primary font-semibold text-sm w-fit backdrop-blur-sm"
               >
-                <Sparkles className="w-5 h-5 text-primary" />
-                <span>890 Milyar ₺'lik Soruna Akıllı Çözüm</span>
+                <Sparkles className="w-5 h-5" />
+                <span>İade Derdine Son!</span>
               </motion.div>
 
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight leading-tight">
-                  İnternetten Aldığınız{' '}
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight leading-[1.1]">
+                  Beden Uymazsa,{' '}
                   <span className="relative inline-block">
                     <span className="relative z-10 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      Kıyafetler
+                      İade Değil Tadilat
                     </span>
-                  </span>{' '}
-                  Üstünüze Olmuyor mu?
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.8, duration: 0.8 }}
+                      className="absolute bottom-2 left-0 right-0 h-4 bg-gradient-to-r from-primary/20 to-purple-600/20 -z-0 origin-left"
+                    />
+                  </span>
                 </h1>
-                <p className="max-w-xl text-muted-foreground md:text-xl">
-                  Artık iade etmekle uğraşmayın! Terzin<span className="text-primary">Go</span> ile anlaşmalı e-ticaret sitelerinden aldığınız ürünleri, size en yakın terzide
-                  <span className="font-bold text-foreground"> ücretsiz </span>
-                  olarak bedeninize göre ayarlatın.
+
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-primary">TerziGo</span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
                 </p>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
-              >
-                <Button asChild size="lg" className="text-lg h-14 px-10 shadow-lg shadow-primary/30">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="font-bold text-lg h-14 shadow-lg hover:shadow-xl transition-all group">
                   <Link href="/how-it-works">
-                    Nasıl Çalışır?
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <span>Nasıl Çalışır?</span>
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="link" className="text-lg h-14 px-10 text-muted-foreground">
-                  <Link href="/points">Tüm Noktaları Gör</Link>
+                <Button asChild size="lg" variant="outline" className="font-bold text-lg h-14 border-2 hover:bg-primary/5">
+                  <Link href="/for-business">
+                    <Briefcase className="mr-2 w-5 h-5" />
+                    İşletmeler İçin
+                  </Link>
                 </Button>
-              </motion.div>
+              </div>
+
+              {/* Trust indicators */}
+              <div className="flex flex-wrap gap-6 pt-2">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="flex items-center gap-2 text-sm"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  <span className="text-muted-foreground font-medium">100% Ücretsiz</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex items-center gap-2 text-sm"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  <span className="text-muted-foreground font-medium">500+ Terzi Noktası</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex items-center gap-2 text-sm"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  <span className="text-muted-foreground font-medium">2-5 Gün Teslimat</span>
+                </motion.div>
+              </div>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden lg:flex items-center justify-center h-full"
+              className="flex items-center justify-center"
             >
               <AnimatedIconCarousel />
             </motion.div>
-
           </div>
         </div>
       </section>
 
-      {/* Find Tailor Section */}
+      {/* Find Tailor Form */}
       <FindTailorForm />
 
-      {/* Stats Section */}
-      <section className="w-full py-16 md:py-24 bg-primary/5">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline">Rakamlarla Biz</h2>
-            <p className="mt-6 text-xl text-muted-foreground">
-              Sektörün en büyük sorununa çözüm getirirken yarattığımız etki.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <CounterStat end={35} suffix="%" label="İade Oranlarında Düşüş" />
-            <CounterStat end={850} prefix="+" label="Mutlu Müşteri" />
-            <CounterStat end={75} prefix="+" label="Aktif TerzinGo Noktası" />
-          </div>
-        </div>
-      </section>
+      {/* Featured Products Section */}
+      <section id="featured-products" className="w-full py-20 md:py-28 animated-gradient-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-transparent" />
 
-       {/* How It Works Section */}
-      <section id="how-it-works" className="w-full py-16 md:py-24 animated-gradient-background">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline">Müşteriler İçin Sistem Nasıl Çalışır?</h2>
-            <p className="mt-6 text-xl text-muted-foreground">
-              Sadece 4 basit adımda, online alışveriş deneyiminizi mükemmelleştirin.
+        <div className="container relative mx-auto px-4 md:px-6 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold font-headline bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              Noktalarımızdaki Ürünler
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg">
+              Özenle seçilmiş ikinci el ve özel tasarım ürünler
             </p>
+          </motion.div>
+        </div>
+
+        <div className="relative mt-8 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex w-max animate-scroll">
+            {[...topRowProducts, ...topRowProducts].map((product, index) => (
+              <div key={`top-${product.id}-${index}`} className="w-[280px] flex-shrink-0 p-2">
+                <ProductCard product={product} />
+              </div>
+            ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-             <HowItWorksStep number={1} title="Alışveriş Yap" description="Anlaşmalı e-ticaret markalarından beğendiğiniz ürünü satın alın." icon={Package} delay={0.1} />
-            <HowItWorksStep number={2} title="Terziye Git" description="Ürününüz ve size özel tadilat kodunuzla en yakın TerzinGo noktasına gidin." icon={Truck} delay={0.2} />
-            <HowItWorksStep number={3} title="Tadilat Yaptır" description="Terziniz, ürününüzü tam bedeninize göre ücretsiz olarak ayarlasın." icon={Scissors} delay={0.3} />
-            <HowItWorksStep number={4} title="Keyfini Çıkar" description="Mükemmel uyumun ve zahmetsiz alışverişin keyfini çıkarın!" icon={Sparkles} delay={0.4} />
+          <div className="flex w-max animate-scroll-reverse mt-4">
+            {[...bottomRowProducts, ...bottomRowProducts].map((product, index) => (
+              <div key={`bottom-${product.id}-${index}`} className="w-[280px] flex-shrink-0 p-2">
+                <ProductCard product={product} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Featured Tailors Section */}
-      <section className="w-full py-16 md:py-24">
+      <section id="featured-points" className="w-full py-20 md:py-28 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline">Öne Çıkan Terzin<span className="text-primary">Go</span> Noktaları</h2>
-              <p className="mt-2 text-lg text-muted-foreground">Müşterilerimiz tarafından en çok tercih edilen terziler.</p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
+              <Star className="w-4 h-4 fill-current" />
+              <span>En Popüler Noktalar</span>
             </div>
-            <Button variant="outline" asChild>
-                <Link href="/points">
-                    Tümünü Gör <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredTailors.map((tailor) => (
-              <TailorCard key={tailor.id} tailor={tailor} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-       {/* Comparison Section */}
-      <section className="w-full py-16 md:py-24 bg-muted/40">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline">Maliyetleri Karşılaştırın</h2>
-            <p className="mt-6 text-xl text-muted-foreground">
-              İade süreçlerinin markanıza olan gerçek maliyetini görün ve Terzin<span className="text-primary">Go</span>'nun nasıl tasarruf sağladığını keşfedin.
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">
+              Öne Çıkan TerziGo Noktaları
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg">
+              Müşterilerimizin en çok tercih ettiği profesyonel terziler
             </p>
+          </motion.div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredTailors.map((tailor, index) => (
+              <motion.div
+                key={tailor.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <TailorCard tailor={tailor} />
+              </motion.div>
+            ))}
           </div>
-          <ComparisonTable />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Button asChild size="lg" className="font-bold text-lg h-14">
+              <Link href="/points">
+                Tüm Noktaları Keşfet
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-       {/* For Business Section */}
-      <section className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline">İşinizi Bizimle Büyütün</h2>
-                <p className="text-xl text-muted-foreground">
-                    Terzin<span className="text-primary">Go</span> ekosistemine katılarak iade oranlarınızı düşürün, müşteri sadakatini artırın veya atölyenize yeni müşteriler kazanın.
-                </p>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-                        <Link href="/for-business" className="block p-6 rounded-lg border bg-card hover:bg-card/80 h-full">
-                            <Zap className="w-8 h-8 text-primary mb-3"/>
-                            <h3 className="text-xl font-bold">E-ticaret Markaları</h3>
-                            <p className="text-muted-foreground mt-2">İade oranlarınızı düşürün, kârlılığınızı artırın.</p>
-                        </Link>
-                    </motion.div>
-                     <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-                        <Link href="/for-business#for-tailors" className="block p-6 rounded-lg border bg-card hover:bg-card/80 h-full">
-                            <Store className="w-8 h-8 text-primary mb-3"/>
-                            <h3 className="text-xl font-bold">Terziler ve Atölyeler</h3>
-                            <p className="text-muted-foreground mt-2">İşletmenizi dijitalleştirin, gelirinizi artırın.</p>
-                        </Link>
-                    </motion.div>
-                </div>
-            </div>
-             <div className="hidden md:block">
-                 <motion.div 
-                    whileHover={{ scale: 1.02, rotate: -1 }}
-                    className="relative p-8 bg-card border rounded-xl shadow-2xl"
-                 >
-                    <BarChart3 className="w-16 h-16 text-primary absolute -top-8 -left-8" />
-                    <Shield className="w-12 h-12 text-green-500 absolute -bottom-6 -right-6" />
-                    <h4 className="text-2xl font-bold mb-4">Veriye Dayalı Büyüme</h4>
-                    <p className="text-muted-foreground mb-6">İş ortaklarımıza sunduğumuz analiz ve raporlama araçlarıyla, müşteri davranışlarını anlayın ve işinizi veriye dayalı kararlarla büyütün. Hangi ürünlerin en çok tadilat gerektirdiğini, hangi bölgelerde potansiyel olduğunu keşfedin.</p>
-                    <Button variant="outline">Raporları Keşfet</Button>
-                 </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section for Businesses */}
+      <section className="relative w-full py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
+        <motion.div
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 50%)',
+            backgroundSize: '200% 200%',
+          }}
+        />
 
-      {/* Infinite Product Scroll Section */}
-      <section className="w-full py-16 md:py-24 overflow-hidden bg-primary/5">
-         <div className="container mx-auto px-4 md:px-6 max-w-6xl text-center">
-             <h2 className="text-3xl md:text-4xl font-bold font-headline">Terzin<span className="text-primary">Go</span> Mağaza</h2>
-             <p className="mt-2 text-lg text-muted-foreground">Terzin<span className="text-primary">Go</span> noktalarında satışa sunulan özel tasarım ve ikinci el ürünleri keşfedin.</p>
-        </div>
-        <div className="mt-12 relative w-full flex flex-col gap-4">
-          <div className="flex w-max animate-scroll">
-            {[...topRowProducts, ...topRowProducts].map((product, i) => (
-              <div key={`top-${i}`} className="w-64 px-2">
-                <ProductCard product={product} />
-              </div>
-            ))}
-          </div>
-          <div className="flex w-max animate-scroll-reverse">
-             {[...bottomRowProducts, ...bottomRowProducts].map((product, i) => (
-              <div key={`bottom-${i}`} className="w-64 px-2">
-                <ProductCard product={product} />
-              </div>
-            ))}
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none" />
+        <div className="container relative mx-auto px-4 md:px-6 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold font-headline bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                E-Ticaret Firması mısınız?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                İade maliyetlerinizi <span className="font-bold text-primary">%75'e kadar azaltın</span>, müşteri memnuniyetini artırın. Bugün TerziGo ekosisteminin parçası olun.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
+                <Link href="/for-business">
+                  <Briefcase className="mr-2 w-5 h-5" />
+                  <span>İşbirliği Yap</span>
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button size="lg" asChild variant="outline" className="font-bold text-lg h-14 border-2">
+                <Link href="/how-it-works">
+                  Detaylı Bilgi Al
+                </Link>
+              </Button>
+            </div>
+
+            {/* Quick stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">%75</div>
+                <div className="text-sm text-muted-foreground">Maliyet Azalması</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">2-5</div>
+                <div className="text-sm text-muted-foreground">Gün Teslimat</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <div className="text-sm text-muted-foreground">Terzi Noktası</div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
