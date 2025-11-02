@@ -19,7 +19,7 @@ const getStatusBadge = (status: string) => {
   switch (status) {
     case 'Beklemede': return <Badge variant="secondary">Beklemede</Badge>
     case 'İşleme Alındı': return <Badge>İşleme Alındı</Badge>
-    case 'Tamamlandı': return <Badge className="bg-green-500 hover:bg-green-600">Tamamlandı</Badge>
+    case 'Tamamlandı': return <Badge className="bg-yellow-500 hover:bg-yellow-600">Tamamlandı</Badge>
     default: return <Badge variant="outline">{status}</Badge>
   }
 }
@@ -40,7 +40,7 @@ export default function TailorDashboardPage() {
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
         <div className="mx-auto w-full max-w-4xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Button asChild className="h-24 text-lg" variant="outline">
+                <Button asChild className="h-24 text-lg bg-success hover:bg-success/90" variant="default">
                     <Link href="/tailor-dashboard/jobs/new">
                         <PlusCircle className="h-8 w-8 mr-4"/>
                         Yeni İş Ekle
@@ -52,7 +52,7 @@ export default function TailorDashboardPage() {
                         Yeni Ürün Ekle
                     </Link>
                 </Button>
-                <Button asChild className="h-24 text-lg">
+                <Button asChild className="h-24 text-lg" variant="default">
                     <Link href="/tailor-dashboard/print">
                         <Printer className="h-8 w-8 mr-4"/>
                         Baskı Yap
