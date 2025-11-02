@@ -8,6 +8,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const products = [
     {id: "PROD-001", name: "Vintage Deri Ceket", stock: 1, price: 850, category: "İkinci El", imageId: "product-1"},
@@ -17,6 +18,7 @@ const products = [
 ];
 
 export default function TailorProductsPage() {
+    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -70,29 +72,38 @@ export default function TailorProductsPage() {
                         <TableBody>
                             {products.map(product => {
                                 const image = PlaceHolderImages.find(img => img.id === product.imageId);
+                                const productUrl = `/products/${product.id.replace('PROD', 'prod')}`;
                                 return (
-                                    <TableRow key={product.id}>
+                                    <TableRow key={product.id} className="cursor-pointer">
                                         <TableCell className="hidden sm:table-cell">
-                                            <Link href={`/products/${product.id.replace('PROD', 'prod')}`}>
+                                            <Link href={productUrl} className="block w-full h-full">
                                                 {image && <Image src={image.imageUrl} alt={product.name} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint} />}
                                             </Link>
                                         </TableCell>
                                         <TableCell className="font-medium">
-                                            <Link href={`/products/${product.id.replace('PROD', 'prod')}`} className="hover:underline">
+                                            <Link href={productUrl} className="block w-full h-full hover:underline">
                                                 {product.name}
                                             </Link>
                                         </TableCell>
                                         <TableCell>
+                                            <Link href={productUrl} className="block w-full h-full">
                                             {product.stock > 0 
                                                 ? <Badge variant="outline">{product.stock} Adet</Badge>
                                                 : <Badge variant="destructive">Tükendi</Badge>
                                             }
+                                            </Link>
                                         </TableCell>
-                                        <TableCell>{product.price} TL</TableCell>
                                         <TableCell>
+                                            <Link href={productUrl} className="block w-full h-full">
+                                                {product.price} TL
+                                            </Link>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Link href={productUrl} className="block w-full h-full">
                                             <Badge variant={product.category === 'İkinci El' ? 'secondary' : 'default'}>{product.category}</Badge>
+                                            </Link>
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell onClick={(e) => e.stopPropagation()}>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
                                                     <Button aria-haspopup="true" size="icon" variant="ghost">

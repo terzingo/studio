@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const allJobs = [
     { id: 'TAD004', customer: 'Ahmet Çelik', item: 'Takım Elbise Paça', status: 'Beklemede', date: '04.08.2024' },
@@ -29,6 +30,7 @@ const getStatusBadge = (status: string) => {
 }
 
 export default function TailorJobsPage() {
+    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -83,17 +85,33 @@ export default function TailorJobsPage() {
                         </TableHeader>
                         <TableBody>
                             {allJobs.map(job => (
-                                <TableRow key={job.id}>
-                                    <TableCell className="font-medium">
-                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="hover:underline text-primary">
-                                            {job.id}
-                                        </Link>
-                                    </TableCell>
-                                    <TableCell>{job.customer}</TableCell>
-                                    <TableCell>{job.item}</TableCell>
-                                    <TableCell>{getStatusBadge(job.status)}</TableCell>
-                                    <TableCell>{job.date}</TableCell>
-                                    <TableCell>
+                                <TableRow key={job.id} className="cursor-pointer">
+                                  <TableCell className="font-medium">
+                                    <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full text-primary hover:underline">
+                                      {job.id}
+                                    </Link>
+                                  </TableCell>
+                                  <TableCell>
+                                    <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                      {job.customer}
+                                    </Link>
+                                  </TableCell>
+                                  <TableCell>
+                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                      {job.item}
+                                     </Link>
+                                  </TableCell>
+                                  <TableCell>
+                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                      {getStatusBadge(job.status)}
+                                     </Link>
+                                  </TableCell>
+                                  <TableCell>
+                                     <Link href={`/tailor-dashboard/jobs/${job.id}`} className="block w-full h-full">
+                                      {job.date}
+                                     </Link>
+                                  </TableCell>
+                                    <TableCell onClick={(e) => e.stopPropagation()}>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
                                                 <Button aria-haspopup="true" size="icon" variant="ghost">

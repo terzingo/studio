@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Briefcase, DollarSign, File, ListFilter, MoreHorizontal, Package, Search, Users } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const customers = [
     {
@@ -40,6 +41,7 @@ const customers = [
 ];
 
 export default function TailorCustomersPage() {
+    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -84,23 +86,37 @@ export default function TailorCustomersPage() {
                         </TableHeader>
                         <TableBody>
                             {customers.map(customer => (
-                                <TableRow key={customer.id}>
+                                <TableRow key={customer.id} className="cursor-pointer">
                                     <TableCell>
-                                        <div className="flex items-center gap-4">
-                                            <Avatar className="hidden h-9 w-9 sm:flex">
-                                                <AvatarImage src={customer.avatar} alt={customer.name} />
-                                                <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
-                                            </Avatar>
-                                            <div className="grid gap-1">
-                                                <p className="text-sm font-medium leading-none">{customer.name}</p>
-                                                <p className="text-sm text-muted-foreground">{customer.email}</p>
+                                        <Link href={`/tailor-dashboard/customers`} className="block w-full h-full">
+                                            <div className="flex items-center gap-4">
+                                                <Avatar className="hidden h-9 w-9 sm:flex">
+                                                    <AvatarImage src={customer.avatar} alt={customer.name} />
+                                                    <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
+                                                </Avatar>
+                                                <div className="grid gap-1">
+                                                    <p className="text-sm font-medium leading-none">{customer.name}</p>
+                                                    <p className="text-sm text-muted-foreground">{customer.email}</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </TableCell>
-                                    <TableCell>{customer.totalJobs}</TableCell>
-                                    <TableCell>{customer.totalSpent}</TableCell>
-                                    <TableCell>{customer.since}</TableCell>
                                     <TableCell>
+                                        <Link href={`/tailor-dashboard/customers`} className="block w-full h-full">
+                                            {customer.totalJobs}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/customers`} className="block w-full h-full">
+                                            {customer.totalSpent}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link href={`/tailor-dashboard/customers`} className="block w-full h-full">
+                                            {customer.since}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell onClick={(e) => e.stopPropagation()}>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
                                                 <Button aria-haspopup="true" size="icon" variant="ghost">
