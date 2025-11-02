@@ -10,7 +10,7 @@ import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
 import { allJobs } from "../page"
 
-const mockJobDetails = {
+const mockJobDetails: { [key: string]: { id: string; item: string; customer: string; customerId: string; status: string; dateReceived: string; productImageId: string; beforeImageId: string; afterImageId: null | string; timeline: { status: string; date: string; completed: boolean; }[]; notesFromCustomer: string; notesToCustomer: string; price: string; } } = {
     'TAD004': {
         id: 'TAD004',
         item: 'Takım Elbise Paça',
@@ -85,12 +85,12 @@ const getStatusBadge = (status: string) => {
 export default function TailorJobDetailPage() {
     const params = useParams();
     const jobId = typeof params.id === 'string' ? params.id : '';
-    const jobData = allJobs.find(j => j.id === jobId);
     
-    // Fallback to a mock detail if not in the main list, for robustness
+    // Combine data from the list and the mock details
+    const jobData = allJobs.find(j => j.id === jobId);
     const jobDetail = mockJobDetails[jobId as keyof typeof mockJobDetails];
 
-    const job = jobData ? { ...jobData, ...jobDetail, id: jobData.id, customer: jobData.customer, item: jobData.item } : jobDetail;
+    const job = jobData ? { ...jobData, ...jobDetail } : undefined;
 
     if (!job) {
         notFound();
@@ -111,7 +111,7 @@ export default function TailorJobDetailPage() {
                             <CardDescription>
                                 Müşteri: 
                                 <Link href={`/tailor-dashboard/customers`} className="text-primary hover:underline ml-1">{job.customer}</Link>
-                                | Talep Tarihi: {job.dateReceived}
+                                | Talep Tarihi: {job.dateReceived || job.date}
                             </CardDescription>
                         </div>
                         {getStatusBadge(job.status)}
@@ -121,7 +121,7 @@ export default function TailorJobDetailPage() {
                     <div className="md:col-span-2 space-y-8">
                         <div>
                             <h3 className="font-semibold text-lg mb-4">İş Zaman Tüneli</h3>
-                            {job.timeline.map((event, index) => (
+                            {(job.timeline || []).map((event, index) => (
                                  <div key={index} className="flex gap-4">
                                     <div className="flex flex-col items-center">
                                         <div className={`flex h-8 w-8 items-center justify-center rounded-full ${event.completed ? 'bg-primary text-primary-foreground' : 'border bg-muted'}`}>
@@ -198,3 +198,5 @@ export default function TailorJobDetailPage() {
         </main>
     )
 }
+
+    
