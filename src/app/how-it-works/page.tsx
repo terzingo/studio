@@ -160,7 +160,7 @@ export default function HowItWorksPage() {
                 />
                  <div className="pl-24 pt-4">
                     <Button asChild size="lg">
-                        <Link href="/for-business">Daha Fazla Bilgi Al & Başvur</Link>
+                        <Link href="mailto:terzingo@gmail.com">Daha Fazla Bilgi Al & Başvur</Link>
                     </Button>
                 </div>
             </Section>
