@@ -9,140 +9,80 @@ import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
 
-// Simple, clear and recognizable clothing icons
+// Simple, clear and recognizable clothing icons - Updated professional versions
 const TshirtIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Body */}
-    <path d="M60 45 L55 35 L30 45 L30 75 L45 75 L45 180 L155 180 L155 75 L170 75 L170 45 L145 35 L140 45 L140 35 C140 25 120 20 100 20 C80 20 60 25 60 35 Z" />
-    {/* Neck opening */}
-    <ellipse cx="100" cy="50" rx="25" ry="12" fill="white" opacity="0.2"/>
-    {/* Sleeves detail */}
-    <path d="M45 75 L45 95 L30 95 L30 75" fill="white" opacity="0.1"/>
-    <path d="M155 75 L155 95 L170 95 L170 75" fill="white" opacity="0.1"/>
+    <path d="M165 60l-10-10a30 30 0 0 0-45-20h-20a30 30 0 0 0-45 20l-10 10-15-5v30l20 5v100h100V90l20-5V55z" />
+    <path d="M100 25a22 22 0 0 1 20 15h-40a22 22 0 0 1 20-15z" opacity="0.2" fill="white" />
   </svg>
 );
 
 const PantsIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Waistband */}
-    <rect x="50" y="30" width="100" height="15" rx="3"/>
-    {/* Left leg */}
-    <path d="M55 45 L60 180 L85 180 L90 90 L95 45 Z"/>
-    {/* Right leg */}
-    <path d="M105 45 L110 90 L115 180 L140 180 L145 45 Z"/>
-    {/* Pockets */}
-    <path d="M65 55 L70 85 L75 55" fill="white" opacity="0.15"/>
-    <path d="M125 55 L130 85 L135 55" fill="white" opacity="0.15"/>
-    {/* Center seam */}
-    <line x1="100" y1="45" x2="100" y2="90" stroke="white" strokeWidth="1" opacity="0.2"/>
-    {/* Belt loops */}
-    <rect x="65" y="28" width="4" height="17" rx="1" opacity="0.3"/>
-    <rect x="97" y="28" width="4" height="17" rx="1" opacity="0.3"/>
-    <rect x="131" y="28" width="4" height="17" rx="1" opacity="0.3"/>
+    <path d="M55 20h90v20H55z" opacity="0.7" />
+    <path d="M55 40L65 90l-15 90h40V95a5 5 0 0 1 10 0v85h40l-15-90 10-50z" />
+    <path d="M80 50L75 80" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
+    <path d="M120 50l5 30" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
+    <path d="M100 40v55" stroke="white" strokeWidth="2" fill="none" opacity="0.3" />
   </svg>
 );
 
 const ShortsIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Waistband */}
-    <rect x="50" y="50" width="100" height="12" rx="3"/>
-    {/* Left leg */}
-    <path d="M55 62 L62 120 L82 120 L88 80 L95 62 Z"/>
-    {/* Right leg */}
-    <path d="M105 62 L112 80 L118 120 L138 120 L145 62 Z"/>
-    {/* Pockets */}
-    <path d="M60 70 L64 95 L68 70" fill="white" opacity="0.15"/>
-    <path d="M132 70 L136 95 L140 70" fill="white" opacity="0.15"/>
-    {/* Drawstring */}
-    <circle cx="90" cy="56" r="2" fill="white" opacity="0.4"/>
-    <circle cx="110" cy="56" r="2" fill="white" opacity="0.4"/>
-    <path d="M92 56 L108 56" stroke="white" strokeWidth="1.5" opacity="0.3"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
+        <path d="M50 40h100v15H50z" opacity="0.7"/>
+        <path d="M50 55l15 65h30V80a5 5 0 0 1 10 0v40h30l15-65z"/>
+        <circle cx="95" cy="47" r="3" fill="white" opacity="0.5"/>
+        <circle cx="105" cy="47" r="3" fill="white" opacity="0.5"/>
+        <path d="M90 65 l-2 15" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
+        <path d="M110 65 l2 15" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
   </svg>
 );
 
 const SkirtIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Waistband */}
-    <rect x="60" y="50" width="80" height="10" rx="2"/>
-    {/* Skirt body - A-line shape */}
-    <path d="M62 60 L40 140 L160 140 L138 60 Z"/>
-    {/* Pleats */}
-    <path d="M75 65 L68 135" stroke="white" strokeWidth="1" opacity="0.2"/>
-    <path d="M90 65 L88 135" stroke="white" strokeWidth="1" opacity="0.2"/>
-    <path d="M100 65 L100 135" stroke="white" strokeWidth="1.5" opacity="0.25"/>
-    <path d="M110 65 L112 135" stroke="white" strokeWidth="1" opacity="0.2"/>
-    <path d="M125 65 L132 135" stroke="white" strokeWidth="1" opacity="0.2"/>
-    {/* Hem detail */}
-    <path d="M40 140 L160 140" stroke="white" strokeWidth="2" opacity="0.3"/>
+    <path d="M60 40h80v15H60z" opacity="0.7" />
+    <path d="M60 55L40 160h120L140 55z" />
+    <path d="M100 55v105" stroke="white" strokeWidth="2" fill="none" opacity="0.2" />
+    <path d="M75 55L65 160" stroke="white" strokeWidth="1.5" fill="none" opacity="0.15" />
+    <path d="M125 55L135 160" stroke="white" strokeWidth="1.5" fill="none" opacity="0.15" />
   </svg>
 );
 
 const DressIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Shoulders and straps */}
-    <path d="M65 30 L60 50 L50 50 L50 70 L55 75 L55 65 L70 65 L70 30 Z"/>
-    <path d="M135 30 L140 50 L150 50 L150 70 L145 75 L145 65 L130 65 L130 30 Z"/>
-    {/* Bodice */}
-    <path d="M70 30 C70 20 80 15 100 15 C120 15 130 20 130 30 L130 80 L70 80 Z"/>
-    {/* Skirt */}
-    <path d="M70 80 L55 180 L145 180 L130 80 Z"/>
-    {/* Waist line */}
-    <ellipse cx="100" cy="80" rx="30" ry="5" fill="white" opacity="0.2"/>
-    {/* Dress details */}
-    <path d="M75 95 L70 160" stroke="white" strokeWidth="1" opacity="0.15"/>
-    <path d="M100 95 L100 160" stroke="white" strokeWidth="1" opacity="0.15"/>
-    <path d="M125 95 L130 160" stroke="white" strokeWidth="1" opacity="0.15"/>
-    {/* Neckline */}
-    <ellipse cx="100" cy="30" rx="15" ry="8" fill="white" opacity="0.2"/>
+    <path d="M65 30h70v55H65z" />
+    <path d="M65 30a20 20 0 0 0-25 0L35 50v20h15v-5h15zM135 30a20 20 0 0 1 25 0L165 50v20h-15v-5h-15z" opacity="0.7"/>
+    <path d="M50 85L30 170h140L150 85H50z" />
+    <path d="M100 25a18 18 0 0 1 15 10h-30a18 18 0 0 1 15-10z" opacity="0.2" fill="white" />
   </svg>
 );
 
 const JacketIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Collar */}
-    <path d="M70 25 L60 35 L40 40 L40 60 L50 60 L50 30 Z"/>
-    <path d="M130 25 L140 35 L160 40 L160 60 L150 60 L150 30 Z"/>
-    {/* Body */}
-    <path d="M50 30 L50 170 L88 170 L88 60 L92 40" />
-    <path d="M150 30 L150 170 L112 170 L112 60 L108 40" />
-    {/* Lapels */}
-    <path d="M88 60 L75 80 L88 100" fill="white" opacity="0.2"/>
-    <path d="M112 60 L125 80 L112 100" fill="white" opacity="0.2"/>
-    {/* Buttons */}
-    <circle cx="92" cy="80" r="4" fill="white" opacity="0.6"/>
-    <circle cx="92" cy="105" r="4" fill="white" opacity="0.6"/>
-    <circle cx="92" cy="130" r="4" fill="white" opacity="0.6"/>
-    {/* Pockets */}
-    <rect x="55" y="110" width="25" height="30" rx="2" fill="white" opacity="0.15"/>
-    <rect x="120" y="110" width="25" height="30" rx="2" fill="white" opacity="0.15"/>
-    {/* Center opening */}
-    <line x1="100" y1="40" x2="100" y2="170" stroke="white" strokeWidth="2" opacity="0.2"/>
+    <path d="M40 30l20 10v130H40zM160 30l-20 10v130h20z" opacity="0.8"/>
+    <path d="M60 40h80v130H60z"/>
+    <path d="M60 40L90 70 60 80zM140 40L110 70 140 80z" fill="white" opacity="0.15"/>
+    <path d="M100 40v130" stroke="white" strokeWidth="3" opacity="0.1" />
+    <circle cx="100" cy="80" r="4" fill="white" opacity="0.5"/>
+    <circle cx="100" cy="110" r="4" fill="white" opacity="0.5"/>
+    <rect x="70" y="120" width="20" height="4" rx="2" fill="white" opacity="0.2"/>
+    <rect x="110" y="120" width="20" height="4" rx="2" fill="white" opacity="0.2"/>
   </svg>
 );
 
 const CoatIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    {/* Collar - larger for coat */}
-    <path d="M65 20 L55 30 L35 38 L35 60 L45 60 L45 25 Z"/>
-    <path d="M135 20 L145 30 L165 38 L165 60 L155 60 L155 25 Z"/>
-    {/* Long coat body */}
-    <path d="M45 25 L45 185 L88 185 L88 60 L92 35" />
-    <path d="M155 25 L155 185 L112 185 L112 60 L108 35" />
-    {/* Belt area */}
-    <rect x="45" y="110" width="43" height="8" fill="white" opacity="0.2"/>
-    <rect x="112" y="110" width="43" height="8" fill="white" opacity="0.2"/>
-    {/* Double-breasted buttons */}
-    <circle cx="85" cy="70" r="3.5" fill="white" opacity="0.7"/>
-    <circle cx="85" cy="90" r="3.5" fill="white" opacity="0.7"/>
-    <circle cx="95" cy="70" r="3.5" fill="white" opacity="0.7"/>
-    <circle cx="95" cy="90" r="3.5" fill="white" opacity="0.7"/>
-    {/* Large pockets */}
-    <rect x="50" y="130" width="30" height="35" rx="2" fill="white" opacity="0.15"/>
-    <rect x="120" y="130" width="30" height="35" rx="2" fill="white" opacity="0.15"/>
-    {/* Center seam */}
-    <line x1="100" y1="35" x2="100" y2="185" stroke="white" strokeWidth="2" opacity="0.2"/>
+    <path d="M35 35l20 10v135H35zM165 35l-20 10v135h20z" opacity="0.8"/>
+    <path d="M55 45h90v135H55z"/>
+    <path d="M55 45L95 80 55 95zM145 45L105 80 145 95z" fill="white" opacity="0.15"/>
+    <path d="M90 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
+    <path d="M110 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
+    <rect x="55" y="100" width="90" height="10" fill="white" opacity="0.2" />
+    <rect x="65" y="130" width="25" height="5" rx="2" fill="white" opacity="0.2" />
+    <rect x="110" y="130" width="25" height="5" rx="2" fill="white" opacity="0.2" />
   </svg>
 );
+
 
 const iconData = [
   { Icon: TshirtIcon, color: 'from-sky-400 via-blue-500 to-blue-600', shadow: 'shadow-blue-500/60', name: 'Tişört' },
