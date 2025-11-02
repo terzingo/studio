@@ -530,6 +530,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA Section for Tailors */}
+      <section className="w-full py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <div className="space-y-4">
+              <h3 className="font-semibold text-primary">Terzilik mi yapıyorsunuz?</h3>
+              <h2 className="text-4xl md:text-5xl font-bold font-headline">
+                Atölyenizi <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Geleceğe</span> Taşıyın
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Geleneksel, zahmetli ve belirsiz kazançlı iş modelini geride bırakın. Terzin<span className="font-bold text-primary">Go</span> ile dijitalleşin, kurumsal bir kimlik kazanın ve gelirinizi garanti altına alın.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 text-left">
+                <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                        <Users className="h-6 w-6"/>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-semibold">Yeni Müşteri Akışı</h3>
+                        <p className="text-muted-foreground mt-1">Platformumuz üzerinden bölgenizdeki binlerce e-ticaret müşterisine ulaşın.</p>
+                    </div>
+                </div>
+                <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                        <TrendingUp className="h-6 w-6"/>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-semibold">Düzenli Gelir</h3>
+                        <p className="text-muted-foreground mt-1">E-ticaret firmalarıyla yaptığımız anlaşmalarla atölyenize düzenli bir iş akışı sağlayın.</p>
+                    </div>
+                </div>
+                <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                        <ShieldCheck className="h-6 w-6"/>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-semibold">Kurumsal Kimlik</h3>
+                        <p className="text-muted-foreground mt-1">TerzinGo'nun kurumsal gücüyle mahallenizin en güvenilir ve en çok tercih edilen terzisi olun.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pt-8">
+              <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
+                <Link href="/tailor-login">
+                  <Sparkles className="mr-2 w-5 h-5" />
+                  <span>TerzinGo Noktası Olun</span>
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section for Businesses */}
       <section className="relative w-full py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
@@ -613,68 +676,6 @@ export default function Home() {
                 <div className="text-4xl font-bold text-primary mb-2">500+</div>
                 <div className="text-sm text-muted-foreground">Terzi Noktası</div>
               </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section for Tailors */}
-      <section className="w-full py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center space-y-8"
-          >
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold font-headline">
-                Atölyenizi <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Geleceğe</span> Taşıyın
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Geleneksel, zahmetli ve belirsiz kazançlı iş modelini geride bırakın. Terzin<span className="font-bold text-primary">Go</span> ile dijitalleşin, kurumsal bir kimlik kazanın ve gelirinizi garanti altına alın.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 text-left">
-                <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
-                        <Users className="h-6 w-6"/>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold">Yeni Müşteri Akışı</h3>
-                        <p className="text-muted-foreground mt-1">Platformumuz üzerinden bölgenizdeki binlerce e-ticaret müşterisine ulaşın.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
-                        <TrendingUp className="h-6 w-6"/>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold">Düzenli Gelir</h3>
-                        <p className="text-muted-foreground mt-1">E-ticaret firmalarıyla yaptığımız anlaşmalarla atölyenize düzenli bir iş akışı sağlayın.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
-                        <ShieldCheck className="h-6 w-6"/>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold">Kurumsal Kimlik</h3>
-                        <p className="text-muted-foreground mt-1">TerzinGo'nun kurumsal gücüyle mahallenizin en güvenilir ve en çok tercih edilen terzisi olun.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="pt-8">
-              <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
-                <Link href="/tailor-login">
-                  <Sparkles className="mr-2 w-5 h-5" />
-                  <span>TerzinGo Noktası Olun</span>
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
             </div>
           </motion.div>
         </div>
