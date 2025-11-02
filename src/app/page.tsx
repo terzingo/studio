@@ -342,7 +342,7 @@ export default function Home() {
               <span>En Popüler Noktalar</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-headline">
-              Öne Çıkan TerziGo Noktaları
+              Öne Çıkan Terzin<span className="text-primary">Go</span> Noktaları
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
               Müşterilerimizin en çok tercih ettiği profesyonel terziler
@@ -434,7 +434,7 @@ export default function Home() {
               <Button size="lg" asChild className="font-bold text-lg h-14 shadow-lg group">
                 <Link href="/tailor-login">
                   <Sparkles className="mr-2 w-5 h-5" />
-                  <span>TerzinGo Noktası Olun</span>
+                  <span>Terzin<span className="text-primary">Go</span> Noktası Olun</span>
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>

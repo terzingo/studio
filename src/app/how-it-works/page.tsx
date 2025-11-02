@@ -20,7 +20,7 @@ const StepCard = ({ icon, step, title, description }: { icon: React.ReactNode, s
     </div>
 );
 
-const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse = false }: { id: string, title: string, subtitle: string, imageUrl?: string, imageHint?: string, children: React.ReactNode, reverse?: boolean }) => (
+const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse = false }: { id: string, title: React.ReactNode, subtitle: string, imageUrl?: string, imageHint?: string, children: React.ReactNode, reverse?: boolean }) => (
     <section id={id} className="w-full py-16 md:py-24 border-b last-of-type:border-none">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-12">
@@ -35,7 +35,7 @@ const Section = ({ id, title, subtitle, imageUrl, imageHint, children, reverse =
                     <div className="flex items-center justify-center">
                         <Image
                             src={imageUrl}
-                            alt={title}
+                            alt={title as string}
                             width={500}
                             height={500}
                             className="rounded-lg shadow-xl"

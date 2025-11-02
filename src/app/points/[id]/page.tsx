@@ -95,7 +95,11 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                                         <span className="font-medium text-foreground">{service.name}</span>
                                         <div className='flex flex-col items-end'>
                                           <Badge variant={service.note ? "default" : "secondary"}>{service.price}</Badge>
-                                          {service.note && <span className="text-xs text-primary font-semibold mt-1 animate-pulse-text">{service.note}</span>}
+                                          {service.note && (
+                                            <span className="text-xs text-primary font-semibold mt-1 animate-pulse-text">
+                                                Terzin<span className="text-primary">Go</span> kodu ile ücretsiz
+                                            </span>
+                                          )}
                                         </div>
                                     </li>
                                 ))}

@@ -26,7 +26,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase font-headline">Keşfet</h3>
             <ul className="mt-4 space-y-2">
               <li><Link href="/points" className="text-sm text-muted-foreground hover:text-primary">Terzin<span className="text-primary">Go</span> Noktaları</Link></li>
-              <li><Link href="/#how-it-works" className="text-sm text-muted-foreground hover:text-primary">Nasıl Çalışır?</Link></li>
+              <li><Link href="/how-it-works" className="text-sm text-muted-foreground hover:text-primary">Nasıl Çalışır?</Link></li>
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">Hakkımızda</Link></li>
             </ul>
           </div>
