@@ -243,7 +243,7 @@ const mockTailors: Tailor[] = [
   }
 ];
 
-const mockProducts: Product[] = [
+export const mockProducts: Product[] = [
   { id: 'prod-1', name: 'Vintage Deri Ceket', price: 850, category: 'İkinci El', imageId: 'product-1', tailorId: 'mustafa-ozen', description: '1980\'lerden kalma, mükemmel kondisyonda, zamansız bir parça. Hakiki deriden üretilmiştir ve içi astarlıdır. Zamanın eskitemediği bir stil için ideal.', brand: 'Bilinmiyor (Vintage)', condition: 'Az kullanılmış', fabric: 'Hakiki Deri', measurements: { shoulder: '48 cm', bust: '112 cm', sleeve: '65 cm', length: '70 cm' } },
   { id: 'prod-2', name: 'Özel Tasarım Abiye', price: 6500, category: 'Özel Tasarım', imageId: 'product-2', tailorId: 'zeynep-kaya', description: 'Tamamen el işlemesi, ipek şifon üzerine boncuk ve kristal detaylarla süslenmiş, tek omuzlu, A kesim abiye elbise. Mezuniyet ve özel davetler için tasarlandı.', brand: 'Moda Evi Zeynep', condition: 'Yeni gibi', fabric: 'İpek Şifon', measurements: { bust: '90 cm', waist: '72 cm', length: '155 cm' } },
   { id: 'prod-3', name: 'Pamuklu Yazlık Elbise', price: 450, category: 'İkinci El', imageId: 'product-3', tailorId: 'fatma-demir', description: 'Çiçek desenli, %100 pamuklu, nefes alan kumaştan, çok rahat bir yazlık elbise. Sadece birkaç kez giyildi, hiçbir kusuru yoktur.', brand: 'Bilindik Marka', condition: 'Yeni gibi', fabric: '%100 Pamuk', measurements: { bust: '95 cm', waist: '80 cm', length: '110 cm' } },

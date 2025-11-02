@@ -1,24 +1,54 @@
-import { getTailorById } from '@/lib/data';
+
+'use client';
+import { getTailorById, mockProducts } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Star, MapPin, Phone, MessageSquare, User, PackageCheck } from 'lucide-react';
+import { Star, MapPin, Phone, MessageSquare, User, PackageCheck, Clock, Award, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useMemo } from 'react';
+import type { Product } from '@/lib/types';
+
+// Helper to shuffle an array and take N items
+const shuffleAndPick = (arr: any[], count: number) => {
+    return [...arr].sort(() => 0.5 - Math.random()).slice(0, count);
+};
+
 
 export default function TailorProfilePage({ params }: { params: { id: string } }) {
   const tailor = getTailorById(params.id);
+
+  const randomPortfolioItems = useMemo(() => {
+    const randomProducts = shuffleAndPick(mockProducts, 5);
+    return randomProducts.map((product: Product) => {
+        const image = PlaceHolderImages.find(img => img.id === product.imageId);
+        let specialty = 'Genel Tadilat';
+        if (product.category === 'Özel Tasarım') specialty = 'Özel Dikim';
+        if (product.fabric.toLowerCase().includes('deri')) specialty = 'Deri Uzmanlığı';
+        if (product.name.toLowerCase().includes('abiye') || product.name.toLowerCase().includes('gelinlik')) specialty = 'Abiye & Gelinlik';
+
+        return {
+            ...product,
+            jobName: product.name,
+            imageUrl: image?.imageUrl,
+            imageHint: image?.imageHint,
+            duration: `${Math.floor(Math.random() * 3) + 1} Gün`,
+            rating: (Math.random() * 1.5 + 8.5).toFixed(1), // Rating between 8.5 and 10.0
+            specialty,
+        };
+    });
+  }, [params.id]); // Re-randomize when the tailor ID changes
 
   if (!tailor) {
     notFound();
   }
 
   const mainImage = PlaceHolderImages.find(img => img.id === tailor.imageId);
-  const portfolioImages = tailor.portfolioImageIds.map(id => PlaceHolderImages.find(img => img.id === id)).filter(Boolean);
-
+ 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
       <div className="grid md:grid-cols-3 gap-8">
@@ -88,7 +118,7 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                 <TabsContent value="services" className="mt-4">
                     <Card>
                         <CardContent className="pt-6">
-                            <p className="text-sm text-muted-foreground mb-6">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde Terzin<span className="text-primary">Go</span> kodu ile ücretsizdir.</p>
+                            <p className="text-sm text-muted-foreground mb-6">* ile işaretli hizmetler, anlaşmalı e-ticaret sitelerinden alınan ürünlerde <span className="font-bold">Terzin<span className="text-primary">Go</span></span> kodu ile ücretsizdir.</p>
                             <ul className="space-y-4">
                                 {tailor.services.map((service) => (
                                     <li key={service.name} className="flex justify-between items-center border-b pb-3">
@@ -108,20 +138,41 @@ export default function TailorProfilePage({ params }: { params: { id: string } }
                     </Card>
                 </TabsContent>
                 <TabsContent value="portfolio" className="mt-4">
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {portfolioImages.map((image) => (
-                           image && <div key={image.id} className="relative aspect-[3/4] overflow-hidden rounded-lg group">
-                                <Image
-                                    src={image.imageUrl}
-                                    alt={image.description}
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                                    data-ai-hint={image.imageHint}
-                                />
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2">
-                                  <p className="text-white text-sm">{image.description}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        {randomPortfolioItems.map((item) => (
+                           <Card key={item.id} className="overflow-hidden group">
+                               <CardHeader className="p-0">
+                                <div className="relative aspect-square">
+                                    {item.imageUrl ? (
+                                        <Image
+                                            src={item.imageUrl}
+                                            alt={item.jobName}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            data-ai-hint={item.imageHint}
+                                        />
+                                    ) : (
+                                      <div className="bg-muted w-full h-full flex items-center justify-center">
+                                        <Sparkles className="w-12 h-12 text-muted-foreground" />
+                                      </div>
+                                    )}
                                 </div>
-                            </div>
+                               </CardHeader>
+                               <CardContent className="p-3">
+                                <Badge variant="secondary" className="mb-2">{item.specialty}</Badge>
+                                <h3 className="font-semibold text-base line-clamp-1">{item.jobName}</h3>
+                               </CardContent>
+                               <CardFooter className="p-3 bg-muted/50 text-xs text-muted-foreground flex justify-between">
+                                  <div className="flex items-center gap-1">
+                                    <Clock className="h-3 w-3" />
+                                    <span>{item.duration}</span>
+                                  </div>
+                                  <div className="flex items-center gap-1">
+                                    <Award className="h-3 w-3" />
+                                    <span>{item.rating} / 10</span>
+                                  </div>
+                               </CardFooter>
+                           </Card>
                         ))}
                     </div>
                 </TabsContent>
