@@ -296,12 +296,12 @@ export default function Home() {
                   </span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
-                  İade değil, tadilat yapın. Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-foreground">Terzi<span className="text-primary">Go</span></span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl hidden md:block">
+                  İade değil, tadilat yapın. Online alışverişten aldığınız kıyafetleri size en yakın <span className="font-bold text-foreground">Terzin</span><span className="font-bold text-primary">Go</span> noktasında <span className="font-semibold text-foreground">ücretsiz tadilat</span> yaptırın.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="hidden md:flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="font-bold text-lg h-14 shadow-lg hover:shadow-xl transition-all group">
                   <Link href="/how-it-works">
                     <span>Nasıl Çalışır?</span>
@@ -317,7 +317,7 @@ export default function Home() {
               </div>
 
               {/* Trust indicators - Fixed with proper spacing */}
-              <div className="flex flex-wrap gap-6 pt-4">
+              <div className="hidden md:flex flex-wrap gap-6 pt-4">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -470,7 +470,7 @@ export default function Home() {
                 Atölyenizi <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Geleceğe</span> Taşıyın
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Geleneksel, zahmetli ve belirsiz kazançlı iş modelini geride bırakın. Terzin<span className="font-bold text-primary">Go</span> ile dijitalleşin, kurumsal bir kimlik kazanın ve gelirinizi garanti altına alın.
+                Geleneksel, zahmetli ve belirsiz kazançlı iş modelini geride bırakın. <span className="font-bold text-foreground">Terzin</span><span className="font-bold text-primary">Go</span> ile dijitalleşin, kurumsal bir kimlik kazanın ve gelirinizi garanti altına alın.
               </p>
             </div>
 
