@@ -148,6 +148,20 @@ const AnimatedIconCarousel = () => {
   );
 };
 
+const ClientOnlyAnimatedIconCarousel = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <div className="relative w-full h-[450px]" />; // Placeholder
+  }
+
+  return <AnimatedIconCarousel />;
+}
+
 export default function Home() {
   const featuredTailors = getTailors().slice(0, 3);
   const products = getProducts();
@@ -280,7 +294,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center justify-center"
             >
-              <AnimatedIconCarousel />
+              <ClientOnlyAnimatedIconCarousel />
             </motion.div>
           </div>
         </div>
