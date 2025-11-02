@@ -8,75 +8,19 @@ import { FindTailorForm } from '@/components/find-tailor-form';
 import { getTailors, getProducts } from '@/lib/data';
 import { TailorCard } from '@/components/tailor-card';
 import { ProductCard } from '@/components/product-card';
-
-// Simple, clear and recognizable clothing icons
-const TshirtIcon = ({ className = "" }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M160 50l-10-10a25 25 0 0 0-40-15h-20a25 25 0 0 0-40 15l-10 10-20-5v30l20 5v100h100V80l20-5V45z"/>
-        <path d="M100 20a20 20 0 0 1 18 12h-36a20 20 0 0 1 18-12z" opacity="0.2" fill="white"/>
-    </svg>
-);
-
-const PantsIcon = ({ className = "" }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M60 20h80v20H60z" opacity="0.7"/>
-        <path d="M60 40L70 90l-15 90h35V95a5 5 0 0 1 10 0v85h35l-15-90 10-50z"/>
-        <path d="M100 40v55" stroke="white" strokeWidth="2" fill="none" opacity="0.3"/>
-    </svg>
-);
-
-const SkirtIcon = ({ className = "" }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M60 40h80v15H60z" opacity="0.7"/>
-        <path d="M60 55L40 160h120L140 55z"/>
-        <path d="M100 55v105" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
-    </svg>
-);
-
-const DressIcon = ({ className = "" }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M60 30h80v55H60z"/>
-        <path d="M60 30a20 20 0 0 0-20 0L35 50v20h10v-5h15zM140 30a20 20 0 0 1 20 0l5 20v20h-10v-5h-15z" opacity="0.7"/>
-        <path d="M45 85L25 170h150L155 85H45z"/>
-        <path d="M100 25a18 18 0 0 1 15 10h-30a18 18 0 0 1 15-10z" opacity="0.2" fill="white"/>
-    </svg>
-);
-
-const JacketIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M40 30l20 10v130H40z" opacity="0.8"/>
-    <path d="M60 40h80v130H60z"/>
-    <path d="M60 40L90 70 60 80zM140 40L110 70 140 80z" fill="white" opacity="0.15"/>
-    <path d="M100 40v130" stroke="white" strokeWidth="3" opacity="0.1" />
-  </svg>
-);
-const CoatIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-    <path d="M35 35l20 10v135H35zM165 35l-20 10v135h20z" opacity="0.8"/>
-    <path d="M55 45h90v135H55z"/>
-    <path d="M55 45L95 80 55 95zM145 45L105 80 145 95z" fill="white" opacity="0.15"/>
-    <path d="M90 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
-    <path d="M110 45v135" stroke="white" strokeWidth="2" opacity="0.1" />
-    <rect x="55" y="100" width="90" height="10" fill="white" opacity="0.2" />
-  </svg>
-);
-const ShortsIcon = ({ className = "" }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor" className={className}>
-        <path d="M50 40h100v15H50z" opacity="0.7"/>
-        <path d="M50 55l15 65h30V80a5 5 0 0 1 10 0v40h30l15-65z"/>
-  </svg>
-);
-
+import Image from 'next/image';
 
 const iconData = [
-  { Icon: TshirtIcon, color: 'from-sky-400 via-blue-500 to-blue-600', shadow: 'shadow-blue-500/60', name: 'Tişört' },
-  { Icon: PantsIcon, color: 'from-indigo-500 via-purple-600 to-purple-700', shadow: 'shadow-purple-500/60', name: 'Pantolon' },
-  { Icon: ShortsIcon, color: 'from-amber-400 via-orange-500 to-orange-600', shadow: 'shadow-orange-500/60', name: 'Şort' },
-  { Icon: SkirtIcon, color: 'from-emerald-400 via-green-500 to-green-600', shadow: 'shadow-green-500/60', name: 'Etek' },
-  { Icon: DressIcon, color: 'from-pink-400 via-rose-500 to-rose-600', shadow: 'shadow-pink-500/60', name: 'Elbise' },
-  { Icon: JacketIcon, color: 'from-violet-500 via-purple-600 to-indigo-600', shadow: 'shadow-violet-500/60', name: 'Ceket' },
-  { Icon: CoatIcon, color: 'from-red-500 via-rose-600 to-pink-600', shadow: 'shadow-red-500/60', name: 'Mont' },
+  { imageUrl: 'https://i.imgur.com/9JG7ahh.png', color: 'from-sky-400 via-blue-500 to-blue-600', shadow: 'shadow-blue-500/60', name: 'Tişört' },
+  { imageUrl: 'https://i.imgur.com/SDCDaz3.png', color: 'from-indigo-500 via-purple-600 to-purple-700', shadow: 'shadow-purple-500/60', name: 'Pantolon' },
+  { imageUrl: 'https://i.imgur.com/b5zLAVT.png', color: 'from-amber-400 via-orange-500 to-orange-600', shadow: 'shadow-orange-500/60', name: 'Şort' },
+  { imageUrl: 'https://i.imgur.com/XqGUUTJ.png', color: 'from-emerald-400 via-green-500 to-green-600', shadow: 'shadow-green-500/60', name: 'Etek' },
+  { imageUrl: 'https://i.imgur.com/zlYJusR.png', color: 'from-pink-400 via-rose-500 to-rose-600', shadow: 'shadow-pink-500/60', name: 'Elbise' },
+  { imageUrl: 'https://i.imgur.com/CU706ua.png', color: 'from-violet-500 via-purple-600 to-indigo-600', shadow: 'shadow-violet-500/60', name: 'Ceket' },
+  { imageUrl: 'https://i.imgur.com/hQCCybD.png', color: 'from-red-500 via-rose-600 to-pink-600', shadow: 'shadow-red-500/60', name: 'Mont' },
+  { imageUrl: 'https://i.imgur.com/PBBVxZJ.png', color: 'from-cyan-400 via-sky-500 to-sky-600', shadow: 'shadow-cyan-500/60', name: 'Gömlek' },
 ];
+
 
 const AnimatedIconCarousel = () => {
   const [index, setIndex] = useState(0);
@@ -144,9 +88,15 @@ const AnimatedIconCarousel = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className={`relative bg-gradient-to-br ${currentIcon.color} p-14 rounded-3xl ${currentIcon.shadow} shadow-2xl`}
+            className={`relative bg-gradient-to-br ${currentIcon.color} p-4 rounded-3xl ${currentIcon.shadow} shadow-2xl flex items-center justify-center aspect-square w-64 h-64`}
           >
-            <currentIcon.Icon className="w-44 h-44 text-white drop-shadow-2xl" />
+             <Image
+              src={currentIcon.imageUrl}
+              alt={currentIcon.name}
+              width={200}
+              height={200}
+              className="drop-shadow-2xl object-contain"
+            />
             
             {/* Floating particles */}
             {[...Array(8)].map((_, i) => (
@@ -196,8 +146,14 @@ const AnimatedIconCarousel = () => {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute right-4 md:right-8"
       >
-        <div className={`bg-gradient-to-br ${nextIcon.color} p-5 rounded-2xl shadow-lg`}>
-          <nextIcon.Icon className="w-16 h-16 text-white opacity-80" />
+        <div className={`bg-gradient-to-br ${nextIcon.color} p-3 rounded-2xl shadow-lg flex items-center justify-center aspect-square w-24 h-24`}>
+          <Image
+            src={nextIcon.imageUrl}
+            alt={nextIcon.name}
+            width={70}
+            height={70}
+            className="opacity-80 object-contain"
+          />
         </div>
       </motion.div>
 
@@ -607,3 +563,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
