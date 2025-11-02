@@ -292,3 +292,68 @@ export function getProducts(): Product[] {
 export function getProductById(id: string): Product | undefined {
     return mockProducts.find(p => p.id === id);
 }
+
+// New location data structure for the form
+const allTurkeyProvinces = [
+  "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
+  "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
+  "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri",
+  "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli", "Kırşehir",
+  "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Kahramanmaraş", "Mardin", "Muğla", "Muş", "Nevşehir",
+  "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat",
+  "Trabzon", "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman",
+  "Kırıkkale", "Batman", "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye",
+  "Düzce"
+];
+
+// Helper function to count tailors in a given location string part (city or district)
+const countTailors = (locationPart: string) => mockTailors.filter(t => t.location.includes(locationPart)).length;
+
+// Pre-calculate counts for locations defined in mockTailors
+const istanbulDistricts = {
+  Beşiktaş: { count: countTailors('Beşiktaş'), neighborhoods: ['Levent', 'Etiler', 'Bebek'] },
+  Kadıköy: { count: countTailors('Kadıköy'), neighborhoods: ['Moda', 'Göztepe', 'Bostancı'] },
+  Şişli: { count: countTailors('Şişli'), neighborhoods: ['Nişantaşı', 'Mecidiyeköy', 'Harbiye'] },
+};
+
+const ankaraDistricts = {
+  Çankaya: { count: countTailors('Çankaya'), neighborhoods: ['Kızılay', 'Tunalı Hilmi', 'Balgat'] },
+  Yenimahalle: { count: countTailors('Yenimahalle'), neighborhoods: ['Batıkent', 'Demetevler', 'Şentepe'] },
+  Keçiören: { count: countTailors('Keçiören'), neighborhoods: ['Etlik', 'Aktepe', 'Sanatoryum'] },
+};
+
+const izmirDistricts = {
+  Konak: { count: countTailors('Konak'), neighborhoods: ['Alsancak', 'Göztepe', 'Hatay'] },
+  Bornova: { count: countTailors('Bornova'), neighborhoods: ['Küçükpark', 'Evka 3', 'Özkanlar'] },
+  Karşıyaka: { count: countTailors('Karşıyaka'), neighborhoods: ['Bostanlı', 'Mavişehir', 'Alaybey'] },
+};
+
+type LocationData = {
+    [city: string]: {
+        count: number;
+        districts: {
+            [district: string]: {
+                count: number;
+                neighborhoods: string[];
+            }
+        }
+    }
+}
+
+// Generate the full location data structure for all 81 provinces
+export const allLocationsData = allTurkeyProvinces.reduce((acc: LocationData, city) => {
+    acc[city] = {
+        count: countTailors(city),
+        districts: {}
+    };
+
+    if (city === 'İstanbul') {
+        acc[city].districts = istanbulDistricts;
+    } else if (city === 'Ankara') {
+        acc[city].districts = ankaraDistricts;
+    } else if (city === 'İzmir') {
+        acc[city].districts = izmirDistricts;
+    }
+    
+    return acc;
+}, {});
