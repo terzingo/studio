@@ -8,7 +8,6 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const products = [
     {id: "PROD-001", name: "Vintage Deri Ceket", stock: 1, price: 850, category: "İkinci El", imageId: "product-1"},
@@ -18,7 +17,6 @@ const products = [
 ];
 
 export default function TailorProductsPage() {
-    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -73,11 +71,17 @@ export default function TailorProductsPage() {
                             {products.map(product => {
                                 const image = PlaceHolderImages.find(img => img.id === product.imageId);
                                 return (
-                                    <TableRow key={product.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/products`)}>
+                                    <TableRow key={product.id}>
                                         <TableCell className="hidden sm:table-cell">
-                                            {image && <Image src={image.imageUrl} alt={product.name} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint} />}
+                                            <Link href={`/products/${product.id.replace('PROD', 'prod')}`}>
+                                                {image && <Image src={image.imageUrl} alt={product.name} width={64} height={64} className="aspect-square rounded-md object-cover" data-ai-hint={image.imageHint} />}
+                                            </Link>
                                         </TableCell>
-                                        <TableCell className="font-medium">{product.name}</TableCell>
+                                        <TableCell className="font-medium">
+                                            <Link href={`/products/${product.id.replace('PROD', 'prod')}`} className="hover:underline">
+                                                {product.name}
+                                            </Link>
+                                        </TableCell>
                                         <TableCell>
                                             {product.stock > 0 
                                                 ? <Badge variant="outline">{product.stock} Adet</Badge>
@@ -91,7 +95,7 @@ export default function TailorProductsPage() {
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button aria-haspopup="true" size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
+                                                    <Button aria-haspopup="true" size="icon" variant="ghost">
                                                         <MoreHorizontal className="h-4 w-4" />
                                                         <span className="sr-only">Menüyü aç</span>
                                                     </Button>

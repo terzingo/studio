@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Briefcase, DollarSign, File, ListFilter, MoreHorizontal, Package, Search, Users } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const customers = [
     {
@@ -41,7 +40,6 @@ const customers = [
 ];
 
 export default function TailorCustomersPage() {
-    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -86,7 +84,7 @@ export default function TailorCustomersPage() {
                         </TableHeader>
                         <TableBody>
                             {customers.map(customer => (
-                                <TableRow key={customer.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/customers`)}>
+                                <TableRow key={customer.id}>
                                     <TableCell>
                                         <div className="flex items-center gap-4">
                                             <Avatar className="hidden h-9 w-9 sm:flex">
@@ -105,7 +103,7 @@ export default function TailorCustomersPage() {
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button aria-haspopup="true" size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
+                                                <Button aria-haspopup="true" size="icon" variant="ghost">
                                                     <MoreHorizontal className="h-4 w-4" />
                                                     <span className="sr-only">Menüyü aç</span>
                                                 </Button>

@@ -7,7 +7,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const allJobs = [
     { id: 'TAD004', customer: 'Ahmet Çelik', item: 'Takım Elbise Paça', status: 'Beklemede', date: '04.08.2024' },
@@ -30,7 +29,6 @@ const getStatusBadge = (status: string) => {
 }
 
 export default function TailorJobsPage() {
-    const router = useRouter();
 
     return (
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -85,9 +83,11 @@ export default function TailorJobsPage() {
                         </TableHeader>
                         <TableBody>
                             {allJobs.map(job => (
-                                <TableRow key={job.id} className="cursor-pointer" onClick={() => router.push(`/tailor-dashboard/jobs/${job.id}`)}>
+                                <TableRow key={job.id}>
                                     <TableCell className="font-medium">
-                                        {job.id}
+                                        <Link href={`/tailor-dashboard/jobs/${job.id}`} className="hover:underline text-primary">
+                                            {job.id}
+                                        </Link>
                                     </TableCell>
                                     <TableCell>{job.customer}</TableCell>
                                     <TableCell>{job.item}</TableCell>
@@ -96,13 +96,15 @@ export default function TailorJobsPage() {
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button aria-haspopup="true" size="icon" variant="ghost" onClick={(e) => e.stopPropagation()}>
+                                                <Button aria-haspopup="true" size="icon" variant="ghost">
                                                     <MoreHorizontal className="h-4 w-4" />
                                                     <span className="sr-only">Menüyü aç</span>
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
-                                                <DropdownMenuItem>Detayları Gör</DropdownMenuItem>
+                                                <DropdownMenuItem asChild>
+                                                    <Link href={`/tailor-dashboard/jobs/${job.id}`}>Detayları Gör</Link>
+                                                </DropdownMenuItem>
                                                 <DropdownMenuItem>Durumu Güncelle</DropdownMenuItem>
                                                 <DropdownMenuItem className="text-red-600">İşi İptal Et</DropdownMenuItem>
                                             </DropdownMenuContent>
