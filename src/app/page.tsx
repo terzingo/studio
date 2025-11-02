@@ -128,14 +128,13 @@ const AnimatedIconCarousel = () => {
         </motion.div>
       </AnimatePresence>
       
-      {/* New sticker image - INDEPENDENT */}
-      <div className="absolute -bottom-2 -right-10 z-20">
+        <div className="absolute -bottom-8 -right-8 z-20">
             <Image
               src="https://i.imgur.com/00ihVfJ.png"
               alt="Ücretsiz Tadilat Sticker"
               width={160}
               height={160}
-              className="transform rotate-[-6deg] animate-pulse-border rounded-full border-4 border-primary p-1 bg-background"
+              className="transform rotate-[-6deg] animate-pulse-border rounded-2xl border-4 border-primary p-1 bg-background"
             />
         </div>
 
