@@ -46,7 +46,7 @@ export default function TailorDashboardPage() {
                         Yeni İş Ekle
                     </Link>
                 </Button>
-                <Button asChild className="h-24 text-lg" variant="secondary">
+                <Button asChild className="h-24 text-lg bg-chart-5 hover:bg-chart-5/90" variant="default">
                     <Link href="/tailor-dashboard/products/new">
                         <PackagePlus className="h-8 w-8 mr-4"/>
                         Yeni Ürün Ekle
