@@ -10,14 +10,16 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 interface TailorCardProps {
   tailor: Tailor;
   className?: string; // Allow className to be passed
+  style?: React.CSSProperties;
+  onViewportEnter?: (entry: IntersectionObserverEntry | null) => void;
 }
 
-export function TailorCard({ tailor, className }: TailorCardProps) {
+export function TailorCard({ tailor, className, ...props }: TailorCardProps) {
   const image = PlaceHolderImages.find(img => img.id === tailor.imageId);
 
   return (
-    <Card className={`w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col ${className}`}>
-      <div className="flex flex-col h-full">
+    <Card className={`w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col ${className}`} {...props}>
+      <Link href={`/points/${tailor.id}`} className="flex flex-col h-full">
         <CardHeader className="p-0">
             {image && (
                 <div className="relative h-56 w-full">
@@ -58,11 +60,9 @@ export function TailorCard({ tailor, className }: TailorCardProps) {
             </div>
         </CardContent>
         <CardFooter className="p-4 pt-0 mt-auto">
-            <Button className="w-full" asChild>
-              <Link href={`/points/${tailor.id}`}>Noktayı Görüntüle</Link>
-            </Button>
+             <div className="w-full bg-primary text-primary-foreground h-10 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium">Noktayı Görüntüle</div>
         </CardFooter>
-      </div>
+      </Link>
     </Card>
   );
 }
