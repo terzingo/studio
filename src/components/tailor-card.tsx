@@ -16,10 +16,11 @@ export function TailorCard({ tailor }: TailorCardProps) {
 
   return (
     <Card className="w-full overflow-hidden transition-all hover:shadow-xl duration-300 group flex flex-col">
-      <Link href={`/points/${tailor.id}`} className="flex flex-col h-full">
+      <div className="flex flex-col h-full">
         <CardHeader className="p-0">
             {image && (
                 <div className="relative h-56 w-full">
+                  <Link href={`/points/${tailor.id}`} tabIndex={-1}>
                     <Image
                         src={image.imageUrl}
                         alt={tailor.name}
@@ -27,14 +28,15 @@ export function TailorCard({ tailor }: TailorCardProps) {
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={image.imageHint}
                     />
+                  </Link>
                 </div>
             )}
         </CardHeader>
         <CardContent className="p-4 flex-grow">
             <CardTitle className="text-xl font-headline font-bold">
-                <span className="group-hover:text-primary transition-colors">
+                <Link href={`/points/${tailor.id}`} className="group-hover:text-primary transition-colors">
                     {tailor.name}
-                </span>
+                </Link>
             </CardTitle>
             <div className="text-sm text-muted-foreground mt-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
@@ -60,11 +62,10 @@ export function TailorCard({ tailor }: TailorCardProps) {
         </CardContent>
         <CardFooter className="p-4 pt-0 mt-auto">
             <Button className="w-full" asChild>
-                {/* The outer link makes this redundant, but we keep it for structure and styling */}
-                <div>Noktayı Görüntüle</div>
+              <Link href={`/points/${tailor.id}`}>Noktayı Görüntüle</Link>
             </Button>
         </CardFooter>
-      </Link>
+      </div>
     </Card>
   );
 }
