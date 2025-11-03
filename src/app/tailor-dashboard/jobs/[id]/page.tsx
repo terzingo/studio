@@ -10,74 +10,13 @@ import Link from "next/link"
 import { notFound, useParams } from "next/navigation"
 import { allJobs } from "../page"
 
-const mockJobDetails: { [key: string]: { id: string; item: string; customer: string; customerId: string; status: string; dateReceived: string; productImageId: string; beforeImageId: string; afterImageId: null | string; timeline: { status: string; date: string; completed: boolean; }[]; notesFromCustomer: string; notesToCustomer: string; price: string; } } = {
-    'TAD004': {
-        id: 'TAD004',
-        item: 'Takım Elbise Paça',
-        customer: 'Ahmet Çelik',
-        customerId: 'CUST002',
-        status: 'Beklemede',
-        dateReceived: '04.08.2024 11:20',
-        productImageId: 'product-13',
-        beforeImageId: 'portfolio-2',
-        afterImageId: null,
-        timeline: [
-            { status: 'Tadilat Talebi Alındı', date: '04.08.2024 11:20', completed: true },
-            { status: 'Müşteri Onayı Bekleniyor', date: 'Bugün', completed: false },
-        ],
-        notesFromCustomer: "Paça boyu 2 cm kısaltılacak. Duble paça olmasın.",
-        notesToCustomer: "",
-        price: '150 TL'
-    },
-    'TAD005': {
-        id: 'TAD005',
-        item: 'Abiye Daraltma',
-        customer: 'Zeynep Sancak',
-        customerId: 'CUST003',
-        status: 'İşleme Alındı',
-        dateReceived: '03.08.2024 16:00',
-        productImageId: 'product-2',
-        beforeImageId: 'portfolio-3',
-        afterImageId: null,
-        timeline: [
-            { status: 'Tadilat Talebi Alındı', date: '03.08.2024 16:00', completed: true },
-            { status: 'Müşteri Onayladı', date: '03.08.2024 18:30', completed: true },
-            { status: 'İşleme Alındı', date: '04.08.2024 09:00', completed: true },
-            { status: 'Tadilat Sürüyor', date: 'Bugün', completed: false },
-        ],
-        notesFromCustomer: "Bel ve yanlardan toplam 4 cm daraltılacak. Etek boyu aynı kalacak.",
-        notesToCustomer: "Daraltma işlemi sonrası prova için bekliyoruz.",
-        price: '450 TL'
-    },
-    'TAD006': {
-        id: 'TAD006',
-        item: 'Gömlek Kol Boyu',
-        customer: 'Murat Varlı',
-        customerId: 'CUST004',
-        status: 'Tamamlandı',
-        dateReceived: '01.08.2024 10:00',
-        productImageId: 'product-4',
-        beforeImageId: 'portfolio-6',
-        afterImageId: 'product-4',
-        timeline: [
-            { status: 'Tadilat Talebi Alındı', date: '01.08.2024 10:00', completed: true },
-            { status: 'İşleme Alındı', date: '01.08.2024 10:30', completed: true },
-            { status: 'Tadilat Tamamlandı', date: '01.08.2024 15:00', completed: true },
-            { status: 'Müşteriye Teslime Hazır', date: '01.08.2024 15:05', completed: true },
-        ],
-        notesFromCustomer: "Manşetler dahil kol boyu 1.5 cm kısaltılacak.",
-        notesToCustomer: "İşlem tamamlandı, atölyemizden teslim alabilirsiniz.",
-        price: '120 TL'
-    }
-};
-
 const getStatusBadge = (status: string) => {
     switch (status) {
         case 'Beklemede': return <Badge variant="destructive">{status}</Badge>
         case 'İşleme Alındı': return <Badge>{status}</Badge>
-        case 'Tamamlandı':
-        case 'Teslime Hazır':
-            return <Badge className="bg-green-500">{status}</Badge>
+        case 'Tamamlandı': return <Badge className="bg-yellow-500">{status}</Badge>
+        case 'Teslim Edildi': return <Badge className="bg-green-500">{status}</Badge>
+        case 'İptal Edildi': return <Badge variant="destructive">{status}</Badge>
         default: return <Badge variant="outline">{status}</Badge>
     }
 }
@@ -86,17 +25,14 @@ export default function TailorJobDetailPage() {
     const params = useParams();
     const jobId = typeof params.id === 'string' ? params.id : '';
     
-    // Combine data from the list and the mock details
-    const jobData = allJobs.find(j => j.id === jobId);
-    const jobDetail = mockJobDetails[jobId as keyof typeof mockJobDetails];
-
-    const job = jobData ? { ...jobData, ...jobDetail } : undefined;
+    // Use the single source of truth from the jobs list page
+    const job = allJobs.find(j => j.id === jobId);
 
     if (!job) {
         notFound();
     }
 
-    const beforeImage = job.beforeImageId ? PlaceHolderImages.find(img => img.id === job.beforeImageId) : null;
+    const beforeImage = job.beforeImageId ? PlaceHolderImages.find(img => img.id === job.beforeImageId) : PlaceHolderImages.find(img => img.id === job.imageId);
     const afterImage = job.afterImageId ? PlaceHolderImages.find(img => img.id === job.afterImageId) : null;
     
     const canCompleteJob = job.status === 'İşleme Alındı' || job.status === 'Tamamlandı';
@@ -127,7 +63,7 @@ export default function TailorJobDetailPage() {
                                         <div className={`flex h-8 w-8 items-center justify-center rounded-full ${event.completed ? 'bg-primary text-primary-foreground' : 'border bg-muted'}`}>
                                             {event.completed ? <Check className="h-5 w-5" /> : <CircleDot className="h-5 w-5" />}
                                         </div>
-                                        {index < job.timeline.length - 1 && <div className="w-px flex-1 bg-border" />}
+                                        {job.timeline && index < job.timeline.length - 1 && <div className="w-px flex-1 bg-border" />}
                                     </div>
                                     <div className="pb-8">
                                         <p className="font-semibold">{event.status}</p>
@@ -183,7 +119,7 @@ export default function TailorJobDetailPage() {
                         </Card>
                         <Card>
                             <CardHeader><CardTitle className="text-lg">Müşteri Notları</CardTitle></CardHeader>
-                            <CardContent><p className="text-sm text-muted-foreground">{job.notesFromCustomer}</p></CardContent>
+                            <CardContent><p className="text-sm text-muted-foreground">{job.notesFromCustomer || "Müşteri notu bulunmuyor."}</p></CardContent>
                         </Card>
                          <Card>
                             <CardHeader><CardTitle className="text-lg">Müşteriye Mesaj</CardTitle></CardHeader>
@@ -198,5 +134,3 @@ export default function TailorJobDetailPage() {
         </main>
     )
 }
-
-    
